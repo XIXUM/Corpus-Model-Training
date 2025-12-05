@@ -7,19 +7,14 @@ This project provides a framework for training and evaluating constituency parsi
 ```
 .
 ├── src/
-│   ├── main.py             # Entry point for evaluation pipeline
-│   ├── models/             # Model wrappers and base classes
-│   │   ├── base_model.py   # Abstract base class
-│   │   └── dummy_model.py  # Test model implementation
-│   └── pipeline/           # Core logic
-│       ├── comparator.py   # Logic to compare model outputs
-│       ├── data_loader.py  # Regex-based text loader/splitter
-│       └── logger.py       # CSV logging for disagreements
+│   ├── main.py             # Entry point (CLI)
+│   ├── models/             # Model wrappers
+│   └── pipeline/           # Core logic (Loader, Comparator, Logger)
 ├── doc/
 │   └── architecture.md     # System architecture documentation
 ├── data/
 │   └── ASchoolEssay.txt    # Sample data
-├── disagreement_logs/      # Output folder for CSV logs
+├── disagreement_logs/      # Output CSV/JSON logs
 ├── requirements.txt        # Python dependencies
 └── train.py                # (Legacy) Simple NN training script
 ```
@@ -39,30 +34,29 @@ This project provides a framework for training and evaluating constituency parsi
 
 ## Usage
 
-### Adversarial Evaluation
+The tool now supports two modes: `adversarial` and `train`.
 
-To run the comparison pipeline which detects deviations between two models (currently simulated):
+### 1. Adversarial Evaluation Mode
+
+Run the comparison pipeline to detect deviations between models.
 
 ```bash
 source .venv/bin/activate
-python -m src.main
+python -m src.main adversarial --data data/ASchoolEssay.txt
 ```
 
-This will:
-1.  Load text from `data/ASchoolEssay.txt`.
-2.  Split the text into sentences/segments using a specific Regex pattern (handling quotes and brackets).
-3.  Run two models on the segments.
-4.  Compare their outputs.
-5.  Save any sentences where the models disagree to `disagreement_logs/`.
+**Outputs:**
+*   A CSV file in `disagreement_logs/` containing the sentences and differences.
+*   A JSON file in `disagreement_logs/` containing a flat structure of POS tags for each token.
 
-### Neural Network Training (Basic)
+### 2. Training Mode
 
-To run the basic neural network training script:
+Run the training loop using the detected disagreements.
 
 ```bash
-python train.py --epochs 50
+python -m src.main train --csv disagreement_logs/disagreements_YOUR_TIMESTAMP.csv
 ```
 
 ## Documentation
 
-See `doc/architecture.md` for details on the system design and components.
+See `doc/architecture.md` for details on the system design, data flow, and JSON structure.
