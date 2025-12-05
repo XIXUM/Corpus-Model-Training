@@ -19,7 +19,10 @@ The core logic for processing sentences.
     *   Output of Model B.
     *   Description of the difference.
     *   Timestamp.
-*   **`DataLoader`** (To be implemented): Will handle loading large corpora from files.
+*   **`DataLoader`**: Handles loading text from files and splitting it into processing units.
+    *   Uses a recursive Regex pattern to handle complex text structures like nested parentheses, quotes, etc.
+    *   Ensures that bracketed/quoted sentences are kept together as single units.
+    *   Normal text is split into sentences using NLTK.
 
 ### 2. Models (`src/models/`)
 
@@ -32,25 +35,28 @@ Abstraction layer for different parsing models.
 
 The entry point that:
 1.  Initializes the models.
-2.  Iterates through the corpus.
-3.  Invokes the comparator.
-4.  Logs disagreements.
+2.  Loads data using `DataLoader`.
+3.  Iterates through the segments/sentences.
+4.  Invokes the comparator.
+5.  Logs disagreements.
 
 ## Data Flow
 
-1.  **Input**: Sentence from Corpus.
-2.  **Processing**:
+1.  **Input**: Text file (e.g., `data/ASchoolEssay.txt`).
+2.  **Splitting**:
+    *   Regex splits text into segments (Quotes, Brackets, Normal Text).
+    *   Normal Text segments are further tokenized into sentences.
+3.  **Processing**:
     *   Model A -> Prediction A
     *   Model B -> Prediction B
-3.  **Comparison**: `Comparator.compare(Prediction A, Prediction B)`
-4.  **Decision**:
+4.  **Comparison**: `Comparator.compare(Prediction A, Prediction B)`
+5.  **Decision**:
     *   **Match**: No action.
     *   **Mismatch**: Log details to CSV.
-5.  **Output**: CSV file containing disagreements.
+6.  **Output**: CSV file containing disagreements.
 
 ## Future Extensions
 
 *   **Adversarial Training**: Use the collected disagreements to retrain the failing model.
 *   **Tree Distance**: Implement more sophisticated tree comparison metrics (e.g., Evalb).
 *   **Model Wrappers**: Implement actual wrappers for Benepar, Spacy, or CoreNLP.
-

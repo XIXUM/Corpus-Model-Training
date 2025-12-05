@@ -13,9 +13,12 @@ This project provides a framework for training and evaluating constituency parsi
 │   │   └── dummy_model.py  # Test model implementation
 │   └── pipeline/           # Core logic
 │       ├── comparator.py   # Logic to compare model outputs
+│       ├── data_loader.py  # Regex-based text loader/splitter
 │       └── logger.py       # CSV logging for disagreements
 ├── doc/
 │   └── architecture.md     # System architecture documentation
+├── data/
+│   └── ASchoolEssay.txt    # Sample data
 ├── disagreement_logs/      # Output folder for CSV logs
 ├── requirements.txt        # Python dependencies
 └── train.py                # (Legacy) Simple NN training script
@@ -46,9 +49,11 @@ python -m src.main
 ```
 
 This will:
-1.  Run two models on a sample corpus.
-2.  Compare their outputs.
-3.  Save any sentences where the models disagree to `disagreement_logs/`.
+1.  Load text from `data/ASchoolEssay.txt`.
+2.  Split the text into sentences/segments using a specific Regex pattern (handling quotes and brackets).
+3.  Run two models on the segments.
+4.  Compare their outputs.
+5.  Save any sentences where the models disagree to `disagreement_logs/`.
 
 ### Neural Network Training (Basic)
 

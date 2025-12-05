@@ -1,7 +1,10 @@
 import nltk
+import regex # type: ignore
+import sys
 from src.models.dummy_model import DummyModel
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
+from src.pipeline.data_loader import DataLoader
 
 def main():
     # Ensure NLTK data
@@ -11,39 +14,68 @@ def main():
         nltk.download('punkt')
 
     # Initialize components
-    # Model A: Simulate the "current benepar3 model" with false positives
     model_a = DummyModel("Model_A_Benepar", variation=True)
-    
-    # Model B: Simulate the "adversarial/correct" model
     model_b = DummyModel("Model_B_Adversarial", variation=False)
-    
     comparator = Comparator()
     logger = DisagreementLogger(output_dir="disagreement_logs")
 
-    # Dummy Corpus
-    corpus = [
-        "mom forgot to buy eggs at lunchtime today because she wanted to bake a cake .",
-        "this is a simple sentence .",
-        "today is a good day ."
-    ]
-
-    print("Starting adversarial evaluation...")
+    # Use the file loader
+    data_file = "data/ASchoolEssay.txt"
+    print(f"Loading data from {data_file}...")
     
-    for sentence in corpus:
-        print(f"Processing: {sentence}")
-        res_a = model_a.predict(sentence)
-        res_b = model_b.predict(sentence)
+    try:
+        loader = DataLoader(data_file)
         
-        if not comparator.compare(res_a, res_b):
-            print(f" -> Disagreement found!")
-            diff = comparator.find_diff(res_a, res_b)
-            logger.log(sentence, model_a.name, res_a, model_b.name, res_b, diff)
-        else:
-            print(f" -> Models agree.")
+        print("Starting adversarial evaluation...")
+        
+        for segment in loader.load_and_split():
+            if not segment:
+                continue
+                
+            # The regex splits into blocks. Some blocks might be multi-sentence text (Group 'other').
+            # Others are specific quoted/bracketed blocks.
+            # We might want to further split 'other' blocks into sentences, 
+            # but keep quoted/bracketed blocks as single "sentences" (or units).
+            
+            # Simple heuristic: if it looks like a normal text block (not starting with quote/bracket),
+            # try to split it into sentences using NLTK.
+            # If it starts with quote/bracket, treat as single unit.
+            
+            is_special_block = segment[0] in ['"', '(', '[', '{']
+            
+            sub_sentences = []
+            if not is_special_block:
+                # Split by NLTK
+                sub_sentences = nltk.sent_tokenize(segment)
+            else:
+                sub_sentences = [segment]
+                
+            for sentence in sub_sentences:
+                # Clean up whitespace
+                sentence = sentence.replace('\n', ' ').strip()
+                if not sentence:
+                    continue
+                    
+                # print(f"Processing: {sentence[:50]}...") # Snippet
+                
+                res_a = model_a.predict(sentence)
+                res_b = model_b.predict(sentence)
+                
+                if not comparator.compare(res_a, res_b):
+                    # print(f" -> Disagreement found!")
+                    diff = comparator.find_diff(res_a, res_b)
+                    logger.log(sentence, model_a.name, res_a, model_b.name, res_b, diff)
+                else:
+                    pass
+                    # print(f" -> Models agree.")
 
-    logger.save()
-    print("Evaluation complete.")
+        logger.save()
+        print("Evaluation complete.")
+        
+    except ImportError:
+        print("Error: 'regex' module not found. Please install it via 'pip install regex'.")
+    except FileNotFoundError:
+        print(f"Error: File {data_file} not found.")
 
 if __name__ == "__main__":
     main()
-
