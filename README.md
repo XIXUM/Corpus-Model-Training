@@ -1,39 +1,63 @@
-# Neural Network Training Tool
+# Corpus Model Training & Adversarial Evaluation
 
-This project contains tools for training neural networks, specifically focused on NLP tasks using NLTK.
+This project provides a framework for training and evaluating constituency parsing models. It specifically targets the identification of false positives (e.g., incorrect POS tagging in Benepar) by comparing outputs against an adversarial or reference model.
+
+## Project Structure
+
+```
+.
+├── src/
+│   ├── main.py             # Entry point for evaluation pipeline
+│   ├── models/             # Model wrappers and base classes
+│   │   ├── base_model.py   # Abstract base class
+│   │   └── dummy_model.py  # Test model implementation
+│   └── pipeline/           # Core logic
+│       ├── comparator.py   # Logic to compare model outputs
+│       └── logger.py       # CSV logging for disagreements
+├── doc/
+│   └── architecture.md     # System architecture documentation
+├── disagreement_logs/      # Output folder for CSV logs
+├── requirements.txt        # Python dependencies
+└── train.py                # (Legacy) Simple NN training script
+```
 
 ## Setup
 
-1. Create a virtual environment:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
+1.  Create a virtual environment:
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
-The main training script is `train.py`. You can run it with the following arguments:
+### Adversarial Evaluation
 
-```bash
-python train.py --epochs 100 --lr 0.01 --hidden 20
-```
-
-### Arguments:
-
-- `--epochs`: Number of training epochs (default: 100)
-- `--lr`: Learning rate (default: 0.01)
-- `--hidden`: Hidden layer size (default: 20)
-
-### Example:
+To run the comparison pipeline which detects deviations between two models (currently simulated):
 
 ```bash
 source .venv/bin/activate
+python -m src.main
+```
+
+This will:
+1.  Run two models on a sample corpus.
+2.  Compare their outputs.
+3.  Save any sentences where the models disagree to `disagreement_logs/`.
+
+### Neural Network Training (Basic)
+
+To run the basic neural network training script:
+
+```bash
 python train.py --epochs 50
 ```
 
-This will train a simple neural network on dummy data and demonstrate NLTK tokenization.
+## Documentation
+
+See `doc/architecture.md` for details on the system design and components.
