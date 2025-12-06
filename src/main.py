@@ -45,16 +45,16 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
         print(f"Initializing {instance_name} as StanzaWrapper...")
         return StanzaWrapper(instance_name)
     elif model_name == "supar":
-        print(f"Initializing {instance_name} as SuPar (CRF-BERT)...")
+        print(f"Initializing {instance_name} as SuPar (CRF-RoBERTa)...")
         return SuparWrapper(instance_name)
     elif model_name == "dummy":
         print(f"Initializing {instance_name} as DummyModel...")
         use_variation = "A" in instance_name
         return DummyModel(instance_name, variation=use_variation)
     elif model_name == "bert":
-        print(f"Initializing {instance_name} as SuPar (BERT-based)...")
-        # Map 'bert' to SuPar wrapper with BERT model
-        return SuparWrapper(instance_name, model_name="crf-con-bert-en")
+        print(f"Initializing {instance_name} as SuPar (BERT/RoBERTa-based)...")
+        # Map 'bert' to SuPar wrapper with RoBERTa model (as standard BERT model key is deprecated/different)
+        return SuparWrapper(instance_name, model_name="crf-con-roberta-en")
     else:
         print(f"Unknown model '{model_name}'. Using DummyModel.")
         return DummyModel(instance_name, variation=True)
