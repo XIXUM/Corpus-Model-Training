@@ -1,68 +1,48 @@
-# System Architecture
+# Architecture Documentation
 
-## Overview
+This document outlines the architecture, design decisions, and implemented features of the Corpus Model Training tool.
 
-The goal of this project is to identify and correct false positives in constituency parsing models (specifically identifying where models like Benepar fail on POS tagging or tree structure) by using an adversarial/comparative approach.
+## Requirements & Implementation Status
 
-The system runs in two primary modes:
-1.  **Adversarial Mode**: Compares two models to identify and log disagreements.
-2.  **Training Mode**: Uses the logged disagreements to retrain a model (simulated).
+The following core requirements have been addressed:
 
-## Components
+*   **Adversarial Training** (Implemented):
+    *   **Mechanism**: Disagreements between models (e.g., Benepar vs. Dummy) are detected in `adversarial` mode and logged to CSV/JSON.
+    *   **Training**: A dedicated `train` mode uses `BeneparTrainer` to retrain the model on corrected data derived from these disagreements.
+    *   **Workflow**:
+        1.  Run `adversarial` to find issues.
+        2.  Correct the problematic sentences (create a Gold Standard file).
+        3.  Run `train` with the corrected file.
 
-### 1. Pipeline (`src/pipeline/`)
+*   **Tree Distance** (Implemented):
+    *   **Metrics**: Standard PARSEVAL metrics (Precision, Recall, F1) and Exact Match accuracy are implemented in `src/utils/metrics.py`.
+    *   **Usage**: These metrics are used in the `cross-reference` mode to quantitatively evaluate the retrained model against a reference dataset.
 
-The core logic for processing sentences.
+## System Components
 
-*   **`Comparator`**: Compares the outputs of two models. Currently checks for structural equality.
-*   **`DisagreementLogger`**: Handles the storage of flagged sentences.
-    *   **CSV Output**: Saves the sentence and raw differences for easy reading and training.
-    *   **JSON Output**: Saves a structured, flat dictionary of token-to-POS tags for each model.
-*   **`DataLoader`**: Handles loading text from files and splitting it into processing units using Regex.
-*   **`POSDataLoader`**: Helper to load reference POS tags from CSV files.
-*   **`TreeExporter`**: Exports the constituency trees of all processed sentences to a clean text file.
-*   **`HTMLTreeReporter`**: **(New)** Generates a graphical HTML report comparing trees side-by-side.
-    *   Uses `svgling` for high-quality SVG tree rendering.
-    *   Cleaned up on each run to avoid "ghost" files.
+### 1. Pipeline
+*   **Data Loader**: Handles reading raw text from local files or URLs.
+*   **Comparator**: Compares outputs from two models.
+*   **Logger**: Logs disagreements to `disagreement_logs/`.
+*   **HTML Reporter**: Generates `reports/latest_comparison_report.html` with SVG tree visualizations.
 
-### 2. Models (`src/models/`)
+### 2. Models
+*   **BeneparWrapper**: Wraps the Benepar parser (via spaCy). Supports loading pretrained models or local checkpoints.
+*   **DummyModel**: Simulates a parser for testing the pipeline.
 
-Abstraction layer for different parsing models.
+### 3. Training
+*   **BeneparTrainer**:
+    *   Located in `src/training/trainer.py`.
+    *   Loads the underlying PyTorch `ChartParser`.
+    *   Performs fine-tuning using standard gradient descent.
+    *   Saves checkpoints to `checkpoints/`.
+*   **Configuration**: Managed via `config/training_config.yaml` (Hardware: CUDA/MPS/CPU, Hyperparameters).
 
-*   **`BaseModel`**: Abstract base class.
-*   **`DummyModel`**: A reference implementation for testing.
-*   **`BeneparWrapper`**: A wrapper around the real Benepar model (via spaCy). 
-    *   Includes a `safe_benepar_parser` wrapper to handle `StopIteration` errors robustly.
-    *   Supports displaying constituency trees using NLTK.
+### 4. Verification (Cross-Reference)
+*   **Mode**: `cross-reference`.
+*   **Function**: Loads a specific checkpoint and compares its predictions against a "Gold Standard" file of bracketed trees.
+*   **Output**: Reports F1 Score, Precision, Recall, and Accuracy.
 
-### 3. Main Execution (`src/main.py`)
-
-The entry point that handles CLI arguments to select the mode.
-
-*   **Adversarial Mode**:
-    *   Can use `DummyModel` (fast, no downloads) or `BeneparWrapper` (requires model download).
-    *   Logs disagreements to CSV/JSON.
-    *   Exports all trees to text file.
-    *   Generates `reports/latest_comparison_report.html` with side-by-side tree visualizations.
-*   **Training Mode**:
-    *   Loads a disagreement CSV.
-    *   Runs a mock training loop.
-
-## Data Flow
-
-### Adversarial Flow
-1.  **Input**: Text file (e.g., `data/ASchoolEssay.txt`).
-2.  **Splitting**: Regex + NLTK splitting.
-3.  **Processing**:
-    *   Model A (Benepar) -> Prediction A & Tree A
-    *   Model B (Adversarial) -> Prediction B & Tree B
-4.  **Reporting**:
-    *   **Text Export**: `tree_logs/`
-    *   **HTML Report**: `reports/` (Side-by-side SVG)
-    *   **Comparison**: `Comparator`
-    *   **Logging**: `disagreement_logs/` (CSV/JSON)
-
-## Future Extensions
-
-*   **Adversarial Training**: Use the collected disagreements to retrain the failing model.
-*   **Tree Distance**: Implement more sophisticated tree comparison metrics (e.g., Evalb).
+## Future Work
+*   Integrate Stanza and BERT models fully (currently placeholders).
+*   Automate the "Correction" step (e.g., UI for fixing trees).

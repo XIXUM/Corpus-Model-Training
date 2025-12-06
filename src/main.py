@@ -6,7 +6,7 @@ import pandas as pd
 import ast
 import os
 import shutil
-from typing import Dict, Any
+from typing import Dict, Any, List, Optional
 
 from src.models.dummy_model import DummyModel
 from src.models.benepar_wrapper import BeneparWrapper
@@ -15,6 +15,7 @@ from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
 from src.pipeline.tree_exporter import TreeExporter
 from src.pipeline.html_reporter import HTMLTreeReporter
+from src.utils.metrics import calculate_metrics
 
 def clean_reports(output_dir="reports"):
     """
@@ -28,6 +29,11 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
     """
     Factory method to instantiate models based on CLI args.
     """
+    # Check if it's a file path first (for checkpoints)
+    if os.path.exists(model_name):
+        print(f"Initializing {instance_name} from local checkpoint: {model_name}")
+        return BeneparWrapper(instance_name, model_name=model_name)
+
     model_name = model_name.lower()
     
     if model_name == "benepar":
@@ -74,8 +80,8 @@ def run_adversarial_mode(data_source: str, model_a_type: str, model_b_type: str)
     clean_reports("reports")
     
     # Determine instance names
-    name_a = f"{model_a_type.capitalize()}"
-    name_b = f"{model_b_type.capitalize()}"
+    name_a = f"{model_a_type.capitalize()}" if not os.path.exists(model_a_type) else "Checkpoint Model A"
+    name_b = f"{model_b_type.capitalize()}" if not os.path.exists(model_b_type) else "Checkpoint Model B"
     
     # If comparing same type, distinguish them
     if model_a_type.lower() == model_b_type.lower():
@@ -187,6 +193,94 @@ def run_training_mode(train_data: str):
         import traceback
         traceback.print_exc()
 
+def run_cross_reference_mode(checkpoint_path: str, test_data: str):
+    """
+    Test whether the new trained model has fixed the false positives by comparing against reference data.
+    """
+    print(f"Starting Cross-Reference Verification...")
+    print(f"Checkpoint: {checkpoint_path}")
+    print(f"Test Data: {test_data}")
+    
+    if not os.path.exists(checkpoint_path):
+        print(f"Error: Checkpoint file not found at {checkpoint_path}")
+        return
+    if not os.path.exists(test_data):
+        print(f"Error: Test data file not found at {test_data}")
+        return
+
+    # Initialize Trained Model
+    try:
+        # We use BeneparWrapper directly, passing the checkpoint path as model_name
+        model = BeneparWrapper("Trained Model", model_name=checkpoint_path)
+    except Exception as e:
+        print(f"Failed to load checkpoint: {e}")
+        return
+
+    # Load Test Data (Expects PTB Trees for verification)
+    total = 0
+    exact_matches = 0
+    
+    agg_precision = 0.0
+    agg_recall = 0.0
+    agg_f1 = 0.0
+
+    print("\n--- Verification Results ---")
+    try:
+        with open(test_data, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line: continue
+                
+                try:
+                    gold_tree = nltk.Tree.fromstring(line)
+                    # Extract raw sentence from gold tree
+                    sentence = " ".join(gold_tree.leaves())
+                    
+                    # Predict
+                    pred_tree_str = model.get_tree_string(sentence)
+                    if not pred_tree_str:
+                        print(f"Warning: Failed to parse: {sentence[:30]}...")
+                        continue
+                        
+                    pred_tree = nltk.Tree.fromstring(pred_tree_str)
+                    
+                    # Calculate Metrics
+                    metrics = calculate_metrics(gold_tree, pred_tree)
+                    
+                    total += 1
+                    exact_matches += metrics["exact_match"]
+                    agg_precision += metrics["precision"]
+                    agg_recall += metrics["recall"]
+                    agg_f1 += metrics["f1"]
+                        
+                except ValueError:
+                    print(f"Skipping invalid line in test data: {line[:30]}...")
+                    continue
+                    
+    except Exception as e:
+        print(f"Error reading test data: {e}")
+        
+    print("-" * 30)
+    print(f"Total Sentences: {total}")
+    
+    if total > 0:
+        avg_f1 = (agg_f1 / total) * 100
+        avg_precision = (agg_precision / total) * 100
+        avg_recall = (agg_recall / total) * 100
+        exact_match_rate = (exact_matches / total) * 100
+        
+        print(f"Exact Match Accuracy: {exact_match_rate:.2f}%")
+        print(f"Average F1 Score: {avg_f1:.2f}%")
+        print(f"Average Precision: {avg_precision:.2f}%")
+        print(f"Average Recall: {avg_recall:.2f}%")
+        
+        if avg_f1 < 99.0:
+             print("\n Recommendation: Consider another training loop or reviewing the training data.")
+        else:
+             print("\n Success: Model performs with high accuracy!")
+    else:
+        print("No valid sentences processed.")
+
 
 import os
 
@@ -197,15 +291,19 @@ def main():
     # Adversarial Mode
     parser_adv = subparsers.add_parser('adversarial', help='Run adversarial comparison')
     parser_adv.add_argument('--data', type=str, default="data/ASchoolEssay.txt", help='Path to input text file OR URL')
-    parser_adv.add_argument('--model-a', type=str, default="dummy", help='Model A selection')
-    parser_adv.add_argument('--model-b', type=str, default="dummy", help='Model B selection')
+    parser_adv.add_argument('--model-a', type=str, default="dummy", help='Model A selection or checkpoint path')
+    parser_adv.add_argument('--model-b', type=str, default="dummy", help='Model B selection or checkpoint path')
     parser_adv.add_argument('--real-benepar', action='store_true', help='DEPRECATED: Use --model-a benepar instead')
 
     # Training Mode
     parser_train = subparsers.add_parser('train', help='Train on problematic sentences')
     parser_train.add_argument('--train-data', type=str, required=True, help='Path to file with corrected parse trees (PTB format)')
-    # Backward compatibility for CSV argument (though we now prefer tree file)
     parser_train.add_argument('--csv', type=str, help='DEPRECATED: Use --train-data with tree file')
+
+    # Cross-Reference Mode
+    parser_cross = subparsers.add_parser('cross-reference', help='Verify trained model against reference data')
+    parser_cross.add_argument('--checkpoint', type=str, required=True, help='Path to the trained model checkpoint')
+    parser_cross.add_argument('--test-data', type=str, required=True, help='Path to reference/gold standard trees (PTB format)')
 
     args = parser.parse_args()
 
@@ -222,8 +320,11 @@ def main():
             print("Warning: --csv is deprecated for training. Please provide a file with corrected trees using --train-data.")
             if not data_path:
                 data_path = args.csv
-        
         run_training_mode(data_path)
+        
+    elif args.mode == 'cross-reference':
+        run_cross_reference_mode(args.checkpoint, args.test_data)
+        
     else:
         parser.print_help()
 

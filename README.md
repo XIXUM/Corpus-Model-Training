@@ -5,14 +5,12 @@ This tool allows for the adversarial evaluation of constituency parsing models (
 
 ## Features
 - **Adversarial Evaluation:** Compares outputs of two models (e.g., Benepar vs. Dummy).
-- **Model Selection:** Choose from different models (`benepar`, `dummy`, `stanza`*, `bert`*) via CLI. (*placeholders)
+- **Model Selection:** Choose from different models (`benepar`, `dummy`) or provide local checkpoint paths.
 - **Data Loading:** Supports loading training data from local text files or URLs.
-- **Reporting:**
-  - **HTML Report:** Side-by-side visual comparison of constituency trees (SVG) and POS tags.
-  - **CSV/JSON Logs:** Detailed logs of disagreements.
-  - **Tree Export:** Raw text export of parsed trees.
-- **Training Mode:** Fine-tunes the Benepar model using corrected parse trees (PTB format).
-- **Hardware Configuration:** Switch between `cuda`, `mps`, and `cpu` via `config/training_config.yaml`.
+- **Reporting:** HTML reports with SVG trees, CSV/JSON logs.
+- **Training Mode:** Fine-tunes the Benepar model using corrected parse trees.
+- **Cross-Reference Mode:** Verifies a trained model against a reference/gold-standard dataset.
+- **Hardware Configuration:** Switch between `cuda`, `mps`, and `cpu`.
 
 ## Setup
 
@@ -26,7 +24,6 @@ This tool allows for the adversarial evaluation of constituency parsing models (
    ```bash
    pip install -r requirements.txt
    ```
-   *Note: `benepar` requires model download (handled automatically by the wrapper).*
 
 ## Configuration
 
@@ -44,28 +41,15 @@ training:
 
 ## Usage
 
-The tool operates in two main modes: `adversarial` and `train`.
-
-### Adversarial Mode (Comparison)
+### 1. Adversarial Mode (Comparison)
 
 Compare two models on a dataset.
 
-**Basic Usage (Dummy Models):**
-```bash
-python -m src.main adversarial --data data/ASchoolEssay.txt
-```
-
-**Using Benepar (Real Model):**
 ```bash
 python -m src.main adversarial --model-a benepar --model-b dummy --data data/ASchoolEssay.txt
 ```
 
-**Using URL Data:**
-```bash
-python -m src.main adversarial --model-a dummy --model-b dummy --data https://www.gutenberg.org/cache/epub/11/pg11.txt
-```
-
-### Training Mode
+### 2. Training Mode
 
 Retrain the Benepar model on corrected sentences. Requires a file with bracketed parse trees (PTB format).
 
@@ -73,25 +57,25 @@ Retrain the Benepar model on corrected sentences. Requires a file with bracketed
 python -m src.main train --train-data data/corrected_trees.txt
 ```
 
-*Note: The previous `--csv` argument is deprecated for training as real training requires full parse trees, not just disagreement logs.*
+### 3. Cross-Reference Mode (Verification)
+
+After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
+
+```bash
+python -m src.main cross-reference --checkpoint checkpoints/benepar_epoch_5.pt --test-data data/gold_standard.txt
+```
+
+This will output accuracy statistics and indicate if another training loop is recommended.
 
 ## Project Structure
 
 - `src/`: Source code.
-  - `models/`: Model wrappers (`BaseModel`, `DummyModel`, `BeneparWrapper`).
+  - `models/`: Model wrappers.
   - `pipeline/`: Core logic (`DataLoader`, `Comparator`, `Logger`, `HTMLReporter`).
-  - `training/`: Training logic (`BeneparTrainer`).
-  - `utils/`: Utilities (`config_loader`).
+  - `training/`: Training logic.
+  - `utils/`: Utilities.
   - `main.py`: Entry point.
-- `config/`: Configuration files (`training_config.yaml`).
+- `config/`: Configuration.
 - `data/`: Input data files.
 - `reports/`: Generated HTML reports.
-- `disagreement_logs/`: CSV/JSON logs of disagreements.
-- `tree_logs/`: Text export of trees.
-
-## Output
-
-- **HTML Report:** `reports/latest_comparison_report.html` - Open in browser to view tree visualizations.
-- **Disagreement Logs:** Saved in `disagreement_logs/`.
-- **Tree Logs:** Saved in `tree_logs/`.
-- **Checkpoints:** Saved in `checkpoints/` during training.
+- `checkpoints/`: Saved model checkpoints.

@@ -1,6 +1,7 @@
 import spacy
 import benepar
 import sys
+import os
 from typing import Any, List, Tuple, Optional
 from spacy.tokens import Doc
 from .base_model import BaseModel
@@ -26,11 +27,19 @@ class BeneparWrapper(BaseModel):
             print("Warning: en_core_web_sm not found. Using blank 'en' model.")
             self.nlp = spacy.blank('en')
 
-        # Download benepar model if needed
-        try:
-            benepar.download(model_name)
-        except Exception as e:
-            print(f"Warning: Could not download benepar model '{model_name}': {e}")
+        # Check if model_name is a local path or a download name
+        is_local_path = os.path.exists(model_name) or os.path.isdir(model_name)
+
+        if not is_local_path:
+            # Download benepar model if needed
+            try:
+                benepar.download(model_name)
+            except Exception as e:
+                # If it's not a known model name, it might be a path that doesn't exist yet or user error
+                # But benepar.download is chatty.
+                print(f"Warning: Could not download benepar model '{model_name}': {e}")
+        else:
+            print(f"Using local Benepar model from: {model_name}")
 
         # Add benepar to pipeline
         if PIPE_BENE_PAR not in self.nlp.pipe_names:
@@ -68,7 +77,7 @@ class BeneparWrapper(BaseModel):
                     print(f"Problematic text: '{doc.text}'")
                     print(f"Error details: {e}")
                     return fallback_parser(doc)
-
+            
             try:
                 self.nlp.replace_pipe(PIPE_BENE_PAR, safe_benepar_parser_impl)
                 print("✓ Benepar component wrapped with error handling")
