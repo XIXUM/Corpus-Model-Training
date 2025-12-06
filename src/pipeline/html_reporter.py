@@ -9,6 +9,8 @@ try:
 except ImportError:
     svgling = None
 
+from src.utils.pos_definitions import get_pos_tag_with_definition
+
 class HTMLTreeReporter:
     """
     Generates an HTML report comparing two constituency trees side-by-side.
@@ -48,6 +50,7 @@ class HTMLTreeReporter:
         try:
             t = Tree.fromstring(tree_str)
             if svgling:
+                # CRITICAL: DO NOT REMOVE OR CHANGE - SVG RENDERING IS REQUIRED
                 return svgling.draw_tree(t)._repr_svg_()
             else:
                 return f"<pre>{t.pformat()}</pre>"
@@ -77,8 +80,12 @@ class HTMLTreeReporter:
                     token_a, tag_a = list_a[i] if i < len(list_a) else ("-", "-")
                     token_b, tag_b = list_b[i] if i < len(list_b) else ("-", "-")
                     
+                    # Add definitions to tags
+                    display_tag_a = get_pos_tag_with_definition(tag_a)
+                    display_tag_b = get_pos_tag_with_definition(tag_b)
+                    
                     row_class = "diff-row" if tag_a != tag_b else ""
-                    html += f"<tr class='{row_class}'><td>{token_a}</td><td>{tag_a}</td><td>{tag_b}</td></tr>"
+                    html += f"<tr class='{row_class}'><td>{token_a}</td><td>{display_tag_a}</td><td>{display_tag_b}</td></tr>"
                     
                 html += "</tbody></table>"
                 return html

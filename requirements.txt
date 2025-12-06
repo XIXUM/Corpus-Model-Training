@@ -10,3 +10,7 @@ benepar
 svgling
 requests
 pyyaml
+stanza
+supar
+transformers
+timm

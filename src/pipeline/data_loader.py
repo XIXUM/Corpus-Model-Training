@@ -55,6 +55,12 @@ class DataLoader:
             if match.group('other'):
                 text_block = segment.strip()
                 if text_block:
-                    yield text_block
+                    # Split by double newlines (paragraphs) to prevent merging separate blocks/titles
+                    # regex for 2 or more newlines (possibly with spaces/tabs in between)
+                    paragraphs = re.split(r'\n\s*\n', text_block)
+                    for para in paragraphs:
+                        para = para.strip()
+                        if para:
+                            yield para
             else:
                 yield segment.strip()

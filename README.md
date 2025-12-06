@@ -1,11 +1,17 @@
 # Corpus Model Training & Adversarial Evaluation Tool
 
 ## Overview
-This tool allows for the adversarial evaluation of constituency parsing models (e.g., Benepar, Dummy models) and provides a framework for retraining models on problematic sentences. It identifies disagreements between two models, logs them, and generates visual comparison reports.
+This tool allows for the adversarial evaluation of constituency parsing models (e.g., Benepar, SuPar) and provides a framework for retraining models on problematic sentences. It identifies disagreements between two models, logs them, and generates visual comparison reports.
 
 ## Features
-- **Adversarial Evaluation:** Compares outputs of two models (e.g., Benepar vs. Dummy).
-- **Model Selection:** Choose from different models (`benepar`, `dummy`) or provide local checkpoint paths.
+- **Adversarial Evaluation:** Compares outputs of two models.
+- **Model Selection:**
+  - `benepar`: Berkeley Neural Parser (Chart-based, Transformer).
+  - `stanza`: Stanford NLP (Constituency).
+  - `supar`: SuPar CRF Constituency Parser (BERT-based).
+  - `bert`: Alias for SuPar with `crf-con-bert-en` model.
+  - `spacy_pos`: Simple POS tagger using SpaCy (flat tree structure).
+  - `dummy`: Testing model.
 - **Data Loading:** Supports loading training data from local text files or URLs.
 - **Reporting:** HTML reports with SVG trees, CSV/JSON logs.
 - **Training Mode:** Fine-tunes the Benepar model using corrected parse trees.
@@ -43,10 +49,16 @@ training:
 
 ### 1. Adversarial Mode (Comparison)
 
-Compare two models on a dataset.
+Compare two models on a dataset. You can provide a local file path or a direct URL to a text file.
 
+**Real Adversarial Example (Benepar vs. BERT-based SuPar) with Local File:**
 ```bash
-python -m src.main adversarial --model-a benepar --model-b dummy --data data/ASchoolEssay.txt
+python -m src.main adversarial --model-a benepar --model-b bert --data data/ASchoolEssay.txt
+```
+
+**Adversarial Example with URL Source:**
+```bash
+python -m src.main adversarial --model-a benepar --model-b dummy --data https://www.gutenberg.org/files/11/11-0.txt
 ```
 
 ### 2. Training Mode
@@ -70,7 +82,7 @@ This will output accuracy statistics and indicate if another training loop is re
 ## Project Structure
 
 - `src/`: Source code.
-  - `models/`: Model wrappers.
+  - `models/`: Model wrappers (Benepar, Stanza, SuPar, Dummy).
   - `pipeline/`: Core logic (`DataLoader`, `Comparator`, `Logger`, `HTMLReporter`).
   - `training/`: Training logic.
   - `utils/`: Utilities.
