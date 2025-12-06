@@ -11,3 +11,4 @@ svgling
 requests
 pyyaml
 stanza
+supar

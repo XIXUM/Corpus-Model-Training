@@ -11,6 +11,7 @@ from typing import Dict, Any, List, Optional
 from src.models.dummy_model import DummyModel
 from src.models.benepar_wrapper import BeneparWrapper
 from src.models.stanza_wrapper import StanzaWrapper
+from src.models.supar_wrapper import SuparWrapper
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
@@ -43,17 +44,17 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
     elif model_name == "stanza":
         print(f"Initializing {instance_name} as StanzaWrapper...")
         return StanzaWrapper(instance_name)
+    elif model_name == "supar":
+        print(f"Initializing {instance_name} as SuPar (CRF-BERT)...")
+        return SuparWrapper(instance_name)
     elif model_name == "dummy":
         print(f"Initializing {instance_name} as DummyModel...")
         use_variation = "A" in instance_name
         return DummyModel(instance_name, variation=use_variation)
     elif model_name == "bert":
-        # For BERT, usually we use Benepar backed by BERT.
-        # If the user explicitly wants BERT, we can use Benepar with a BERT model name if available,
-        # or falling back to Dummy if not fully configured for direct BERT usage.
-        # But for now, let's clarify:
-        print(f"Warning: 'bert' option maps to DummyModel placeholder currently. Use 'benepar' for BERT-based parsing (it uses transformers).")
-        return DummyModel(f"{instance_name} (BERT Placeholder)", variation=True)
+        print(f"Initializing {instance_name} as SuPar (BERT-based)...")
+        # Map 'bert' to SuPar wrapper with BERT model
+        return SuparWrapper(instance_name, model_name="crf-con-bert-en")
     else:
         print(f"Unknown model '{model_name}'. Using DummyModel.")
         return DummyModel(instance_name, variation=True)
@@ -69,6 +70,8 @@ def get_model_info(model_obj: Any) -> Dict[str, str]:
         info["type"] = f"Benepar ({model_obj.model_name})"
     elif isinstance(model_obj, StanzaWrapper):
         info["type"] = f"Stanza ({model_obj.model_name})"
+    elif isinstance(model_obj, SuparWrapper):
+        info["type"] = f"SuPar ({model_obj.model_name})"
     else:
         info["type"] = "Unknown Model"
     return info
@@ -298,8 +301,11 @@ def main():
     # Adversarial Mode
     parser_adv = subparsers.add_parser('adversarial', help='Run adversarial comparison')
     parser_adv.add_argument('--data', type=str, default="data/ASchoolEssay.txt", help='Path to input text file OR URL')
-    parser_adv.add_argument('--model-a', type=str, default="dummy", help='Model A selection or checkpoint path')
-    parser_adv.add_argument('--model-b', type=str, default="dummy", help='Model B selection or checkpoint path')
+    
+    # Updated choices for real models
+    model_choices = ['dummy', 'benepar', 'stanza', 'supar', 'bert']
+    parser_adv.add_argument('--model-a', type=str, default="dummy", choices=model_choices, help='Model A selection')
+    parser_adv.add_argument('--model-b', type=str, default="dummy", choices=model_choices, help='Model B selection')
     parser_adv.add_argument('--real-benepar', action='store_true', help='DEPRECATED: Use --model-a benepar instead')
 
     # Training Mode
