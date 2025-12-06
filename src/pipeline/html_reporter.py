@@ -1,10 +1,7 @@
 import os
 from datetime import datetime
 import nltk
-from nltk.draw.tree import TreeView
 from nltk import Tree
-import base64
-import io
 import ast
 
 try:
@@ -18,7 +15,7 @@ class HTMLTreeReporter:
     Uses svgling (if available) or basic text representation.
     """
     
-    def __init__(self, output_dir: str = "reports"):
+    def __init__(self, output_dir: str = "reports", model_a_info: dict = None, model_b_info: dict = None):
         self.output_dir = output_dir
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
@@ -26,6 +23,8 @@ class HTMLTreeReporter:
         self.report_file = os.path.join(output_dir, "latest_comparison_report.html")
         self.entries = []
         self.start_time = datetime.now()
+        self.model_a_info = model_a_info or {"name": "Model A", "type": "Unknown"}
+        self.model_b_info = model_b_info or {"name": "Model B", "type": "Unknown"}
 
     def add_comparison(self, sentence: str, model_a_name: str, tree_a_str: str, model_b_name: str, tree_b_str: str, diff_desc: str):
         """
@@ -90,6 +89,31 @@ class HTMLTreeReporter:
         return f"<pre>{diff_desc}</pre>"
 
     def save(self):
+        # Header Model Info Formatting
+        def format_model_info(info):
+            name = info.get("name", "Unknown")
+            m_type = info.get("type", "Unknown")
+            
+            # Add warning for dummy models
+            warning = ""
+            if "dummy" in m_type.lower() or "dummy" in name.lower():
+                warning = "<span class='dummy-warning'>[DUMMY MODE]</span>"
+                
+            return f"<div class='model-header'><strong>{name}</strong> ({m_type}) {warning}</div>"
+
+        header_html = f"""
+            <div class='report-header'>
+                <div class='header-col'>
+                    <h3>Model A</h3>
+                    {format_model_info(self.model_a_info)}
+                </div>
+                <div class='header-col'>
+                    <h3>Model B</h3>
+                    {format_model_info(self.model_b_info)}
+                </div>
+            </div>
+        """
+
         html_content = f"""
         <!DOCTYPE html>
         <html>
@@ -100,6 +124,11 @@ class HTMLTreeReporter:
                 .entry {{ background: white; border: 1px solid #e0e0e0; margin-bottom: 30px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }}
                 .sentence {{ font-weight: 600; font-size: 1.2em; margin-bottom: 15px; padding: 10px; background-color: #f0f7ff; border-left: 4px solid #0066cc; border-radius: 4px; }}
                 
+                .report-header {{ display: flex; gap: 20px; margin-bottom: 30px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }}
+                .header-col {{ flex: 1; padding: 10px; border: 1px solid #eee; border-radius: 4px; }}
+                .model-header {{ font-size: 1.1em; margin-top: 5px; }}
+                .dummy-warning {{ color: red; font-weight: bold; margin-left: 10px; border: 1px solid red; padding: 2px 5px; border-radius: 3px; font-size: 0.8em; background-color: #fff0f0; }}
+
                 .comparison-container {{ display: flex; flex-direction: column; gap: 20px; }}
                 
                 .diff-section {{ margin-bottom: 20px; }}
@@ -116,18 +145,13 @@ class HTMLTreeReporter:
                 
                 svg {{ width: 100%; height: auto; min-height: 200px; }}
                 pre {{ white-space: pre-wrap; word-wrap: break-word; background: #f8f8f8; padding: 10px; border-radius: 4px; }}
-                
-                /* Only show trees if there is a difference, or maybe always? 
-                   User requested: "in case of a difference below the comparing list"
-                   Let's interpret this as "show trees below comparison list" (which we do).
-                   If they mean "ONLY show trees IF difference", we can add logic.
-                   But previously they said "displays the trees... at each sentence".
-                   So we keep displaying them for all. */
             </style>
         </head>
         <body>
             <h1>Constituency Tree Comparison Report</h1>
             <p>Generated: {self.start_time.strftime('%Y-%m-%d %H:%M:%S')}</p>
+            
+            {header_html}
             
             <div id="entries">
         """

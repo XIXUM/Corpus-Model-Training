@@ -8,3 +8,5 @@ regex
 spacy
 benepar
 svgling
+requests
+pyyaml

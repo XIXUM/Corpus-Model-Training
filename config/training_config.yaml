@@ -1,0 +1,13 @@
+# Training Configuration
+# Switch between hardware backends: 'cuda' (Nvidia), 'mps' (Apple Silicon), or 'cpu'
+
+hardware:
+  device: "mps"  # Options: cuda, mps, cpu
+  # optional: device_index: 0
+
+training:
+  epochs: 5
+  batch_size: 32
+  learning_rate: 0.001
+  checkpoint_dir: "checkpoints"
+

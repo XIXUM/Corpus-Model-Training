@@ -1,77 +1,81 @@
-# Corpus Model Training & Adversarial Evaluation
+# Corpus Model Training & Adversarial Evaluation Tool
 
-This project provides a framework for training and evaluating constituency parsing models. It specifically targets the identification of false positives (e.g., incorrect POS tagging in Benepar) by comparing outputs against an adversarial or reference model.
+## Overview
+This tool allows for the adversarial evaluation of constituency parsing models (e.g., Benepar, Dummy models) and provides a framework for retraining models on problematic sentences. It identifies disagreements between two models, logs them, and generates visual comparison reports.
 
-## Project Structure
-
-```
-.
-├── src/
-│   ├── main.py             # Entry point (CLI)
-│   ├── models/             # Model wrappers (Dummy, Benepar)
-│   └── pipeline/           # Core logic (Loader, Comparator, Logger, Reporter)
-├── doc/
-│   └── architecture.md     # System architecture documentation
-├── data/
-│   └── ASchoolEssay.txt    # Sample data
-├── disagreement_logs/      # Output CSV/JSON logs
-├── reports/                # HTML comparison reports
-├── tree_logs/              # Text file exports of constituency trees
-├── requirements.txt        # Python dependencies
-└── train.py                # (Legacy) Simple NN training script
-```
+## Features
+- **Adversarial Evaluation:** Compares outputs of two models (e.g., Benepar vs. Dummy).
+- **Model Selection:** Choose from different models (`benepar`, `dummy`) or provide local checkpoint paths.
+- **Data Loading:** Supports loading training data from local text files or URLs.
+- **Reporting:** HTML reports with SVG trees, CSV/JSON logs.
+- **Training Mode:** Fine-tunes the Benepar model using corrected parse trees.
+- **Cross-Reference Mode:** Verifies a trained model against a reference/gold-standard dataset.
+- **Hardware Configuration:** Switch between `cuda`, `mps`, and `cpu`.
 
 ## Setup
 
-1.  Create a virtual environment:
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    ```
+1. **Create Virtual Environment:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
-2.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *Note: Benepar requires model downloading. The wrapper attempts to download 'benepar_en3' automatically, but this requires internet access.*
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Configuration
+
+Configure hardware and training parameters in `config/training_config.yaml`:
+
+```yaml
+hardware:
+  device: "mps"  # Options: cuda, mps, cpu
+
+training:
+  epochs: 5
+  batch_size: 32
+  learning_rate: 0.001
+```
 
 ## Usage
 
-The tool now supports two modes: `adversarial` and `train`.
+### 1. Adversarial Mode (Comparison)
 
-### 1. Adversarial Evaluation Mode
+Compare two models on a dataset.
 
-Run the comparison pipeline to detect deviations between models and generate reports.
-
-**Basic Run (using Dummy/Simulation Models):**
-Useful for testing the pipeline without downloading large models.
 ```bash
-source .venv/bin/activate
-python -m src.main adversarial --data data/ASchoolEssay.txt
+python -m src.main adversarial --model-a benepar --model-b dummy --data data/ASchoolEssay.txt
 ```
-
-**Real Model Run (Recommended):**
-Uses the actual Benepar model (requires internet for first-time model download).
-```bash
-python -m src.main adversarial --data data/ASchoolEssay.txt --real-benepar
-```
-
-#### Outputs:
-*   **HTML Report**: `reports/latest_comparison_report.html`
-    *   A visual side-by-side comparison of POS tags and Constituency Trees (rendered as SVG).
-*   **Disagreement Logs**: 
-    *   `disagreement_logs/disagreements_TIMESTAMP.csv` (Summary of mismatches)
-    *   `disagreement_logs/disagreements_TIMESTAMP.json` (Detailed structure)
-*   **Tree Export**: `tree_logs/trees_TIMESTAMP.txt` (All parsed trees in text format)
 
 ### 2. Training Mode
 
-Run the training loop using the detected disagreements.
+Retrain the Benepar model on corrected sentences. Requires a file with bracketed parse trees (PTB format).
 
 ```bash
-python -m src.main train --csv disagreement_logs/disagreements_YOUR_TIMESTAMP.csv
+python -m src.main train --train-data data/corrected_trees.txt
 ```
 
-## Documentation
+### 3. Cross-Reference Mode (Verification)
 
-See `doc/architecture.md` for details on the system design, data flow, and JSON structure.
+After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
+
+```bash
+python -m src.main cross-reference --checkpoint checkpoints/benepar_epoch_5.pt --test-data data/gold_standard.txt
+```
+
+This will output accuracy statistics and indicate if another training loop is recommended.
+
+## Project Structure
+
+- `src/`: Source code.
+  - `models/`: Model wrappers.
+  - `pipeline/`: Core logic (`DataLoader`, `Comparator`, `Logger`, `HTMLReporter`).
+  - `training/`: Training logic.
+  - `utils/`: Utilities.
+  - `main.py`: Entry point.
+- `config/`: Configuration.
+- `data/`: Input data files.
+- `reports/`: Generated HTML reports.
+- `checkpoints/`: Saved model checkpoints.
