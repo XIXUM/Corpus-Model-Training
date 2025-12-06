@@ -12,6 +12,7 @@ from src.models.dummy_model import DummyModel
 from src.models.benepar_wrapper import BeneparWrapper
 from src.models.stanza_wrapper import StanzaWrapper
 from src.models.supar_wrapper import SuparWrapper
+from src.models.spacy_pos_model import SpacyPOSModel
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
@@ -55,6 +56,9 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
         print(f"Initializing {instance_name} as SuPar (BERT/RoBERTa-based)...")
         # Map 'bert' to SuPar wrapper with RoBERTa model (as standard BERT model key is deprecated/different)
         return SuparWrapper(instance_name, model_name="crf-con-roberta-en")
+    elif model_name == "spacy_pos":
+        print(f"Initializing {instance_name} as SpaCy POS Model...")
+        return SpacyPOSModel(instance_name)
     else:
         print(f"Unknown model '{model_name}'. Using DummyModel.")
         return DummyModel(instance_name, variation=True)
@@ -72,6 +76,8 @@ def get_model_info(model_obj: Any) -> Dict[str, str]:
         info["type"] = f"Stanza ({model_obj.model_name})"
     elif isinstance(model_obj, SuparWrapper):
         info["type"] = f"SuPar ({model_obj.model_name})"
+    elif isinstance(model_obj, SpacyPOSModel):
+        info["type"] = f"SpaCy POS ({model_obj.model_name})"
     else:
         info["type"] = "Unknown Model"
     return info
@@ -303,7 +309,7 @@ def main():
     parser_adv.add_argument('--data', type=str, default="data/ASchoolEssay.txt", help='Path to input text file OR URL')
     
     # Updated choices for real models
-    model_choices = ['dummy', 'benepar', 'stanza', 'supar', 'bert']
+    model_choices = ['dummy', 'benepar', 'stanza', 'supar', 'bert', 'spacy_pos']
     parser_adv.add_argument('--model-a', type=str, default="dummy", choices=model_choices, help='Model A selection')
     parser_adv.add_argument('--model-b', type=str, default="dummy", choices=model_choices, help='Model B selection')
     parser_adv.add_argument('--real-benepar', action='store_true', help='DEPRECATED: Use --model-a benepar instead')

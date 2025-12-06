@@ -1,0 +1,1737 @@
+Constituency Tree Export - 20251206_223237
+==================================================
+
+Sentence: CHRISTMAS ACCIDENT AT THE REWE SUPERMARKET  I'm standing in the Rewe parking lot.
+                                                             S                                            
+                         ____________________________________|__________________________________________   
+                        |                                   SBAR                                        | 
+                        |                                    |                                          |  
+                        |                                    S                                          | 
+                        |                                 ___|__________                                |  
+                        |                                |              VP                              | 
+                        |                                |         _____|______                         |  
+                        NP                               |        |            VP                       | 
+            ____________|_______                         |        |      ______|___                     |  
+           |                    PP                       NP       |     |          PP                   | 
+           |             _______|___                  ___|___     |     |       ___|___                 |  
+           NP           |           NP               |       NP   |     |      |       NP               | 
+     ______|_____       |    _______|________        |       |    |     |      |    ___|____________    |  
+   NNS           NN     IN  DT     NNP      NNP     PRP     PRP  VBP   VBG     IN  DT NNP     NN    NN  . 
+    |            |      |   |       |        |       |       |    |     |      |   |   |      |     |   |  
+CHRISTMAS     ACCIDENT  AT THE     REWE SUPERMARKET ...      I    'm standing  in the Rewe parking lot  . 
+
+----------------------------------------
+Sentence: It's evening and it's snowing.
+                     S                         
+      _______________|_______________________   
+     S               |       S               | 
+  ___|___            |    ___|___            |  
+ |       VP          |   |       VP          | 
+ |    ___|_____      |   |    ___|_____      |  
+ NP  |         NP    |   NP  |         VP    | 
+ |   |         |     |   |   |         |     |  
+PRP VBZ        NN    CC PRP VBZ       VBG    . 
+ |   |         |     |   |   |         |     |  
+ It  's     evening and  it  's     snowing  . 
+
+----------------------------------------
+Sentence: Saturday evening just before twenty.
+                      NP                   
+           ___________|__________________   
+          |                 PP           | 
+          |            _____|______      |  
+          NP         ADVP   |      NP    | 
+    ______|_____      |     |      |     |  
+  NNP           NN    RB    IN     CD    . 
+   |            |     |     |      |     |  
+Saturday     evening just before twenty  . 
+
+----------------------------------------
+Sentence: The Rewe is about to close.
+                   S                         
+      _____________|_______________________   
+     |                  VP                 | 
+     |         _________|___               |  
+     |        |            ADJP            | 
+     |        |     ________|____          |  
+     |        |    |             S         | 
+     |        |    |             |         |  
+     |        |    |             VP        | 
+     |        |    |         ____|____     |  
+     NP       |    |        |         VP   | 
+  ___|___     |    |        |         |    |  
+ DT     NNP  VBZ   IN       TO        VB   . 
+ |       |    |    |        |         |    |  
+The     Rewe  is about      to      close  . 
+
+----------------------------------------
+Sentence: Mom forgot to buy eggs at lunchtime today because she wanted to bake a cake.
+                                            S                                                    
+  __________________________________________|__________________________________________________   
+ |                                          VP                                                 | 
+ |     _____________________________________|____________                                      |  
+ |    |             |                                   SBAR                                   | 
+ |    |             |                               _____|___________                          |  
+ |    |             |                              |                 S                         | 
+ |    |             |                              |      ___________|___                      |  
+ |    |             S                              |     |               VP                    | 
+ |    |             |                              |     |      _________|____                 |  
+ |    |             VP                             |     |     |              S                | 
+ |    |      _______|____                          |     |     |              |                |  
+ |    |     |            VP                        |     |     |              VP               | 
+ |    |     |    ________|__________________       |     |     |      ________|___             |  
+ |    |     |   |   |        PP             |      |     |     |     |            VP           | 
+ |    |     |   |   |     ___|______        |      |     |     |     |    ________|___         |  
+ NP   |     |   |   NP   |          NP      NP     |     NP    |     |   |            NP       | 
+ |    |     |   |   |    |          |       |      |     |     |     |   |         ___|___     |  
+NNP  VBD    TO  VB NNS   IN         NN      NN     IN   PRP   VBD    TO  VB       DT      NN   . 
+ |    |     |   |   |    |          |       |      |     |     |     |   |        |       |    |  
+Mom forgot  to buy eggs  at     lunchtime today because she  wanted  to bake      a      cake  . 
+
+----------------------------------------
+Sentence: Unfortunately, the neighbors didn't have any eggs either, so she sent me out to buy some more.
+                                                                      S                                                    
+                                      ________________________________|__________________________________________________   
+                                     |                                |   |                S                             | 
+                                     |                                |   |    ____________|___                          |  
+                                     |                                |   |   |                VP                        | 
+                                     |                                |   |   |    ____________|_______                  |  
+                                     S                                |   |   |   |    |   |           S                 | 
+       ______________________________|_______                         |   |   |   |    |   |           |                 |  
+      |        |       |                     VP                       |   |   |   |    |   |           VP                | 
+      |        |       |              _______|____                    |   |   |   |    |   |    _______|___              |  
+      |        |       |             |   |        VP                  |   |   |   |    |   |   |           VP            | 
+      |        |       |             |   |    ____|_____________      |   |   |   |    |   |   |    _______|____         |  
+     ADVP      |       NP            |   |   |        NP       ADVP   |   |   NP  |    NP PRT  |   |            NP       | 
+      |        |    ___|______       |   |   |     ___|___      |     |   |   |   |    |   |   |   |        ____|___     |  
+      RB       ,   DT        NNS    VBD  RB  VB   DT     NNS    RB    ,   IN PRP VBD  PRP  RP  TO  VB      DT      JJR   . 
+      |        |   |          |      |   |   |    |       |     |     |   |   |   |    |   |   |   |       |        |    |  
+Unfortunately  ,  the     neighbors did n't have any     eggs either  ,   so she sent  me out  to buy     some     more  . 
+
+----------------------------------------
+Sentence: Coincidentally, my boyfriend's mom also had to do some quick shopping at the supermarket, but she wanted to do it quickly by car because she didn't have time.
+                                                                                                            S                                                                                       
+       _____________________________________________________________________________________________________|_____________________________________________________________________________________   
+      |         |                                       S                                                   |   |                                  S                                              | 
+      |         |                   ____________________|___                                                |   |    ______________________________|_______                                       |  
+      |         |                  |           |            VP                                              |   |   |                                      VP                                     | 
+      |         |                  |           |     _______|_________                                      |   |   |     _________________________________|___________                           |  
+      |         |                  |           |    |                 S                                     |   |   |    |             S                              SBAR                        | 
+      |         |                  |           |    |                 |                                     |   |   |    |             |                          _____|____                      |  
+      |         |                  |           |    |                 VP                                    |   |   |    |             VP                        |          S                     | 
+      |         |                  |           |    |    _____________|______                               |   |   |    |      _______|_____                    |      ____|___                  |  
+      |         |                  |           |    |   |                    VP                             |   |   |    |     |             VP                  |     |        VP                | 
+      |         |                  |           |    |   |    ________________|__________                    |   |   |    |     |    _________|_________          |     |     ___|________         |  
+      |         |                  NP          |    |   |   |         |                 PP                  |   |   |    |     |   |   |     |         PP        |     |    |   |        VP       | 
+      |         |            ______|_______    |    |   |   |         |              ___|___                |   |   |    |     |   |   |     |      ___|___      |     |    |   |    ____|___     |  
+     ADVP       |           NP             |  ADVP  |   |   |         NP            |       NP              |   |   NP   |     |   |   NP   ADVP   |       NP    |     NP   |   |   |        NP   | 
+      |         |    _______|__________    |   |    |   |   |    _____|______       |    ___|_______        |   |   |    |     |   |   |     |     |       |     |     |    |   |   |        |    |  
+      RB        ,  PRP$     NN        POS  NN  RB  VBD  TO  VB  DT    JJ     NN     IN  DT          NN      ,   CC PRP  VBD    TO  VB PRP    RB    IN      NN    IN   PRP  VBD  RB  VB       NN   . 
+      |         |   |       |          |   |   |    |   |   |   |     |      |      |   |           |       |   |   |    |     |   |   |     |     |       |     |     |    |   |   |        |    |  
+Coincidentally  ,   my  boyfriend      's mom also had  to  do some quick shopping  at the     supermarket  ,  but she wanted  to  do  it quickly  by     car because she  did n't have     time  . 
+
+----------------------------------------
+Sentence: My boyfriend knew this because we had chatted about it briefly, so his mother offered me a ride to the store and simply gave me a lift.
+                                                                                               S                                                                                   
+              _________________________________________________________________________________|_________________________________________________________________________________   
+             S                                                               |   |                                                |                                              | 
+       ______|___________                                                    |   |                                                |                                              |  
+      |                  VP                                                  |   |                                                |                                              | 
+      |              ____|____________                                       |   |                                                |                                              |  
+      |             |    |           SBAR                                    |   |                                                S                                              | 
+      |             |    |       _____|____                                  |   |         _______________________________________|________                                      |  
+      |             |    |      |          S                                 |   |        |                                                VP                                    | 
+      |             |    |      |      ____|_____                            |   |        |                               _________________|____________________                 |  
+      |             |    |      |     |          VP                          |   |        |                              VP                     |    |          |                | 
+      |             |    |      |     |     _____|______                     |   |        |             _________________|____                  |    |          |                |  
+      |             |    |      |     |    |            VP                   |   |        |            |     |                NP                |    |          |                | 
+      |             |    |      |     |    |      ______|______________      |   |        |            |     |        ________|___              |    |          |                |  
+      |             |    |      |     |    |     |           PP        |     |   |        |            |     |       |            PP            |    |          VP               | 
+      |             |    |      |     |    |     |       ____|___      |     |   |        |            |     |       |         ___|___          |    |      ____|_______         |  
+      NP            |    NP     |     NP   |     |      |        NP   ADVP   |   |        NP           |     NP      NP       |       NP        |   ADVP   |    NP      NP       | 
+  ____|______       |    |      |     |    |     |      |        |     |     |   |    ____|____        |     |    ___|___     |    ___|____     |    |     |    |    ___|___     |  
+PRP$         NN    VBD   DT     IN   PRP  VBD   VBN     IN      PRP    RB    ,   IN PRP$       NN     VBD   PRP  DT      NN   IN  DT       NN   CC   RB   VBD  PRP  DT      NN   . 
+ |           |      |    |      |     |    |     |      |        |     |     |   |   |         |       |     |   |       |    |   |        |    |    |     |    |   |       |    |  
+ My      boyfriend knew this because  we  had chatted about      it briefly  ,   so his      mother offered  me  a      ride  to the     store and simply gave  me  a      lift  . 
+
+----------------------------------------
+Sentence: When we arrived at the Rewe parking lot, I got out of the car.
+                                          S                                         
+         _________________________________|_______________________________________   
+       SBAR                                   |   |           |                   | 
+   _____|______                               |   |           |                   |  
+  |            S                              |   |           VP                  | 
+  |      ______|_____                         |   |    _______|___                |  
+  |     |            VP                       |   |   |           PP              | 
+  |     |       _____|___                     |   |   |    _______|___            |  
+  |     |      |         PP                   |   |   |   |           PP          | 
+  |     |      |      ___|___                 |   |   |   |    _______|___        |  
+WHADVP  NP     |     |       NP               |   NP  |   |   |           NP      | 
+  |     |      |     |    ___|____________    |   |   |   |   |        ___|___    |  
+ WRB   PRP    VBD    IN  DT NNP     NN    NN  ,  PRP VBD  IN  IN      DT      NN  . 
+  |     |      |     |   |   |      |     |   |   |   |   |   |       |       |   |  
+ When   we  arrived  at the Rewe parking lot  ,   I  got out  of     the     car  . 
+
+----------------------------------------
+Sentence: Distracted by the drive, I hadn't even noticed how beautifully decorated the Rewe store was for Christmas - I only noticed it now, because I had been talking to my friend about the new Brawlstars game the whole way, fascinated.
+                                                                                                                                                    S                                                                                                                                 
+                                                          __________________________________________________________________________________________|_______________________________________________________________________________________________________________________________   
+                                                         |                                                                           |       S                                                                                                                                      | 
+                                                         |                                                                           |    ___|________________                                                                                                                      |  
+                                                         S                                                                           |   |   |                VP                                                                                                                    | 
+                 ________________________________________|_______________________________                                            |   |   |       _________|________________                                                                                                     |  
+                |                 |   |                                                  VP                                          |   |   |      |     |   |    |          SBAR                                                                                                  | 
+                |                 |   |    ______________________________________________|______                                     |   |   |      |     |   |    |      _____|____                                                                                                |  
+                |                 |   |   |   |   |                                             VP                                   |   |   |      |     |   |    |     |          S                                                                                               | 
+                |                 |   |   |   |   |       ______________________________________|___                                 |   |   |      |     |   |    |     |      ____|__________                                                                                     |  
+                |                 |   |   |   |   |      |                                         SBAR                              |   |   |      |     |   |    |     |     |               VP                                                                                   | 
+                |                 |   |   |   |   |      |                     _____________________|_____                           |   |   |      |     |   |    |     |     |     __________|_________                                                                           |  
+                S                 |   |   |   |   |      |                    |                           S                          |   |   |      |     |   |    |     |     |    |                    VP                                                                         | 
+                |                 |   |   |   |   |      |                    |                      _____|________                  |   |   |      |     |   |    |     |     |    |    ________________|_________________________                                                 |  
+                VP                |   |   |   |   |      |                    |                     |              VP                |   |   |      |     |   |    |     |     |    |   |                                          VP                                               | 
+     ___________|___              |   |   |   |   |      |                    |                     |           ___|___              |   |   |      |     |   |    |     |     |    |   |       ___________________________________|________________________________________        |  
+    |               PP            |   |   |   |   |      |                  WHADJP                  |          |       PP            |   |   |      |     |   |    |     |     |    |   |      |         PP                    PP                           |        |      S       | 
+    |        _______|___          |   |   |   |   |      |           _________|__________           |          |    ___|______       |   |   |      |     |   |    |     |     |    |   |      |      ___|____             ____|___                         |        |      |       |  
+    |       |           NP        |   NP  |   |  ADVP    |        WHADVP                 |          NP         |   |          NP     |   NP ADVP    |     NP ADVP  |     |     NP   |   |      |     |        NP          |        NP                       NP       |      VP      | 
+    |       |        ___|____     |   |   |   |   |      |      ____|_________           |       ___|_____     |   |          |      |   |   |      |     |   |    |     |     |    |   |      |     |    ____|____       |     ___|______________      ____|____    |      |       |  
+   VBN      IN      DT       NN   ,  PRP VBD  RB  RB    VBN   WRB             RB        VBN     DT NNP    NN  VBD  IN        NNP     :  PRP  RB    VBD   PRP  RB   ,     IN   PRP  VBD VBN    VBG    IN PRP$       NN     IN   DT  JJ    NNP      NN   DT   JJ   NN  ,     VBN      . 
+    |       |       |        |    |   |   |   |   |      |     |              |          |      |   |     |    |   |          |      |   |   |      |     |   |    |     |     |    |   |      |     |   |         |      |    |   |      |       |    |    |    |   |      |       |  
+Distracted  by     the     drive  ,   I  had n't even noticed how        beautifully decorated the Rewe store was for     Christmas  -   I  only noticed  it now   ,  because  I   had been talking  to  my      friend about the new Brawlstars game the whole way  ,  fascinated  . 
+
+----------------------------------------
+Sentence: Like me, he only noticed now that it was very Christmassy.
+                                   S                                              
+       ____________________________|____________________________________________   
+      |       |   |   |                      VP                                 | 
+      |       |   |   |       _______________|___                               |  
+      |       |   |   |      |     |            SBAR                            | 
+      |       |   |   |      |     |     ________|____                          |  
+      |       |   |   |      |     |    |             S                         | 
+      |       |   |   |      |     |    |     ________|___                      |  
+      PP      |   |   |      |     |    |    |            VP                    | 
+  ____|___    |   |   |      |     |    |    |    ________|____                 |  
+ |        NP  |   NP ADVP    |    ADVP  |    NP  |            ADJP              | 
+ |        |   |   |   |      |     |    |    |   |         ____|________        |  
+ IN      PRP  ,  PRP  RB    VBD    RB   IN  PRP VBD       RB            JJ      . 
+ |        |   |   |   |      |     |    |    |   |        |             |       |  
+Like      me  ,   he only noticed now  that  it was      very      Christmassy  . 
+
+----------------------------------------
+Sentence: Of course, tomorrow was the first day of Advent and many stores had already decorated their stores the Saturday before to attract more customers.
+                                                                             S                                                                                                         
+      _______________________________________________________________________|_______________________________________________________________________________________________________   
+     |           |            |                                |                                                    S                                                                | 
+     |           |            |                                |         ___________________________________________|_____                                                           |  
+     |           |            |                                |        |                                                 VP                                                         | 
+     |           |            |                                |        |           ______________________________________|_________                                                 |  
+     |           |            S                                |        |          |     |                                          VP                                               | 
+     |           |      ______|________                        |        |          |     |         _________________________________|_________________________                       |  
+     |           |     |               VP                      |        |          |     |        |            |                    |                         S                      | 
+     |           |     |       ________|____                   |        |          |     |        |            |                    |                         |                      |  
+     |           |     |      |             NP                 |        |          |     |        |            |                    |                         VP                     | 
+     |           |     |      |         ____|_______           |        |          |     |        |            |                    |              ___________|___                   |  
+     |           |     |      |        |            PP         |        |          |     |        |            |                    NP            |               VP                 | 
+     |           |     |      |        |         ___|____      |        |          |     |        |            |               _____|_______      |      _________|____              |  
+    ADVP         |     NP     |        NP       |        NP    |        NP         |    ADVP      |            NP             NP           ADVP   |     |              NP            | 
+  ___|_____      |     |      |    ____|____    |        |     |    ____|____      |     |        |        ____|____       ___|_____        |     |     |          ____|______       |  
+ RB        RB    ,     NN    VBD  DT   JJ   NN  IN      NNP    CC  JJ       NNS   VBD    RB      VBN     PRP$      NNS    DT       NNP      RB    TO    VB       JJR         NNS     . 
+ |         |     |     |      |   |    |    |   |        |     |   |         |     |     |        |       |         |     |         |       |     |     |         |           |      |  
+ Of      course  ,  tomorrow was the first day  of     Advent and many     stores had already decorated their     stores the     Saturday before  to attract     more     customers  . 
+
+----------------------------------------
+Sentence: There was also a small Christmas market in front of the entrance and my friend could hardly breathe in amazement.
+                                                             S                                                                             
+                              _______________________________|___________________________________________________________________________   
+                             S                                                |                          |                               | 
+   __________________________|_______                                         |                          |                               |  
+  |                                  VP                                       |                          |                               | 
+  |     _____________________________|_____                                   |                          |                               |  
+  |    |   |                               NP                                 |                          S                               | 
+  |    |   |          _____________________|_________                         |         _________________|_______                        |  
+  |    |   |         |                               PP                       |        |                         VP                      | 
+  |    |   |         |                      _________|___                     |        |            _____________|_____                  |  
+  |    |   |         |                     |             NP                   |        |           |     |             VP                | 
+  |    |   |         |                     |     ________|___                 |        |           |     |        _____|___              |  
+  |    |   |         |                     |    |            PP               |        |           |     |       |         PP            | 
+  |    |   |         |                     |    |     _______|___             |        |           |     |       |      ___|______       |  
+  NP   |  ADVP       NP                    |    NP   |           NP           |        NP          |    ADVP     |     |          NP     | 
+  |    |   |     ____|_______________      |    |    |        ___|_____       |    ____|____       |     |       |     |          |      |  
+  EX  VBD  RB   DT   JJ     NNP      NN    IN   NN   IN      DT        NN     CC PRP$       NN     MD    RB      VB    IN         NN     . 
+  |    |   |    |    |       |       |     |    |    |       |         |      |   |         |      |     |       |     |          |      |  
+There was also  a  small Christmas market  in front  of     the     entrance and  my      friend could hardly breathe  in     amazement  . 
+
+----------------------------------------
+Sentence: Fascinated, we looked at the many glittering Christmas artworks on the individual stalls.
+                                           S                                                          
+     ______________________________________|________________________________________________________   
+    |       |   |              VP                                                                   | 
+    |       |   |     _________|______________________                                              |  
+    |       |   |    |                                PP                                            | 
+    |       |   |    |      __________________________|________                                     |  
+    |       |   |    |     |                                   NP                                   | 
+    |       |   |    |     |                ___________________|______________                      |  
+    S       |   |    |     |               |                                  PP                    | 
+    |       |   |    |     |               |                           _______|______               |  
+   ADJP     |   NP   |     |               NP                         |              NP             | 
+    |       |   |    |     |    ___________|___________________       |    __________|________      |  
+    JJ      ,  PRP  VBD    IN  DT  JJ     VBG        NNP      NNS     IN  DT         JJ      NNS    . 
+    |       |   |    |     |   |   |       |          |        |      |   |          |        |     |  
+Fascinated  ,   we looked  at the many glittering Christmas artworks  on the     individual stalls  . 
+
+----------------------------------------
+Sentence: As we were looking at all the things in fascination, I noticed an elderly lady coming out of the Rewe store.
+                                                                      S                                                                
+      ________________________________________________________________|______________________________________________________________   
+    SBAR                                                          |   |                             VP                               | 
+  ___|___________                                                 |   |      _______________________|_____                           |  
+ |               S                                                |   |     |                             S                          | 
+ |    ___________|_________                                       |   |     |            _________________|___                       |  
+ |   |                     VP                                     |   |     |           |                     VP                     | 
+ |   |     ________________|_______                               |   |     |           |            _________|___                   |  
+ |   |    |                        VP                             |   |     |           |           |             PP                 | 
+ |   |    |       _________________|______________                |   |     |           |           |      _______|___               |  
+ |   |    |      |             PP                 PP              |   |     |           |           |     |           PP             | 
+ |   |    |      |      _______|___            ___|_______        |   |     |           |           |     |    _______|___           |  
+ |   NP   |      |     |           NP         |           NP      |   NP    |           NP          |     |   |           NP         | 
+ |   |    |      |     |    _______|____      |           |       |   |     |      _____|_____      |     |   |    _______|_____     |  
+ IN PRP  VBD    VBG    IN PDT      DT  NNS    IN          NN      ,  PRP   VBD    DT    JJ    NN   VBG    IN  IN  DT     NNP    NN   . 
+ |   |    |      |     |   |       |    |     |           |       |   |     |     |     |     |     |     |   |   |       |     |    |  
+ As  we  were looking  at all     the things  in     fascination  ,   I  noticed  an elderly lady coming out  of the     Rewe store  . 
+
+----------------------------------------
+Sentence: Her shopping cart was full of all kinds of goods.
+                             S                                      
+         ____________________|____________________________________   
+        |               VP                                        | 
+        |            ___|________                                 |  
+        |           |           ADJP                              | 
+        |           |    ________|_________                       |  
+        |           |   |                  PP                     | 
+        |           |   |     _____________|____                  |  
+        |           |   |    |                  NP                | 
+        |           |   |    |         _________|_______          |  
+        |           |   |    |        |                 PP        | 
+        |           |   |    |        |              ___|____     |  
+        NP          |   |    |        NP            |        NP   | 
+  ______|______     |   |    |    ____|____         |        |    |  
+PRP$    NN     NN  VBD  JJ   IN  DT       NNS       IN      NNS   . 
+ |      |      |    |   |    |   |         |        |        |    |  
+Her  shopping cart was full  of all      kinds      of     goods  . 
+
+----------------------------------------
+Sentence: She probably wanted to do her weekend shopping before closing time.
+                             S                                               
+  ___________________________|_____________________________________________   
+ |     |                 VP                                                | 
+ |     |        _________|__________                                       |  
+ |     |       |                    S                                      | 
+ |     |       |                    |                                      |  
+ |     |       |                    VP                                     | 
+ |     |       |      ______________|_______                               |  
+ |     |       |     |                      VP                             | 
+ |     |       |     |    __________________|_______________               |  
+ |     |       |     |   |          |                       PP             | 
+ |     |       |     |   |          |                _______|_____         |  
+ NP   ADVP     |     |   |          NP              |             NP       | 
+ |     |       |     |   |    ______|_______        |        _____|___     |  
+PRP    RB     VBD    TO  VB PRP$    NN      NN      IN     VBG        NN   . 
+ |     |       |     |   |   |      |       |       |       |         |    |  
+She probably wanted  to  do her  weekend shopping before closing     time  . 
+
+----------------------------------------
+Sentence: I couldn't explain t, but something made me look after this lady with fascination, perhaps I was amazed by her unusually loaded shopping cart or how awkwardly she navigated it across the parking lot - I don't know exactly.
+                                                                                                                                    S                                                                                                                                                     
+                                            ________________________________________________________________________________________|___________________________________________________________________________________________________________________________________________________   
+                                           |                                                             |                                                                                         S                                                                                    | 
+                                           |                                                             |            _____________________________________________________________________________|___________________________________________________________                         |  
+                                           |                                                             |           S                                                                                                                                 |       |                        | 
+                                           |                                                             |      _____|________                                                                                                                         |       |                        |  
+                                           |                                                             |     |     |        VP                                                                                                                       |       |                        | 
+                                           |                                                             |     |     |    ____|_____                                                                                                                   |       |                        |  
+                                           |                                                             |     |     |   |          VP                                                                                                                 |       |                        | 
+                                           |                                                             |     |     |   |     _____|___________                                                                                                       |       |                        |  
+                                           S                                                             |     |     |   |    |                 PP                                                                                                     |       |                        | 
+       ____________________________________|______                                                       |     |     |   |    |      ___________|___________________________                                                                           |       |                        |  
+      |                         |   |             S                                                      |     |     |   |    |     |                                       NP                                                                         |       |                        | 
+      |                         |   |       ______|____                                                  |     |     |   |    |     |                         ______________|______________________                                                    |       |                        |  
+      |                         |   |      |           VP                                                |     |     |   |    |     |                        |                   |                SBAR                                                 |       |                        | 
+      |                         |   |      |       ____|___                                              |     |     |   |    |     |                        |                   |         ________|_____________                                      |       |                        |  
+      S                         |   |      |      |        S                                             |     |     |   |    |     |                        |                   |        |                      S                                     |       S                        | 
+  ____|____                     |   |      |      |     ___|__________                                   |     |     |   |    |     |                        |                   |        |                ______|___________                          |    ___|___                     |  
+ |         VP                   |   |      |      |    |              VP                                 |     |     |   |    |     |                        |                   |        |               |                  VP                        |   |       VP                   | 
+ |     ____|___________         |   |      |      |    |    __________|__________________                |     |     |   |    |     |                        |                   |        |               |       ___________|_________                |   |    ___|________            |  
+ |    |    |           VP       |   |      |      |    |   |          PP                 PP              |     |     |   |    |     |                        NP                  |        |               |      |      |              PP              |   |   |   |        VP          | 
+ |    |    |      _____|___     |   |      |      |    |   |      ____|____          ____|_______        |     |     |   |    |     |    ____________________|______________     |        |               |      |      |     _________|_____          |   |   |   |    ____|_____      |  
+ NP   |    |     |        ADVP  |   |      NP     |    NP  |     |         NP       |            NP      |    ADVP   NP  |    |     |   |             ADJP           |      |    |      WHADVP            NP     |      NP   |               NP        |   NP  |   |   |         ADVP   | 
+ |    |    |     |         |    |   |      |      |    |   |     |     ____|___     |            |       |     |     |   |    |     |   |        ______|_____        |      |    |    ____|________       |      |      |    |      _________|_____    |   |   |   |   |          |     |  
+PRP   MD   RB    VB        RB   ,   CC     NN    VBD  PRP  VB    IN   DT       NN   IN           NN      ,     RB   PRP VBD  VBN    IN PRP$     RB          VBN      NN     NN   CC WRB            RB    PRP    VBD    PRP   IN    DT        NN    NN  :  PRP VBP  RB  VB         RB    . 
+ |    |    |     |         |    |   |      |      |    |   |     |    |        |    |            |       |     |     |   |    |     |   |       |            |       |      |    |   |             |      |      |      |    |     |         |     |   |   |   |   |   |          |     |  
+ I  could n't explain      t    ,  but something made  me look after this     lady with     fascination  ,  perhaps  I  was amazed  by her  unusually      loaded shopping cart  or how        awkwardly she navigated  it across the     parking lot  -   I   do n't know     exactly  . 
+
+----------------------------------------
+Sentence: I was still thinking that the road might be slippery in weather like this, but I couldn't finish my thought when a black car whizzed across the parking lot far too fast.
+                                                                                                         S                                                                                                        
+      ___________________________________________________________________________________________________|______________________________________________________________________________________________________   
+     S                                                                                      |   |                                                     |                                                         | 
+  ___|____                                                                                  |   |                                                     |                                                         |  
+ |        VP                                                                                |   |                                                     |                                                         | 
+ |    ____|_____________                                                                    |   |                                                     |                                                         |  
+ |   |    |             VP                                                                  |   |                                                     |                                                         | 
+ |   |    |       ______|____                                                               |   |                                                     |                                                         |  
+ |   |    |      |          SBAR                                                            |   |                                                     S                                                         | 
+ |   |    |      |       ____|________                                                      |   |    _________________________________________________|____                                                     |  
+ |   |    |      |      |             S                                                     |   |   |                                                      VP                                                   | 
+ |   |    |      |      |          ___|__________                                           |   |   |     _________________________________________________|_____                                               |  
+ |   |    |      |      |         |              VP                                         |   |   |    |    |                                                  VP                                             | 
+ |   |    |      |      |         |          ____|____________                              |   |   |    |    |     _____________________________________________|______                                        |  
+ |   |    |      |      |         |         |                 VP                            |   |   |    |    |    |          |                                        SBAR                                     | 
+ |   |    |      |      |         |         |     ____________|___________                  |   |   |    |    |    |          |             ____________________________|_____                                  |  
+ |   |    |      |      |         |         |    |     |                  PP                |   |   |    |    |    |          |            |                                  S                                 | 
+ |   |    |      |      |         |         |    |     |       ___________|___              |   |   |    |    |    |          |            |           _______________________|_________                        |  
+ |   |    |      |      |         |         |    |     |      |               NP            |   |   |    |    |    |          |            |          |                                 VP                      | 
+ |   |    |      |      |         |         |    |     |      |      _________|____         |   |   |    |    |    |          |            |          |           ______________________|_____________          |  
+ |   |    |      |      |         |         |    |     |      |     |              PP       |   |   |    |    |    |          |            |          |          |                PP                  |         | 
+ |   |    |      |      |         |         |    |     |      |     |          ____|___     |   |   |    |    |    |          |            |          |          |       _________|_____              |         |  
+ NP  |   ADVP    |      |         NP        |    |    ADJP    |     NP        |        NP   |   |   NP   |    |    |          NP         WHADVP       NP         |      |               NP           ADVP       | 
+ |   |    |      |      |     ____|___      |    |     |      |     |         |        |    |   |   |    |    |    |      ____|_____       |      ____|____      |      |      _________|_____     ___|____     |  
+PRP VBD   RB    VBG     IN   DT       NN    MD   VB    JJ     IN    NN        IN       DT   ,   CC PRP   MD   RB   VB   PRP$        NN    WRB    DT   JJ   NN   VBD     IN    DT        NN    NN  RB  RB   RB   . 
+ |   |    |      |      |    |        |     |    |     |      |     |         |        |    |   |   |    |    |    |     |          |      |     |    |    |     |      |     |         |     |   |   |    |    |  
+ I  was still thinking that the      road might  be slippery  in weather     like     this  ,  but  I  could n't finish  my      thought  when   a  black car whizzed across the     parking lot far too  fast  . 
+
+----------------------------------------
+Sentence: I had a bad feeling.
+         S                     
+  _______|___________________   
+ |           VP              | 
+ |    _______|___            |  
+ NP  |           NP          | 
+ |   |    _______|_____      |  
+PRP VBD  DT      JJ    NN    . 
+ |   |   |       |     |     |  
+ I  had  a      bad feeling  . 
+
+----------------------------------------
+Sentence: Some people in the distance were already jumping to the side in horror and cursing angrily.
+                                                           S                                                         
+                  _________________________________________|_______________________________________________________   
+                 |                                                     VP                                          | 
+                 |                     ________________________________|____                                       |  
+                 |                    |      |                              VP                                     | 
+                 |                    |      |                  ____________|__________________________            |  
+                 NP                   |      |                 VP                          |           |           | 
+       __________|___                 |      |        _________|________________           |           |           |  
+      |              PP               |      |       |         PP               PP         |           VP          | 
+      |           ___|___             |      |       |      ___|___          ___|____      |      _____|_____      |  
+      NP         |       NP           |     ADVP     |     |       NP       |        NP    |     |          ADVP   | 
+  ____|____      |    ___|_____       |      |       |     |    ___|___     |        |     |     |           |     |  
+ DT       NNS    IN  DT        NN    VBD     RB     VBG    IN  DT      NN   IN       NN    CC   VBG          RB    . 
+ |         |     |   |         |      |      |       |     |   |       |    |        |     |     |           |     |  
+Some     people  in the     distance were already jumping  to the     side  in     horror and cursing     angrily  . 
+
+----------------------------------------
+Sentence: "There are little children here,"
+                S                             
+  ______________|___________________________   
+ |         S                            |   | 
+ |     ____|____                        |   |  
+ |    |         VP                      |   | 
+ |    |     ____|__________________     |   |  
+ |    NP   |          NP          ADVP  |   | 
+ |    |    |     _____|_____       |    |   |  
+ ``   EX  VBP   JJ         NNS     RB   ,   ''
+ |    |    |    |           |      |    |   |  
+ "  There are little     children here  ,   " 
+
+----------------------------------------
+Sentence: I heard a worried mother shout as the car continued to approach menacingly.
+                                        S                                                            
+  ______________________________________|__________________________________________________________   
+ |                                      VP                                                         | 
+ |     _________________________________|___                                                       |  
+ |    |                |                   SBAR                                                    | 
+ |    |                |                 ___|_______________                                       |  
+ |    |                |                |                   S                                      | 
+ |    |                |                |         __________|__________                            |  
+ |    |                |                |        |                     VP                          | 
+ |    |                |                |        |           __________|_____                      |  
+ |    |                |                |        |          |                S                     | 
+ |    |                |                |        |          |                |                     |  
+ |    |                |                |        |          |                VP                    | 
+ |    |                |                |        |          |       _________|______               |  
+ |    |                S                |        |          |      |                VP             | 
+ |    |           _____|___________     |        |          |      |          ______|______        |  
+ NP   |          NP                VP   |        NP         |      |         |            ADVP     | 
+ |    |     _____|__________       |    |    ____|___       |      |         |             |       |  
+PRP  VBD   DT    JJ         NN     VB   IN  DT       NN    VBD     TO        VB            RB      . 
+ |    |    |     |          |      |    |   |        |      |      |         |             |       |  
+ I  heard  a  worried     mother shout  as the      car continued  to     approach     menacingly  . 
+
+----------------------------------------
+Sentence: But what was to be expected happened: the car lost control due to the completely excessive speed.
+                                                              S                                                              
+  ____________________________________________________________|____________________________________________________________   
+ |                    SBAR                        |                            |                                           | 
+ |             ________|___________________       |                            |                                           |  
+ |           SBAR                          |      |                            |                                           | 
+ |    ________|____                        |      |                            |                                           |  
+ |   |             S                       |      |                            |                                           | 
+ |   |             |                       |      |                            |                                           |  
+ |   |             VP                      |      |                            S                                           | 
+ |   |     ________|___                    |      |        ____________________|___                                        |  
+ |   |    |            S                   |      |       |                        VP                                      | 
+ |   |    |            |                   |      |       |        ________________|___                                    |  
+ |   |    |            VP                  |      |       |       |      |             PP                                  | 
+ |   |    |    ________|____               |      |       |       |      |      _______|______                             |  
+ |   |    |   |             VP             |      |       |       |      |     |   |          NP                           | 
+ |   |    |   |         ____|_____         |      |       |       |      |     |   |    ______|_______________________     |  
+ |  WHNP  |   |        |          VP       VP     |       NP      |      NP    |   |   |             ADJP             |    | 
+ |   |    |   |        |          |        |      |    ___|___    |      |     |   |   |       _______|_______        |    |  
+ CC  WP  VBD  TO       VB        VBN      VBD     :   DT      NN VBD     NN    IN  IN  DT     RB              JJ      NN   . 
+ |   |    |   |        |          |        |      |   |       |   |      |     |   |   |      |               |       |    |  
+But what was  to       be      expected happened  :  the     car lost control due  to the completely      excessive speed  . 
+
+----------------------------------------
+Sentence: It spun in circles and before it came to a halt, it knocked over the woman's shopping cart again with full force.
+                                                                           S                                                                        
+           ________________________________________________________________|______________________________________________________________________   
+          |                   |                                                        S                                                          | 
+          |                   |               _________________________________________|____________________                                      |  
+          |                   |             SBAR                       |   |                                |                                     | 
+          |                   |     _________|____                     |   |                                |                                     |  
+          S                   |    |              S                    |   |                                VP                                    | 
+  ________|___                |    |      ________|___                 |   |      __________________________|______________________               |  
+ |            VP              |    |     |            VP               |   |     |               PP                      |         |              | 
+ |    ________|___            |    |     |    ________|___             |   |     |      _________|____                   |         |              |  
+ |   |            PP          |    |     |   |            PP           |   |     |     |              NP                 |         PP             | 
+ |   |         ___|_____      |    |     |   |     _______|___         |   |     |     |          ____|____________      |     ____|____          |  
+ NP  |        |         NP    |    |     NP  |    |           NP       |   NP    |    PRT        NP         |      |    ADVP  |         NP        | 
+ |   |        |         |     |    |     |   |    |        ___|___     |   |     |     |     ____|____      |      |     |    |     ____|____     |  
+PRP VBD       IN       NNS    CC   IN   PRP VBD   IN      DT      NN   ,  PRP   VBD    RP   DT   NN  POS    NN     NN    RB   IN   JJ        NN   . 
+ |   |        |         |     |    |     |   |    |       |       |    |   |     |     |    |    |    |     |      |     |    |    |         |    |  
+ It spun      in     circles and before  it came  to      a      halt  ,   it knocked over the woman  's shopping cart again with full     force  . 
+
+----------------------------------------
+Sentence: I can still remember today how all the goods in the lady's shopping cart flew through the air as if in slow motion and even during the flight I thought:
+                                                                                  S                                                                                                   
+  ________________________________________________________________________________|_________________________________________________________________________________________________   
+ |                                                                                VP                                                                                                | 
+ |    ____________________________________________________________________________|______                                                                                           |  
+ |   |    |                                                                              VP                                                                                         | 
+ |   |    |       _______________________________________________________________________|_____                                                                                     |  
+ |   |    |      |       |                                                                    SBAR                                                                                  | 
+ |   |    |      |       |      _______________________________________________________________|________                                                                            |  
+ |   |    |      |       |     |                                                                        S                                                                           | 
+ |   |    |      |       |     |                                              __________________________|________________________________________________                           |  
+ |   |    |      |       |     |                                             S                                                           |               |                          | 
+ |   |    |      |       |     |                        _____________________|______________________________                             |               |                          |  
+ |   |    |      |       |     |                       NP                                                   VP                           |               |                          | 
+ |   |    |      |       |     |          _____________|___                        _________________________|_______                     |               |                          |  
+ |   |    |      |       |     |         |                 PP                     |            |                   SBAR                  |               S                          | 
+ |   |    |      |       |     |         |          _______|____                  |            |             _______|____                |          _____|____________________      |  
+ |   |    |      |       |     |         |         |            NP                |            PP           |   |        PP              |         PP                   |     |     | 
+ |   |    |      |       |     |         |         |        ____|____________     |       _____|____        |   |    ____|____           |    _____|_________           |     |     |  
+ NP  |   ADVP    |       NP  WHADVP      NP        |       NP         |      |    |      |          NP      |   |   |         NP         |  ADVP   |         NP         NP    VP    | 
+ |   |    |      |       |     |      ___|____     |    ___|____      |      |    |      |      ____|___    |   |   |     ____|____      |   |     |      ___|____      |     |     |  
+PRP  MD   RB     VB      NN   WRB   PDT  DT  NNS   IN  DT  NN  POS    NN     NN  VBD     IN    DT       NN  IN  IN  IN   JJ        NN    CC  RB    IN    DT       NN   PRP   VBD    : 
+ |   |    |      |       |     |     |   |    |    |   |   |    |     |      |    |      |     |        |   |   |   |    |         |     |   |     |     |        |     |     |     |  
+ I  can still remember today  how   all the goods  in the lady  's shopping cart flew through the      air  as  if  in  slow     motion and even during the     flight  I  thought  : 
+
+----------------------------------------
+Sentence: "Oh dear, this is going to be a real mess!"
+                                 S                                    
+  _______________________________|__________________________________   
+ |       |         |   |         VP                             |   | 
+ |       |         |   |     ____|________                      |   |  
+ |       |         |   |    |             VP                    |   | 
+ |       |         |   |    |     ________|___                  |   |  
+ |       |         |   |    |    |            S                 |   | 
+ |       |         |   |    |    |            |                 |   |  
+ |       |         |   |    |    |            VP                |   | 
+ |       |         |   |    |    |     _______|___              |   |  
+ |       |         |   |    |    |    |           VP            |   | 
+ |       |         |   |    |    |    |    _______|___          |   |  
+ |      INTJ       |   NP   |    |    |   |           NP        |   | 
+ |    ___|____     |   |    |    |    |   |    _______|____     |   |  
+ ``  UH       RB   ,   DT  VBZ  VBG   TO  VB  DT      JJ   NN   .   ''
+ |   |        |    |   |    |    |    |   |   |       |    |    |   |  
+ "   Oh      dear  ,  this  is going  to  be  a      real mess  !   " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: It rattled, everything was on the ground.
+                                S                            
+      __________________________|__________________________   
+     |           |                  S                      | 
+     |           |       ___________|___                   |  
+     |           |      |               VP                 | 
+     |           |      |        _______|___               |  
+     S           |      |       |           PP             | 
+  ___|_____      |      |       |    _______|___           |  
+ NP        VP    |      NP      |   |           NP         | 
+ |         |     |      |       |   |        ___|____      |  
+PRP       VBD    ,      NN     VBD  IN      DT       NN    . 
+ |         |     |      |       |   |       |        |     |  
+ It     rattled  ,  everything was  on     the     ground  . 
+
+----------------------------------------
+Sentence: And all the attention of the surrounding passers-by was focused on this bizarre scene.
+                                                   S                                                 
+  _________________________________________________|_______________________________________________   
+ |                         |                                            VP                         | 
+ |                         |                                 ___________|___                       |  
+ |                         NP                               |               VP                     | 
+ |        _________________|_______                         |      _________|____                  |  
+ |       |                         PP                       |     |              PP                | 
+ |       |              ___________|_________               |     |      ________|_____            |  
+ |       NP            |                     NP             |     |     |              NP          | 
+ |    ___|______       |    _________________|__________    |     |     |    __________|______     |  
+ CC PDT  DT     NN     IN  DT     VBG       NNS   HYPH  NN VBD   VBN    IN  DT         JJ     NN   . 
+ |   |   |      |      |   |       |         |     |    |   |     |     |   |          |      |    |  
+And all the attention  of the surrounding passers  -    by was focused  on this     bizarre scene  . 
+
+----------------------------------------
+Sentence: What luck, nothing else happened to the woman.
+                               SBARQ                                   
+       __________________________|___________________________________   
+      |         |           |                      VP                | 
+      |         |           |            __________|___              |  
+      |         |           |           |              PP            | 
+      |         |           |           |       _______|___          |  
+     WHNP       |           NP          |      |           NP        | 
+  ____|____     |      _____|____       |      |        ___|____     |  
+ WP        NN   ,     NN         RB    VBD     IN      DT       NN   . 
+ |         |    |     |          |      |      |       |        |    |  
+What      luck  ,  nothing      else happened  to     the     woman  . 
+
+----------------------------------------
+Sentence: She stood there in horror and watched the scene.
+                          S                                 
+  ________________________|_______________________________   
+ |                        VP                              | 
+ |           _____________|_________________              |  
+ |          VP                  |           |             | 
+ |     _____|________           |           |             |  
+ |    |     |        PP         |           VP            | 
+ |    |     |     ___|____      |      _____|___          |  
+ NP   |    ADVP  |        NP    |     |         NP        | 
+ |    |     |    |        |     |     |      ___|____     |  
+PRP  VBD    RB   IN       NN    CC   VBD    DT       NN   . 
+ |    |     |    |        |     |     |     |        |    |  
+She stood there  in     horror and watched the     scene  . 
+
+----------------------------------------
+Sentence: Only after a delay and wild gesticulation, after she had recovered from the shock, did words come out of her mouth and she shouted loudly that the driver should watch out.
+                                                                                                            SINV                                                                                                          
+                                                      _______________________________________________________|__________________________________________________________________________________________________________   
+                                                     PP                                                      |     |             |                      |                S                                              | 
+                      _______________________________|___________________________________________________    |     |             |                      |    ____________|__________                                    |  
+                     |                               |        SBAR                                       |   |     |             |                      |   |                       VP                                  | 
+                     |                               |     ____|___________                              |   |     |             |                      |   |      _________________|________                           |  
+                     |                               |    |                S                             |   |     |             |                      |   |     |      |                  SBAR                        | 
+                     |                               |    |     ___________|______                       |   |     |             |                      |   |     |      |      _____________|______                    |  
+                     |                               |    |    |                  VP                     |   |     |             VP                     |   |     |      |     |                    S                   | 
+                     |                               |    |    |     _____________|____                  |   |     |     ________|___                   |   |     |      |     |         ___________|______             |  
+                     PP                              |    |    |    |                  VP                |   |     |    |            PP                 |   |     |      |     |        |                  VP           | 
+  ___________________|____                           |    |    |    |       ___________|___              |   |     |    |     _______|___               |   |     |      |     |        |            ______|____        |  
+ |     |                  NP                         |    |    |    |      |               PP            |   |     |    |    |           PP             |   |     |      |     |        |           |           VP      | 
+ |     |         _________|________                  |    |    |    |      |       ________|___          |   |     |    |    |    _______|____          |   |     |      |     |        |           |       ____|___    |  
+ADVP   |        NP        |        NP                |    |    NP   |      |      |            NP        |   |     NP   |    |   |            NP        |   NP    |     ADVP   |        NP          |      |       PRT  | 
+ |     |     ___|____     |    ____|________         |    |    |    |      |      |         ___|____     |   |     |    |    |   |        ____|____     |   |     |      |     |     ___|____       |      |        |   |  
+ RB    IN   DT       NN   CC  JJ            NN       ,    IN  PRP  VBD    VBN     IN       DT       NN   ,  VBD   NNS   VB   IN  IN     PRP$       NN   CC PRP   VBD     RB    IN   DT       NN     MD     VB       RP  . 
+ |     |    |        |    |   |             |        |    |    |    |      |      |        |        |    |   |     |    |    |   |       |         |    |   |     |      |     |    |        |      |      |        |   |  
+Only after  a      delay and wild     gesticulation  ,  after she  had recovered from     the     shock  ,  did  words come out  of     her      mouth and she shouted loudly that the     driver should watch     out  . 
+
+----------------------------------------
+Sentence: Full of fascination, we ran excitedly to the event and wanted to see everything up close.
+                                                     S                                                            
+       ______________________________________________|__________________________________________________________   
+      |                    |   |                                   VP                                           | 
+      |                    |   |                  _________________|__________                                  |  
+      |                    |   |                 |                 |          VP                                | 
+      |                    |   |                 |                 |     _____|___                              |  
+      S                    |   |                 |                 |    |         S                             | 
+      |                    |   |                 |                 |    |         |                             |  
+     ADJP                  |   |                 VP                |    |         VP                            | 
+  ____|____                |   |    _____________|___              |    |      ___|______                       |  
+ |         PP              |   |   |      |          PP            |    |     |          VP                     | 
+ |     ____|_______        |   |   |      |       ___|___          |    |     |    ______|___________           |  
+ |    |            NP      |   NP  |     ADVP    |       NP        |    |     |   |      NP         ADVP        | 
+ |    |            |       |   |   |      |      |    ___|____     |    |     |   |      |        ___|_____     |  
+ JJ   IN           NN      ,  PRP VBD     RB     IN  DT       NN   CC  VBD    TO  VB     NN      IN        RB   . 
+ |    |            |       |   |   |      |      |   |        |    |    |     |   |      |       |         |    |  
+Full  of      fascination  ,   we ran excitedly  to the     event and wanted  to see everything  up      close  . 
+
+----------------------------------------
+Sentence: I asked the lady if everything was alright, she said:
+                               S                                           
+                    ___________|_________________________________________   
+                   S                                        |   |   |    | 
+  _________________|____                                    |   |   |    |  
+ |                      VP                                  |   |   |    | 
+ |     _________________|______________                     |   |   |    |  
+ |    |        |                      SBAR                  |   |   |    | 
+ |    |        |         ______________|____                |   |   |    |  
+ |    |        |        |                   S               |   |   |    | 
+ |    |        |        |       ____________|___            |   |   |    |  
+ |    |        |        |      |                VP          |   |   |    | 
+ |    |        |        |      |             ___|_____      |   |   |    |  
+ NP   |        NP       |      NP           |        ADJP   |   NP  VP   | 
+ |    |     ___|___     |      |            |         |     |   |   |    |  
+PRP  VBD   DT      NN   IN     NN          VBD        JJ    ,  PRP VBD   : 
+ |    |    |       |    |      |            |         |     |   |   |    |  
+ I  asked the     lady  if everything      was     alright  ,  she said  : 
+
+----------------------------------------
+Sentence: "Thank God"
+    SBARQ            
+  ____|____________   
+ |         VP      | 
+ |     ____|___    |  
+ |    |        NP  | 
+ |    |        |   |  
+ ``   VB      NNP  ''
+ |    |        |   |  
+ "  Thank     God  " 
+
+----------------------------------------
+Sentence: , but when she looked at the disaster she said depressed:
+                           S                                                 
+  _________________________|_______________________________________________   
+ |   |              SBAR                            |        |             | 
+ |   |     __________|_____                         |        |             |  
+ |   |    |                S                        |        |             | 
+ |   |    |      __________|___                     |        |             |  
+ |   |    |     |              VP                   |        |             | 
+ |   |    |     |     _________|___                 |        |             |  
+ |   |    |     |    |             PP               |        VP            | 
+ |   |    |     |    |      _______|___             |    ____|______       |  
+ |   |  WHADVP  NP   |     |           NP           NP  |          ADJP    | 
+ |   |    |     |    |     |        ___|_____       |   |           |      |  
+ ,   CC  WRB   PRP  VBD    IN      DT        NN    PRP VBD          JJ     : 
+ |   |    |     |    |     |       |         |      |   |           |      |  
+ ,  but  when  she looked  at     the     disaster she said     depressed  : 
+
+----------------------------------------
+Sentence: "Everything is on the floor, who's going to clean it up for me"
+                                                    S                                          
+  __________________________________________________|________________________________________   
+ |                  |                     |       SBARQ                                      | 
+ |                  |                     |    _____|_____                                   |  
+ |                  |                     |   |           SQ                                 | 
+ |                  |                     |   |      _____|____                              |  
+ |                  |                     |   |     |          VP                            | 
+ |                  |                     |   |     |      ____|_________                    |  
+ |                  |                     |   |     |     |              S                   | 
+ |                  |                     |   |     |     |              |                   |  
+ |                  S                     |   |     |     |              VP                  | 
+ |       ___________|___                  |   |     |     |     _________|___                |  
+ |      |               VP                |   |     |     |    |             VP              | 
+ |      |        _______|___              |   |     |     |    |     ________|_______        |  
+ |      |       |           PP            |   |     |     |    |    |    |   |       PP      | 
+ |      |       |    _______|___          |   |     |     |    |    |    |   |    ___|___    |  
+ |      NP      |   |           NP        |  WHNP   |     |    |    |    NP PRT  |       NP  | 
+ |      |       |   |        ___|____     |   |     |     |    |    |    |   |   |       |   |  
+ ``     NN     VBZ  IN      DT       NN   ,   WP   VBZ   VBG   TO   VB  PRP  RP  IN     PRP  ''
+ |      |       |   |       |        |    |   |     |     |    |    |    |   |   |       |   |  
+ "  Everything  is  on     the     floor  ,  who    's  going  to clean  it  up for      me  " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: I calmed the visibly agitated lady down and said that we would be happy to help her.
+                                                    S                                                      
+  __________________________________________________|____________________________________________________   
+ |                                                  VP                                                   | 
+ |                 _________________________________|____                                                |  
+ |                |                             |        VP                                              | 
+ |                |                             |    ____|____                                           |  
+ |                |                             |   |        SBAR                                        | 
+ |                |                             |   |     ____|_____                                     |  
+ |                |                             |   |    |          S                                    | 
+ |                |                             |   |    |     _____|_________                           |  
+ |                |                             |   |    |    |               VP                         | 
+ |                |                             |   |    |    |      _________|____                      |  
+ |                |                             |   |    |    |     |              VP                    | 
+ |                |                             |   |    |    |     |     _________|___                  |  
+ |                |                             |   |    |    |     |    |            ADJP               | 
+ |                |                             |   |    |    |     |    |     ________|____             |  
+ |                |                             |   |    |    |     |    |    |             S            | 
+ |                |                             |   |    |    |     |    |    |             |            |  
+ |                VP                            |   |    |    |     |    |    |             VP           | 
+ |     ___________|________________________     |   |    |    |     |    |    |     ________|____        |  
+ |    |           NP                       |    |   |    |    |     |    |    |    |             VP      | 
+ |    |      _____|___________________     |    |   |    |    |     |    |    |    |         ____|___    |  
+ NP   |     |          ADJP           |   PRT   |   |    |    NP    |    |    |    |        |        NP  | 
+ |    |     |      _____|______       |    |    |   |    |    |     |    |    |    |        |        |   |  
+PRP  VBD    DT    RB           JJ     NN   RP   CC VBD   IN  PRP    MD   VB   JJ   TO       VB      PRP  . 
+ |    |     |     |            |      |    |    |   |    |    |     |    |    |    |        |        |   |  
+ I  calmed the visibly      agitated lady down and said that  we  would  be happy  to      help     her  . 
+
+----------------------------------------
+Sentence: But first I advised her to call the police.
+                       S                                 
+  _____________________|_______________________________   
+ |    |    |               VP                          | 
+ |    |    |      _________|________                   |  
+ |    |    |     |     |            S                  | 
+ |    |    |     |     |            |                  |  
+ |    |    |     |     |            VP                 | 
+ |    |    |     |     |    ________|___               |  
+ |    |    |     |     |   |            VP             | 
+ |    |    |     |     |   |    ________|___           |  
+ |   ADVP  NP    |     NP  |   |            NP         | 
+ |    |    |     |     |   |   |         ___|____      |  
+ CC   RB  PRP   VBD   PRP  TO  VB       DT       NN    . 
+ |    |    |     |     |   |   |        |        |     |  
+But first  I  advised her  to call     the     police  . 
+
+----------------------------------------
+Sentence: She did so immediately with her cell phone.
+                          S                          
+  ________________________|________________________   
+ |                        VP                       | 
+ |    ____________________|_________               |  
+ |   |   |        |                 PP             | 
+ |   |   |        |        _________|___           |  
+ NP  |  ADVP     ADVP     |             NP         | 
+ |   |   |        |       |     ________|_____     |  
+PRP VBD  RB       RB      IN  PRP$      NN    NN   . 
+ |   |   |        |       |    |        |     |    |  
+She did  so  immediately with her      cell phone  . 
+
+----------------------------------------
+Sentence: In the meantime, something was stirring in the black car, which came to a halt a short distance later with the engine still running.
+                                                                             S                                                                                       
+      _______________________________________________________________________|_____________________________________________________________________________________   
+     |                |      |            VP                                                                                                                       | 
+     |                |      |       _____|__________                                                                                                              |  
+     |                |      |      |                VP                                                                                                            | 
+     |                |      |      |      __________|_____________                                                                                                |  
+     |                |      |      |     |                        PP                                                                                              | 
+     |                |      |      |     |       _________________|__________________________                                                                     |  
+     |                |      |      |     |      |                                            NP                                                                   | 
+     |                |      |      |     |      |         ___________________________________|_________                                                           |  
+     |                |      |      |     |      |        |        |                                   SBAR                                                        | 
+     |                |      |      |     |      |        |        |     _______________________________|___________                                               |  
+     |                |      |      |     |      |        |        |    |                                           S                                              | 
+     |                |      |      |     |      |        |        |    |                                           |                                              |  
+     |                |      |      |     |      |        |        |    |                                           VP                                             | 
+     |                |      |      |     |      |        |        |    |     ______________________________________|_________________                             |  
+     |                |      |      |     |      |        |        |    |    |        |                      |                        PP                           | 
+     |                |      |      |     |      |        |        |    |    |        |                      |                    ____|________                    |  
+     PP               |      |      |     |      |        |        |    |    |        PP                    ADVP                 |             S                   | 
+  ___|___             |      |      |     |      |        |        |    |    |     ___|___               ____|______________     |         ____|_____________      |  
+ |       NP           |      NP     |     |      |        NP       |   WHNP  |    |       NP            NP                  |    |        NP         ADVP    VP    | 
+ |    ___|_____       |      |      |     |      |    ____|____    |    |    |    |    ___|___      ____|___________        |    |     ___|____       |      |     |  
+ IN  DT        NN     ,      NN    VBD   VBG     IN  DT   JJ   NN  ,   WDT  VBD   IN  DT      NN   DT   JJ          NN      RB   IN   DT       NN     RB    VBG    . 
+ |   |         |      |      |      |     |      |   |    |    |   |    |    |    |   |       |    |    |           |       |    |    |        |      |      |     |  
+ In the     meantime  ,  something was stirring  in the black car  ,  which came  to  a      halt  a  short      distance later with the     engine still running  . 
+
+----------------------------------------
+Sentence: A visibly shaken man got out of the car.
+                             S                             
+        _____________________|___________________________   
+       |                             VP                  | 
+       |                      _______|___                |  
+       |                     |           PP              | 
+       |                     |    _______|___            |  
+       NP                    |   |           PP          | 
+  _____|_________________    |   |    _______|___        |  
+ |          ADJP         |   |   |   |           NP      | 
+ |      _____|_____      |   |   |   |        ___|___    |  
+ DT    RB         VBN    NN VBD  IN  IN      DT      NN  . 
+ |     |           |     |   |   |   |       |       |   |  
+ A  visibly      shaken man got out  of     the     car  . 
+
+----------------------------------------
+Sentence: Pale as a sheet and flustered, only stuttering words came out of his mouth such as:
+                                                       S                                                            
+                _______________________________________|__________________________________________________________   
+               S                           |           |                              VP                          | 
+           ____|____________________       |           |              ________________|___________________        |  
+         ADJP                |      |      |           |             |            PP                      |       | 
+  ________|____              |      |      |           |             |     _______|___                    |       |  
+ |             PP            |      |      |           |             |    |           PP                  |       | 
+ |     ________|___          |      |      |           |             |    |    _______|____               |       |  
+ |    |            NP        |      VP     |           NP            |    |   |            NP             PP      | 
+ |    |         ___|____     |      |      |    _______|________     |    |   |        ____|____      ____|___    |  
+ JJ   IN       DT       NN   CC    VBN     ,   RB      JJ      NNS  VBD   IN  IN     PRP$       NN   JJ       IN  : 
+ |    |        |        |    |      |      |   |       |        |    |    |   |       |         |    |        |   |  
+Pale  as       a      sheet and flustered  ,  only stuttering words came out  of     his      mouth such      as  : 
+
+----------------------------------------
+Sentence: "gracious lady everything okay?"
+                        SBARQ                    
+  ________________________|____________________   
+ |            |                   NP       |   | 
+ |            |            _______|___     |   |  
+ |            NP          NP         ADJP  |   | 
+ |      ______|___        |           |    |   |  
+ ``    JJ         NN      NN          JJ   .   ''
+ |     |          |       |           |    |   |  
+ "  gracious     lady everything     okay  ?   " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: Visibly embarrassed, he looked at the scene he had caused.
+                                         S                                       
+          _______________________________|_____________________________________   
+         |                |   |          VP                                    | 
+         |                |   |     _____|____________                         |  
+         |                |   |    |                  PP                       | 
+         |                |   |    |      ____________|____                    |  
+         |                |   |    |     |                 NP                  | 
+         |                |   |    |     |        _________|___                |  
+         |                |   |    |     |       |            SBAR             | 
+         |                |   |    |     |       |             |               |  
+         |                |   |    |     |       |             S               | 
+         |                |   |    |     |       |          ___|____           |  
+         S                |   |    |     |       |         |        VP         | 
+         |                |   |    |     |       |         |    ____|____      |  
+        ADJP              |   NP   |     |       NP        NP  |         VP    | 
+    _____|________        |   |    |     |    ___|____     |   |         |     |  
+   RB             JJ      ,  PRP  VBD    IN  DT       NN  PRP VBD       VBN    . 
+   |              |       |   |    |     |   |        |    |   |         |     |  
+Visibly      embarrassed  ,   he looked  at the     scene  he had      caused  . 
+
+----------------------------------------
+Sentence: "i'm very sorry"
+         S                     
+  _______|___________________   
+ |   |       VP              | 
+ |   |    ___|____           |  
+ |   NP  |       ADJP        | 
+ |   |   |    ____|_____     |  
+ `` PRP VBP  RB         JJ   ''
+ |   |   |   |          |    |  
+ "   i   'm very      sorry  " 
+
+----------------------------------------
+Sentence: he added.
+      S      
+  ____|____   
+ NP   VP   | 
+ |    |    |  
+PRP  VBD   . 
+ |    |    |  
+ he added  . 
+
+----------------------------------------
+Sentence: "Yes-yes, you probably don't believe that yourself.
+                             S                                      
+  ___________________________|____________________________________   
+ |       |         |   |     |                VP                  | 
+ |       |         |   |     |       _________|_____              |  
+ |      INTJ       |   |     |      |   |           VP            | 
+ |    ___|____     |   |     |      |   |      _____|______       |  
+ |   |   |   INTJ  |   NP   ADVP    |   |     |     NP     NP     | 
+ |   |   |    |    |   |     |      |   |     |     |      |      |  
+ ``  UH  :    UH   ,  PRP    RB    VBP  RB    VB    DT    PRP     . 
+ |   |   |    |    |   |     |      |   |     |     |      |      |  
+ "  Yes  -   yes   ,  you probably  do n't believe that yourself  . 
+
+----------------------------------------
+Sentence: Driving far too fast here on this slippery road.
+                                 S                            
+                             ____|__________________________   
+                            VP                              | 
+    ________________________|_____________                  |  
+   |             ADVP                     PP                | 
+   |          ____|_________      ________|_____            |  
+   |        ADVP           ADVP  |              NP          | 
+   |      ___|_________     |    |    __________|______     |  
+  VBG    RB  RB        RB   RB   IN  DT         JJ     NN   . 
+   |     |   |         |    |    |   |          |      |    |  
+Driving far too       fast here  on this     slippery road  . 
+
+----------------------------------------
+Sentence: And people everywhere.
+     FRAG                    
+  ____|____________________   
+ |          NP             | 
+ |     _____|______        |  
+ |    NP          ADVP     | 
+ |    |            |       |  
+ CC  NNS           RB      . 
+ |    |            |       |  
+And people     everywhere  . 
+
+----------------------------------------
+Sentence: Be glad that nothing worse happened!"
+                 S                               
+           ______|_____________________________   
+          VP                               |   | 
+  ________|______                          |   |  
+ |              ADJP                       |   | 
+ |    ___________|_____                    |   |  
+ |   |                SBAR                 |   | 
+ |   |     ____________|_____              |   |  
+ |   |    |                  S             |   | 
+ |   |    |             _____|______       |   |  
+ |   |    |            NP           |      |   | 
+ |   |    |       _____|_____       |      |   |  
+ |   |    |      NP         ADJP    VP     |   | 
+ |   |    |      |           |      |      |   |  
+ VB  JJ   IN     NN         JJR    VBD     .   ''
+ |   |    |      |           |      |      |   |  
+ Be glad that nothing      worse happened  !   " 
+
+----------------------------------------
+Sentence: she slobbered over to him.
+               S                  
+  _____________|________________   
+ |             VP               | 
+ |       ______|________        |  
+ |      |      |        PP      | 
+ |      |      |     ___|___    |  
+ NP     |     PRT   |       NP  | 
+ |      |      |    |       |   |  
+PRP    VBD     RP   IN     PRP  . 
+ |      |      |    |       |   |  
+she slobbered over  to     him  . 
+
+----------------------------------------
+Sentence: Completely captivated by what was happening, we didn't even notice that the police had already arrived.
+                                                                   S                                                         
+                        ___________________________________________|_______________________________________________________   
+                       S                               |   |       |                                                       | 
+     __________________|___                            |   |       |                                                       |  
+    |                      VP                          |   |       VP                                                      | 
+    |           ___________|____                       |   |    ___|_______________                                        |  
+    |          |                PP                     |   |   |   |   |           VP                                      | 
+    |          |        ________|___                   |   |   |   |   |      _____|_____________                          |  
+    |          |       |           SBAR                |   |   |   |   |     |                  SBAR                       | 
+    |          |       |    ________|____              |   |   |   |   |     |      _____________|_____                    |  
+    |          |       |   |             S             |   |   |   |   |     |     |                   S                   | 
+    |          |       |   |             |             |   |   |   |   |     |     |         __________|_____              |  
+    |          |       |   |             VP            |   |   |   |   |     |     |        |                VP            | 
+    |          |       |   |         ____|______       |   |   |   |   |     |     |        |           _____|_______      |  
+   ADVP        |       |  WHNP      |           VP     |   NP  |   |  ADVP   |     |        NP         |    ADVP     VP    | 
+    |          |       |   |        |           |      |   |   |   |   |     |     |     ___|____      |     |       |     |  
+    RB        VBN      IN  WP      VBD         VBG     ,  PRP VBD  RB  RB    VB    IN   DT       NN   VBD    RB     VBN    . 
+    |          |       |   |        |           |      |   |   |   |   |     |     |    |        |     |     |       |     |  
+Completely captivated  by what     was      happening  ,   we did n't even notice that the     police had already arrived  . 
+
+----------------------------------------
+Sentence: Not quite as hurried as the black car but with flashing blue lights, they drove up and stopped next to the event.
+                                                                   S                                                                             
+                  _________________________________________________|___________________________________________________________________________   
+                 |                           |                 |               |   |                         VP                                | 
+                 |                           |                 |               |   |           ______________|__________                       |  
+                 |                           |                 |               |   |          |        |                VP                     | 
+                 |                           |                 |               |   |          |        |      __________|___                   |  
+                ADJP                         |                 |               |   |          |        |     |             ADVP                | 
+       __________|_____________              |                 |               |   |          |        |     |      ________|____              |  
+      |                        PP            |                 PP              |   |          VP       |     |     |             PP            | 
+      |                 _______|____         |    _____________|___            |   |      ____|___     |     |     |     ________|___          |  
+     ADJP              |            NP       |   |                 NP          |   NP    |       ADVP  |     |     |    |            NP        | 
+  ____|__________      |    ________|____    |   |       __________|_____      |   |     |        |    |     |     |    |         ___|____     |  
+ RB   RB   RB    JJ    IN  DT       JJ   NN  CC  IN    VBG         JJ   NNS    ,  PRP   VBD       RB   CC   VBD    RB   IN       DT       NN   . 
+ |    |    |     |     |   |        |    |   |   |      |          |     |     |   |     |        |    |     |     |    |        |        |    |  
+Not quite  as hurried  as the     black car but with flashing     blue lights  ,  they drove      up  and stopped next  to      the     event  . 
+
+----------------------------------------
+Sentence: You could hear the police radio squawking from the police car as two police officers in full gear approached the scene.
+                                                               S                                                                         
+  _____________________________________________________________|_______________________________________________________________________   
+ |                                                             VP                                                                      | 
+ |     ________________________________________________________|___                                                                    |  
+ |    |                                                            VP                                                                  | 
+ |    |     _______________________________________________________|_______________________                                            |  
+ |    |    |                        |                                                     SBAR                                         | 
+ |    |    |                        |                               _______________________|____                                       |  
+ |    |    |                        S                              |                            S                                      | 
+ |    |    |          ______________|___________                   |                 ___________|________________________              |  
+ |    |    |         |                          VP                 |                NP                                   |             | 
+ |    |    |         |               ___________|___               |         _______|___________                         |             |  
+ |    |    |         |              |               PP             |        |                   PP                       VP            | 
+ |    |    |         |              |       ________|____          |        |               ____|____             _______|___          |  
+ NP   |    |         NP             |      |             NP        |        NP             |         NP          |           NP        | 
+ |    |    |     ____|______        |      |     ________|_____    |    ____|_______       |     ____|___        |        ___|____     |  
+PRP   MD   VB   DT   NN     NN     VBG     IN   DT       NN    NN  IN  CD  NNS     NNS     IN   JJ       NN     VBD      DT       NN   . 
+ |    |    |    |    |      |       |      |    |        |     |   |   |    |       |      |    |        |       |       |        |    |  
+You could hear the police radio squawking from the     police car  as two police officers  in  full     gear approached the     scene  . 
+
+----------------------------------------
+Sentence: It was a woman and a man.
+                  S                      
+  ________________|____________________   
+ |                VP                   | 
+ |    ____________|____                |  
+ |   |                 NP              | 
+ |   |        _________|_______        |  
+ NP  |       NP        |       NP      | 
+ |   |    ___|____     |    ___|___    |  
+PRP VBD  DT       NN   CC  DT      NN  . 
+ |   |   |        |    |   |       |   |  
+ It was  a      woman and  a      man  . 
+
+----------------------------------------
+Sentence: "Good afternoon, did you call us?"
+                           SBARQ                         
+  ___________________________|_________________________   
+ |        |             |    |    |        VP      |   | 
+ |        |             |    |    |    ____|___    |   |  
+ |        NP            |    |    NP  |        NP  |   | 
+ |    ____|______       |    |    |   |        |   |   |  
+ ``  JJ          NN     ,   VBD  PRP  VB      PRP  .   ''
+ |   |           |      |    |    |   |        |   |   |  
+ "  Good     afternoon  ,   did  you call      us  ?   " 
+
+----------------------------------------
+Sentence: the policeman said as he approached the woman.
+                            S                                  
+      ______________________|________________________________   
+     |                      VP                               | 
+     |              ________|______                          |  
+     |             |              SBAR                       | 
+     |             |     __________|_______                  |  
+     |             |    |                  S                 | 
+     |             |    |    ______________|___              |  
+     |             |    |   |                  VP            | 
+     |             |    |   |       ___________|___          |  
+     NP            |    |   NP     |               NP        | 
+  ___|______       |    |   |      |            ___|____     |  
+ DT         NN    VBD   IN PRP    VBD          DT       NN   . 
+ |          |      |    |   |      |           |        |    |  
+the     policeman said  as  he approached     the     woman  . 
+
+----------------------------------------
+Sentence: But then he surveyed the scene first.
+                S                            
+  ______________|__________________________   
+ |   |    |            VP                  | 
+ |   |    |      ______|______________     |  
+ |  ADVP  NP    |          NP        ADVP  | 
+ |   |    |     |       ___|____      |    |  
+ CC  RB  PRP   VBD     DT       NN    RB   . 
+ |   |    |     |      |        |     |    |  
+But then  he surveyed the     scene first  . 
+
+----------------------------------------
+Sentence: He put his arms demonstratively on his hips.
+                             S                             
+  ___________________________|___________________________   
+ |                           VP                          | 
+ |    _______________________|_____________              |  
+ |   |        |              |             PP            | 
+ |   |        |              |          ___|____         |  
+ NP  |        NP            ADVP       |        NP       | 
+ |   |    ____|___           |         |    ____|___     |  
+PRP VBD PRP$     NNS         RB        IN PRP$     NNS   . 
+ |   |   |        |          |         |   |        |    |  
+ He put his      arms demonstratively  on his      hips  . 
+
+----------------------------------------
+Sentence: Having seen enough, he continued after a few seconds,
+                                   S                                  
+         __________________________|________________________________   
+        S               |   |                   |                   | 
+        |               |   |                   |                   |  
+        VP              |   |                   VP                  | 
+   _____|____           |   |       ____________|___                |  
+  |          VP         |   |      |                PP              | 
+  |      ____|____      |   |      |        ________|___            |  
+  |     |         NP    |   NP     |       |            NP          | 
+  |     |         |     |   |      |       |     _______|_____      |  
+ VBG   VBN        JJ    ,  PRP    VBD      IN   DT      JJ   NNS    , 
+  |     |         |     |   |      |       |    |       |     |     |  
+Having seen     enough  ,   he continued after  a      few seconds  , 
+
+----------------------------------------
+Sentence: "Then tell me ..."
+          S                  
+  ________|________________   
+ |   |         VP      |   | 
+ |   |     ____|___    |   |  
+ |   |    |        NP  |   | 
+ |   |    |        |   |   |  
+ ``  RB   VB      PRP  .   ''
+ |   |    |        |   |   |  
+ "  Then tell      me ...  " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: And so the old lady, quite upset, told him how the accident had happened.
+                                            S                                                           
+  __________________________________________|_________________________________________________________   
+ |   |        |        |         |          |                   VP                                    | 
+ |   |        |        |         |          |    _______________|_________                            |  
+ |   |        |        |         |          |   |    |                   SBAR                         | 
+ |   |        |        |         |          |   |    |     _______________|______                     |  
+ |   |        |        |         |          |   |    |    |                      S                    | 
+ |   |        |        |         |          |   |    |    |          ____________|_______             |  
+ |   |        |        |         |          |   |    |    |         |                    VP           | 
+ |   |        |        |         |          |   |    |    |         |                 ___|_____       |  
+ |  ADVP      NP       |        ADJP        |   |    NP WHADVP      NP               |         VP     | 
+ |   |     ___|___     |     ____|_____     |   |    |    |      ___|_____           |         |      |  
+ CC  RB   DT  JJ  NN   ,    RB         JJ   ,  VBD  PRP  WRB    DT        NN        VBD       VBN     . 
+ |   |    |   |   |    |    |          |    |   |    |    |     |         |          |         |      |  
+And  so  the old lady  ,  quite      upset  ,  told him  how   the     accident     had     happened  . 
+
+----------------------------------------
+Sentence: The man just stood there quietly and only said something when the police officers wanted to know something about him.
+                                                               S                                                                       
+      _________________________________________________________|_____________________________________________________________________   
+     |       |                                                       VP                                                              | 
+     |       |            ___________________________________________|____________                                                   |  
+     |       |           |            |   |                                       VP                                                 | 
+     |       |           |            |   |     __________________________________|_______                                           |  
+     |       |           |            |   |    |       |                                 SBAR                                        | 
+     |       |           |            |   |    |       |        __________________________|_____                                     |  
+     |       |           |            |   |    |       |       |                                S                                    | 
+     |       |           |            |   |    |       |       |           _____________________|___                                 |  
+     |       |           |            |   |    |       |       |          |                         VP                               | 
+     |       |           |            |   |    |       |       |          |                _________|_______                         |  
+     |       |           |            |   |    |       |       |          |               |                 S                        | 
+     |       |           |            |   |    |       |       |          |               |                 |                        |  
+     |       |           |            |   |    |       |       |          |               |                 VP                       | 
+     |       |           |            |   |    |       |       |          |               |      ___________|______                  |  
+     |       |           |            |   |    |       |       |          |               |     |                  VP                | 
+     |       |           |            |   |    |       |       |          |               |     |    ______________|____             |  
+     |       |           |            |   |    |       |       |          |               |     |   |                   NP           | 
+     |       |           |            |   |    |       |       |          |               |     |   |        ___________|____        |  
+     |       |           VP           |   |    |       |       |          |               |     |   |       |                PP      | 
+     |       |      _____|______      |   |    |       |       |          |               |     |   |       |            ____|___    |  
+     NP     ADVP   |    ADVP   ADVP   |  ADVP  |       NP    WHADVP       NP              |     |   |       NP          |        NP  | 
+  ___|___    |     |     |      |     |   |    |       |       |      ____|_______        |     |   |       |           |        |   |  
+ DT      NN  RB   VBD    RB     RB    CC  RB  VBD      NN     WRB    DT  NNS     NNS     VBD    TO  VB      NN          IN      PRP  . 
+ |       |   |     |     |      |     |   |    |       |       |     |    |       |       |     |   |       |           |        |   |  
+The     man just stood there quietly and only said something  when  the police officers wanted  to know something     about     him  . 
+
+----------------------------------------
+Sentence: When the questioning was finished, the police officers turned to the surrounding crowd who were still watching in fascination.
+                                                                                S                                                                        
+                     ___________________________________________________________|______________________________________________________________________   
+                    |                            |        |                         VP                                                                 | 
+                    |                            |        |                _________|_____________________                                             |  
+                    |                            |        |               |                               PP                                           | 
+                    |                            |        |               |      _________________________|____                                        |  
+                    |                            |        |               |     |                              NP                                      | 
+                    |                            |        |               |     |            __________________|_____                                  |  
+                    |                            |        |               |     |           |                       SBAR                               | 
+                    |                            |        |               |     |           |              __________|______                           |  
+                    |                            |        |               |     |           |             |                 S                          | 
+                    |                            |        |               |     |           |             |                 |                          |  
+                   SBAR                          |        |               |     |           |             |                 VP                         | 
+   _________________|_______                     |        |               |     |           |             |     ____________|______                    |  
+  |                         S                    |        |               |     |           |             |    |     |             VP                  | 
+  |          _______________|_______             |        |               |     |           |             |    |     |       ______|___                |  
+  |         |                       VP           |        |               |     |           |             |    |     |      |          PP              | 
+  |         |                    ___|_____       |        |               |     |           |             |    |     |      |       ___|_______        |  
+WHADVP      NP                  |         VP     |        NP              |     |           NP           WHNP  |    ADVP    |      |           NP      | 
+  |      ___|_______            |         |      |    ____|_______        |     |    _______|________     |    |     |      |      |           |       |  
+ WRB    DT          NN         VBD       VBN     ,   DT   NN     NNS     VBD    IN  DT     VBG       NN   WP  VBD    RB    VBG     IN          NN      . 
+  |     |           |           |         |      |   |    |       |       |     |   |       |        |    |    |     |      |      |           |       |  
+ When  the     questioning     was     finished  ,  the police officers turned  to the surrounding crowd who  were still watching  in     fascination  . 
+
+----------------------------------------
+Sentence: "Has anyone else seen anything?"
+                   SBARQ                          
+  ___________________|__________________________   
+ |   |          |              VP           |   | 
+ |   |          |          ____|_____       |   |  
+ |   |          NP        |          NP     |   | 
+ |   |     _____|____     |          |      |   |  
+ `` VBZ   NN         RB  VBN         NN     .   ''
+ |   |    |          |    |          |      |   |  
+ "  Has anyone      else seen     anything  ?   " 
+
+----------------------------------------
+Sentence: he shouted into the crowd.
+             S                        
+  ___________|______________________   
+ |                VP                | 
+ |      __________|___              |  
+ |     |              PP            | 
+ |     |      ________|___          |  
+ NP    |     |            NP        | 
+ |     |     |         ___|____     |  
+PRP   VBD    IN       DT       NN   . 
+ |     |     |        |        |    |  
+ he shouted into     the     crowd  . 
+
+----------------------------------------
+Sentence: Me and my friend immediately held out our hands, snapping them wildly and shouting
+                                              S                                                  
+      ________________________________________|______________                                     
+     |                       |                               VP                                  
+     |                       |        _______________________|__________________                  
+     |                       |       |    |        |         |                  S                
+     |                       |       |    |        |         |                  |                 
+     |                       |       |    |        |         |                  VP               
+     |                       |       |    |        |         |             _____|___________      
+     NP                      |       |    |        |         |            VP          |     |    
+  ___|________               |       |    |        |         |      ______|_____      |     |     
+ NP  |        NP            ADVP     |   PRT       NP        |     |      NP   ADVP   |     VP   
+ |   |    ____|____          |       |    |    ____|____     |     |      |     |     |     |     
+PRP  CC PRP$       NN        RB     VBD   RP PRP$      NNS   ,    VBG    PRP    RB    CC   VBG   
+ |   |   |         |         |       |    |   |         |    |     |      |     |     |     |     
+ Me and  my      friend immediately held out our      hands  ,  snapping them wildly and shouting
+
+----------------------------------------
+Sentence: "We"
+     NP    
+  ___|___   
+ |   NP  | 
+ |   |   |  
+ `` PRP  ''
+ |   |   |  
+ "   We  " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: So the policeman came over to us and said:
+                            S                           
+  __________________________|_________________________   
+ |       |                       VP                   | 
+ |       |                   ____|_______________     |  
+ |       |                  VP               |   |    | 
+ |       |              ____|________        |   |    |  
+ |       |             |    |        PP      |   |    | 
+ |       |             |    |     ___|___    |   |    |  
+ |       NP            |   ADVP  |       NP  |   VP   | 
+ |    ___|______       |    |    |       |   |   |    |  
+ IN  DT         NN    VBD   RB   IN     PRP  CC VBD   : 
+ |   |          |      |    |    |       |   |   |    |  
+ So the     policeman came over  to      us and said  : 
+
+----------------------------------------
+Sentence: "Well then, boys, tell us."
+                        S                           
+  ______________________|_________________________   
+ |       ADVP       |   |    |        VP      |   | 
+ |    ____|____     |   |    |    ____|___    |   |  
+ |   |        ADVP  |   NP   |   |        NP  |   | 
+ |   |         |    |   |    |   |        |   |   |  
+ ``  UH        RB   ,  NNS   ,   VB      PRP  .   ''
+ |   |         |    |   |    |   |        |   |   |  
+ "  Well      then  ,  boys  ,  tell      us  .   " 
+
+----------------------------------------
+Sentence: So we proudly told our version of events with shining eyes.
+                                 S                                                
+  _______________________________|______________________________________________   
+ |   |     |                               VP                                   | 
+ |   |     |      _________________________|_____________________               |  
+ |   |     |     |                     NP                        |              | 
+ |   |     |     |          ___________|_______                  |              |  
+ |   |     |     |         |                   PP                PP             | 
+ |   |     |     |         |                ___|____       ______|_____         |  
+ |   NP   ADVP   |         NP              |        NP    |            NP       | 
+ |   |     |     |     ____|_____          |        |     |       _____|___     |  
+ IN PRP    RB   VBD  PRP$        NN        IN      NNS    IN    VBG       NNS   . 
+ |   |     |     |    |          |         |        |     |      |         |    |  
+ So  we proudly told our      version      of     events with shining     eyes  . 
+
+----------------------------------------
+Sentence: When we had finished our story, he just said taciturnly:
+                                        S                                       
+             ___________________________|_____________________________________   
+           SBAR                              |   |   |         |              | 
+   _________|______                          |   |   |         |              |  
+  |                S                         |   |   |         |              | 
+  |      __________|______                   |   |   |         |              |  
+  |     |                 VP                 |   |   |         |              | 
+  |     |    _____________|___               |   |   |         |              |  
+  |     |   |                 VP             |   |   |         VP             | 
+  |     |   |       __________|____          |   |   |     ____|______        |  
+WHADVP  NP  |      |               NP        |   NP ADVP  |          ADVP     | 
+  |     |   |      |           ____|____     |   |   |    |           |       |  
+ WRB   PRP VBD    VBN        PRP$       NN   ,  PRP  RB  VBD          RB      : 
+  |     |   |      |          |         |    |   |   |    |           |       |  
+ When   we had  finished     our      story  ,   he just said     taciturnly  : 
+
+----------------------------------------
+Sentence: "Well then, that's a clear-cut case.
+                             S                             
+  ___________________________|___________________________   
+ |        |         |   |             VP                 | 
+ |        |         |   |     ________|____              |  
+ |       INTJ       |   |    |             NP            | 
+ |    ____|____     |   |    |    _________|________     |  
+ |   |        ADVP  |   NP   |   |        ADJP      |    | 
+ |   |         |    |   |    |   |     ____|____    |    |  
+ ``  UH        RB   ,   DT  VBZ  DT   JJ  HYPH  JJ  NN   . 
+ |   |         |    |   |    |   |    |    |    |   |    |  
+ "  Well      then  ,  that  's  a  clear  -   cut case  . 
+
+----------------------------------------
+Sentence: The driver's insurance will pay for the damage"
+                              S                                 
+             _________________|_______________________________   
+            |                          VP                     | 
+            |                  ________|___                   |  
+            |                 |            VP                 | 
+            |                 |     _______|___               |  
+            NP                |    |           PP             | 
+       _____|__________       |    |    _______|___           |  
+      NP               |      |    |   |           NP         | 
+  ____|_________       |      |    |   |        ___|____      |  
+ DT   NN       POS     NN     MD   VB  IN      DT       NN    ''
+ |    |         |      |      |    |   |       |        |     |  
+The driver      's insurance will pay for     the     damage  " 
+
+----------------------------------------
+Sentence: and then he turned to the driver.
+               S                              
+  _____________|____________________________   
+ |   |    |              VP                 | 
+ |   |    |     _________|___               |  
+ |   |    |    |             PP             | 
+ |   |    |    |      _______|___           |  
+ |  ADVP  NP   |     |           NP         | 
+ |   |    |    |     |        ___|____      |  
+ CC  RB  PRP  VBD    IN      DT       NN    . 
+ |   |    |    |     |       |        |     |  
+and then  he turned  to     the     driver  . 
+
+----------------------------------------
+Sentence: "And you'll get away with another misdemeanor for speeding"
+                     S                                                        
+  ___________________|______________________________________________________   
+ |   |   |                VP                                                | 
+ |   |   |    ____________|______                                           |  
+ |   |   |   |                   VP                                         | 
+ |   |   |   |    _______________|_____________                             |  
+ |   |   |   |   |   |                         PP                           | 
+ |   |   |   |   |   |     ____________________|_______                     |  
+ |   |   |   |   |   |    |                            NP                   | 
+ |   |   |   |   |   |    |             _______________|_______             |  
+ |   |   |   |   |   |    |            |                       PP           | 
+ |   |   |   |   |   |    |            |                    ___|_____       |  
+ |   |   NP  |   |  PRT   |            NP                  |         NP     | 
+ |   |   |   |   |   |    |       _____|_______            |         |      |  
+ ``  CC PRP  MD  VB  RP   IN     DT            NN          IN        NN     ''
+ |   |   |   |   |   |    |      |             |           |         |      |  
+ "  And you 'll get away with another     misdemeanor     for     speeding  " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: Finally, he thanked us again with:
+                   S                      
+    _______________|____________________   
+   |     |   |           VP             | 
+   |     |   |      _____|_________     |  
+  ADVP   |   NP    |     NP  ADVP  PP   | 
+   |     |   |     |     |    |    |    |  
+   RB    ,  PRP   VBD   PRP   RB   IN   : 
+   |     |   |     |     |    |    |    |  
+Finally  ,   he thanked  us again with  : 
+
+----------------------------------------
+Sentence: "Thanks guys, that helped us a lot.
+                          S                             
+  ________________________|___________________________   
+ |          |         |         S                     | 
+ |          |         |    _____|_____                |  
+ |         SINV       |   |           VP              | 
+ |     _____|____     |   |      _____|_______        |  
+ |    |          NP   |   NP    |     NP      NP      | 
+ |    |          |    |   |     |     |    ___|___    |  
+ ``  VBZ        NNS   ,   DT   VBD   PRP  DT      NN  . 
+ |    |          |    |   |     |     |   |       |   |  
+ "  Thanks      guys  ,  that helped  us  a      lot  . 
+
+----------------------------------------
+Sentence: Your testimony will go on the record"
+                         S                            
+       __________________|__________________________   
+      |                      VP                     | 
+      |              ________|___                   |  
+      |             |            VP                 | 
+      |             |     _______|___               |  
+      |             |    |           PP             | 
+      |             |    |    _______|___           |  
+      NP            |    |   |           NP         | 
+  ____|______       |    |   |        ___|____      |  
+PRP$         NN     MD   VB  IN      DT       NN    ''
+ |           |      |    |   |       |        |     |  
+Your     testimony will  go  on     the     record  " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: We looked at each other with shining eyes and full of pride.
+                                      S                                        
+  ____________________________________|______________________________________   
+ |              VP                                                           | 
+ |     _________|_____________________                                       |  
+ |    |         |                     PP                                     | 
+ |    |         |               ______|______________                        |  
+ |    |         |              |                     NP                      | 
+ |    |         |              |             ________|________               |  
+ |    |         |              |            |        |       ADJP            | 
+ |    |         |              |            |        |    ____|____          |  
+ |    |         PP             |            |        |   |         PP        | 
+ |    |      ___|____          |            |        |   |     ____|____     |  
+ NP   |     |        NP        |            NP       |   |    |         NP   | 
+ |    |     |    ____|____     |       _____|___     |   |    |         |    |  
+PRP  VBD    IN  DT        JJ   IN    VBG       NNS   CC  JJ   IN        NN   . 
+ |    |     |   |         |    |      |         |    |   |    |         |    |  
+ We looked  at each     other with shining     eyes and full  of      pride  . 
+
+----------------------------------------
+Sentence: We could hardly believe that we were allowed to testify as witnesses for the first time in our lives.
+                                                       S                                                               
+  _____________________________________________________|_____________________________________________________________   
+ |          VP                                                                                                       | 
+ |     _____|_____________                                                                                           |  
+ |    |     |             VP                                                                                         | 
+ |    |     |        _____|____                                                                                      |  
+ |    |     |       |         SBAR                                                                                   | 
+ |    |     |       |      ____|____                                                                                 |  
+ |    |     |       |     |         S                                                                                | 
+ |    |     |       |     |     ____|______                                                                          |  
+ |    |     |       |     |    |           VP                                                                        | 
+ |    |     |       |     |    |     ______|_____                                                                    |  
+ |    |     |       |     |    |    |            VP                                                                  | 
+ |    |     |       |     |    |    |       _____|_____                                                              |  
+ |    |     |       |     |    |    |      |           S                                                             | 
+ |    |     |       |     |    |    |      |           |                                                             |  
+ |    |     |       |     |    |    |      |           VP                                                            | 
+ |    |     |       |     |    |    |      |      _____|_____                                                        |  
+ |    |     |       |     |    |    |      |     |           VP                                                      | 
+ |    |     |       |     |    |    |      |     |      _____|_____________________                                  |  
+ |    |     |       |     |    |    |      |     |     |         |                 PP                                | 
+ |    |     |       |     |    |    |      |     |     |         |              ___|_________                        |  
+ |    |     |       |     |    |    |      |     |     |         |             |             NP                      | 
+ |    |     |       |     |    |    |      |     |     |         |             |         ____|________               |  
+ |    |     |       |     |    |    |      |     |     |         PP            |        |             PP             | 
+ |    |     |       |     |    |    |      |     |     |      ___|______       |        |          ___|____          |  
+ NP   |    ADVP     |     |    NP   |      |     |     |     |          NP     |        NP        |        NP        | 
+ |    |     |       |     |    |    |      |     |     |     |          |      |    ____|____     |    ____|____     |  
+PRP   MD    RB      VB    IN  PRP  VBD    VBN    TO    VB    IN        NNS     IN  DT   JJ   NN   IN PRP$      NNS   . 
+ |    |     |       |     |    |    |      |     |     |     |          |      |   |    |    |    |   |         |    |  
+ We could hardly believe that  we  were allowed  to testify  as     witnesses for the first time  in our      lives  . 
+
+----------------------------------------
+Sentence: We hadn't finished rejoicing when the old lady whispered exasperatedly:
+                                 S                                                 
+  _______________________________|_______________________________________________   
+ |                               VP                                              | 
+ |    ___________________________|_____                                          |  
+ |   |   |                             VP                                        | 
+ |   |   |      _______________________|___                                      |  
+ |   |   |     |         |                SBAR                                   | 
+ |   |   |     |         |        _________|____                                 |  
+ |   |   |     |         |       |              S                                | 
+ |   |   |     |         |       |          ____|______________                  |  
+ |   |   |     |         S       |         |                   VP                | 
+ |   |   |     |         |       |         |             ______|________         |  
+ NP  |   |     |         VP    WHADVP      NP           |              ADVP      | 
+ |   |   |     |         |       |      ___|____        |               |        |  
+PRP VBD  RB   VBN       VBG     WRB    DT  JJ   NN     VBD              RB       : 
+ |   |   |     |         |       |     |   |    |       |               |        |  
+ We had n't finished rejoicing  when  the old  lady whispered     exasperatedly  : 
+
+----------------------------------------
+Sentence: "Yes, and who's going to help me with all this stuff now?"
+                                    SBARQ                                         
+  ____________________________________|_________________________________________   
+ |   |    |   |   |         SQ                                              |   | 
+ |   |    |   |   |     ____|_________                                      |   |  
+ |   |    |   |   |    |              VP                                    |   | 
+ |   |    |   |   |    |     _________|________                             |   |  
+ |   |    |   |   |    |    |                  S                            |   | 
+ |   |    |   |   |    |    |                  |                            |   |  
+ |   |    |   |   |    |    |                  VP                           |   | 
+ |   |    |   |   |    |    |     _____________|____                        |   |  
+ |   |    |   |   |    |    |    |                  VP                      |   | 
+ |   |    |   |   |    |    |    |     _____________|__________________     |   |  
+ |   |    |   |   |    |    |    |    |    |            PP             |    |   | 
+ |   |    |   |   |    |    |    |    |    |    ________|___           |    |   |  
+ |  INTJ  |   |  WHNP  |    |    |    |    NP  |            NP        ADVP  |   | 
+ |   |    |   |   |    |    |    |    |    |   |     _______|_____     |    |   |  
+ ``  UH   ,   CC  WP  VBZ  VBG   TO   VB  PRP  IN  PDT      DT    NN   RB   .   ''
+ |   |    |   |   |    |    |    |    |    |   |    |       |     |    |    |   |  
+ "  Yes   ,  and who   's going  to  help  me with all     this stuff now   ?   " 
+
+----------------------------------------
+Sentence: .
+ NP
+ |  
+ . 
+ |  
+ . 
+
+----------------------------------------
+Sentence: "No problem, we said, we'd be happy to help"
+                                      S                                         
+  ____________________________________|_______________________________________   
+ |       |               |                |            VP                     | 
+ |       |               |                |    ________|____                  |  
+ |       |               |                |   |             VP                | 
+ |       |               |                |   |    _________|___              |  
+ |       |               |                |   |   |            ADJP           | 
+ |       |               |                |   |   |     ________|____         |  
+ |       |              PRN               |   |   |    |             S        | 
+ |       |            ___|____________    |   |   |    |             |        |  
+ |       |           |       S        |   |   |   |    |             VP       | 
+ |       |           |    ___|___     |   |   |   |    |         ____|___     |  
+ |       NP          |   NP      VP   |   NP  |   |    |        |        VP   | 
+ |    ___|_____      |   |       |    |   |   |   |    |        |        |    |  
+ ``  DT        NN    ,  PRP     VBD   ,  PRP  MD  VB   JJ       TO       VB   ''
+ |   |         |     |   |       |    |   |   |   |    |        |        |    |  
+ "   No     problem  ,   we     said  ,   we  'd  be happy      to      help  " 
+
+----------------------------------------
+Sentence: and eagerly started to put her things back in the shopping cart.
+                                       S                                      
+  _____________________________________|____________________________________   
+ |     |             VP                                                     | 
+ |     |        _____|_______                                               |  
+ |     |       |             S                                              | 
+ |     |       |             |                                              |  
+ |     |       |             VP                                             | 
+ |     |       |      _______|_______________                               |  
+ |     |       |     |                       VP                             | 
+ |     |       |     |    ___________________|____________                  |  
+ |     |       |     |   |        |          |            PP                | 
+ |     |       |     |   |        |          |     _______|_____            |  
+ |    ADVP     |     |   |        NP        ADVP  |             NP          | 
+ |     |       |     |   |    ____|____      |    |    _________|______     |  
+ CC    RB     VBD    TO  VB PRP$      NNS    RB   IN  DT        NN     NN   . 
+ |     |       |     |   |   |         |     |    |   |         |      |    |  
+and eagerly started  to put her      things back  in the     shopping cart  . 
+
+----------------------------------------
+Sentence: Other passers-by also ran over and helped the lady, who was visibly embarrassed and thanked them for their help.
+                                                                  S                                                                            
+          ________________________________________________________|__________________________________________________________________________   
+         |              |                                                  VP                                                                | 
+         |              |         _________________________________________|____________________                                             |  
+         |              |        |        |    |                                                NP                                           | 
+         |              |        |        |    |          ______________________________________|_______                                     |  
+         |              |        |        |    |         |        |                                    SBAR                                  | 
+         |              |        |        |    |         |        |    _________________________________|______                              |  
+         |              |        |        |    |         |        |   |                                        S                             | 
+         |              |        |        |    |         |        |   |                                        |                             |  
+         |              |        |        |    |         |        |   |                                        VP                            | 
+         |              |        |        |    |         |        |   |           _____________________________|__________                   |  
+         |              |        |        |    |         |        |   |          |                      |                 VP                 | 
+         |              |        |        |    |         |        |   |          |                      |       __________|____              |  
+         |              |        VP       |    |         |        |   |          VP                     |      |     |         PP            | 
+         |              |     ___|___     |    |         |        |   |     _____|_____                 |      |     |     ____|____         |  
+         NP            ADVP  |      ADVP  |    |         NP       |  WHNP  |          ADJP              |      |     NP   |         NP       | 
+   ______|__________    |    |       |    |    |      ___|___     |   |    |      _____|________        |      |     |    |     ____|___     |  
+  JJ    NNS   HYPH  NN  RB  VBD      IN   CC  VBD    DT      NN   ,   WP  VBD    RB            VBN      CC    VBD   PRP   IN  PRP$      NN   . 
+  |      |     |    |   |    |       |    |    |     |       |    |   |    |     |              |       |      |     |    |    |        |    |  
+Other passers  -    by also ran     over and helped the     lady  ,  who  was visibly      embarrassed and  thanked them for their     help  . 
+
+----------------------------------------
+Sentence: "Jeez, you!
+          NP        
+  ________|_______   
+ |  INTJ  |   NP  | 
+ |   |    |   |   |  
+ ``  UH   ,  PRP  . 
+ |   |    |   |   |  
+ "  Jeez  ,  you  ! 
+
+----------------------------------------
+Sentence: The supermarket is about to close,"
+                          S                             
+                      ____|___________________________   
+                     S                            |   | 
+      _______________|_________                   |   |  
+     |                         VP                 |   | 
+     |                _________|___               |   |  
+     |               |            ADJP            |   | 
+     |               |     ________|____          |   |  
+     |               |    |             S         |   | 
+     |               |    |             |         |   |  
+     |               |    |             VP        |   | 
+     |               |    |         ____|____     |   |  
+     NP              |    |        |         VP   |   | 
+  ___|_______        |    |        |         |    |   |  
+ DT          NN     VBZ   IN       TO        VB   ,   ''
+ |           |       |    |        |         |    |   |  
+The     supermarket  is about      to      close  ,   " 
+
+----------------------------------------
+Sentence: my friend suddenly shouted.
+                   S                
+       ____________|______________   
+      NP          ADVP      VP    | 
+  ____|____        |        |     |  
+PRP$       NN      RB      VBD    . 
+ |         |       |        |     |  
+ my      friend suddenly shouted  . 
+
+----------------------------------------
+Sentence: The trolley had already been put away anyway, so we left the old lady, who thanked us again from a distance, and hurried into the supermarket...
+                                                                               S                                                                                                    
+                        _______________________________________________________|__________________________________________________________________________________________________   
+                       |                              |   |                    S                                                                                                  | 
+                       |                              |   |    ________________|__________________________                                                                        |  
+                       |                              |   |   |                                           VP                                                                      | 
+                       |                              |   |   |    _______________________________________|____                                                                   |  
+                       |                              |   |   |   |                                            NP                                                                 | 
+                       |                              |   |   |   |                             _______________|__________________________________________                        |  
+                       |                              |   |   |   |                            NP                                        |                |                       | 
+                       |                              |   |   |   |                  __________|_____________________________________    |                |                       |  
+                       |                              |   |   |   |                 NP                                               |   |                |                       | 
+                       |                              |   |   |   |         ________|__________                                      |   |                |                       |  
+                       S                              |   |   |   |        |        |         SBAR                                   |   |                |                       | 
+      _________________|_____                         |   |   |   |        |        |    ______|__________                           |   |                |                       |  
+     |                       VP                       |   |   |   |        |        |   |                 S                          |   |                |                       | 
+     |            ___________|________                |   |   |   |        |        |   |                 |                          |   |                |                       |  
+     |           |     |              VP              |   |   |   |        |        |   |                 VP                         |   |                VP                      | 
+     |           |     |      ________|___            |   |   |   |        |        |   |       __________|_________                 |   |      __________|___                    |  
+     |           |     |     |            VP          |   |   |   |        |        |   |      |     |    |         PP               |   |     |              PP                  | 
+     |           |     |     |     _______|_____      |   |   |   |        |        |   |      |     |    |     ____|___             |   |     |      ________|___                |  
+     NP          |    ADVP   |    |      ADVP  ADVP   |   |   NP  |        NP       |  WHNP    |     NP  ADVP  |        NP           |   |     |     |            NP              | 
+  ___|_____      |     |     |    |       |     |     |   |   |   |     ___|___     |   |      |     |    |    |     ___|_____       |   |     |     |         ___|_______        |  
+ DT        NN   VBD    RB   VBN  VBN      RB    RB    ,   IN PRP VBD   DT  JJ  NN   ,   WP    VBD   PRP   RB   IN   DT        NN     ,   CC   VBD    IN       DT          NN      : 
+ |         |     |     |     |    |       |     |     |   |   |   |    |   |   |    |   |      |     |    |    |    |         |      |   |     |     |        |           |       |  
+The     trolley had already been put     away anyway  ,   so  we left the old lady  ,  who  thanked  us again from  a      distance  ,  and hurried into     the     supermarket ...
+
+----------------------------------------

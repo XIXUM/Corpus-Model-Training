@@ -12,3 +12,5 @@ requests
 pyyaml
 stanza
 supar
+transformers
+timm

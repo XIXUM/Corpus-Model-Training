@@ -10,6 +10,7 @@ This tool allows for the adversarial evaluation of constituency parsing models (
   - `stanza`: Stanford NLP (Constituency).
   - `supar`: SuPar CRF Constituency Parser (BERT-based).
   - `bert`: Alias for SuPar with `crf-con-bert-en` model.
+  - `spacy_pos`: Simple POS tagger using SpaCy (flat tree structure).
   - `dummy`: Testing model.
 - **Data Loading:** Supports loading training data from local text files or URLs.
 - **Reporting:** HTML reports with SVG trees, CSV/JSON logs.

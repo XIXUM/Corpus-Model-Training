@@ -67,25 +67,50 @@ class SuparWrapper(BaseModel):
                 torch.load = original_load
             
             # CRITICAL: DO NOT REMOVE THIS TOKENIZER REPAIR BLOCK
-            # The unpickled Tokenizer/TransformerTokenizer is incompatible with the current environment
-            # (likely due to missing 'pipeline' attribute or Stanza initialization issues).
-            # We aggressively replace it with a fresh, working instance.
-            print("Replacing SuPar tokenizer with a fresh instance...")
+            # The unpickled Tokenizer/TransformerTokenizer is incompatible/broken.
+            # Since we perform manual tokenization using NLTK in predict(), we explicitly 
+            # DISABLE the internal tokenizer in all fields to prevent double-tokenization 
+            # and avoid the 'pipeline' attribute error.
+            print("Disabling SuPar internal tokenizer in fields (using external NLTK tokenization)...")
             try:
-                # Initialize a fresh tokenizer (uses Stanza under the hood)
-                # We catch potential errors during initialization (e.g. download issues)
-                fresh_tokenizer = supar.utils.tokenizer.Tokenizer(lang='en')
+                from collections.abc import Iterable
                 
+                # Disable in main tokenizer attributes if they exist
                 if hasattr(self.parser, 'tokenizer'):
-                    self.parser.tokenizer = fresh_tokenizer
-                    print("Replaced self.parser.tokenizer")
+                    self.parser.tokenizer = None
                 
-                if hasattr(self.parser, 'transform') and hasattr(self.parser.transform, 'tokenizer'):
-                    self.parser.transform.tokenizer = fresh_tokenizer
-                    print("Replaced self.parser.transform.tokenizer")
+                if hasattr(self.parser, 'transform'):
+                    if hasattr(self.parser.transform, 'tokenizer'):
+                        self.parser.transform.tokenizer = None
+                        
+                    # Crucial: Disable tokenizer in all data fields (WORD, POS, etc.)
+                    # Note: Fields can be single objects or lists of objects
+                    if hasattr(self.parser.transform, 'fields'):
+                        for field_name in self.parser.transform.fields:
+                            if hasattr(self.parser.transform, field_name):
+                                field_val = getattr(self.parser.transform, field_name)
+                                
+                                # Handle list of fields
+                                if isinstance(field_val, Iterable) and not isinstance(field_val, str):
+                                    fields_to_check = field_val
+                                else:
+                                    fields_to_check = [field_val]
+                                    
+                                for f in fields_to_check:
+                                    if hasattr(f, 'tokenize'):
+                                        f.tokenize = None
+                                        print(f"Disabled tokenizer in field '{field_name}'")
+                    
+                    # Also iterate over flattened_fields directly to be absolutely sure we caught everything
+                    # (Parser.predict uses flattened_fields)
+                    if hasattr(self.parser.transform, 'flattened_fields'):
+                        for i, f in enumerate(self.parser.transform.flattened_fields):
+                            if hasattr(f, 'tokenize') and f.tokenize is not None:
+                                f.tokenize = None
+                                print(f"Disabled tokenizer in flattened field {i} (name: {getattr(f, 'name', 'Unknown')})")
                     
             except Exception as e:
-                print(f"Warning: Failed to replace tokenizer: {e}")
+                print(f"Warning: Failed to disable tokenizer: {e}")
             # END OF CRITICAL BLOCK
                 
         except ImportError:
@@ -107,15 +132,32 @@ class SuparWrapper(BaseModel):
         Returns a list of (token, tag) tuples.
         """
         try:
-            # supar.predict handles list of sentences or single string.
-            # We wrap in list to prevent supar from treating the string as a file path 
-            # (e.g. if sentence is "." which exists as a directory).
-            dataset = self.parser.predict([sentence], verbose=False, lang='en')
+            # Tokenize manually to avoid SuPar's internal Tokenizer issues
+            import nltk
+            tokens = nltk.word_tokenize(sentence)
+            
+            # supar.predict handles list of sentences.
+            # We pass a list of tokens (nested list) and lang=None to bypass internal tokenization
+            dataset = self.parser.predict([tokens], verbose=False, lang=None)
             
             # dataset[0] is the result for the first sentence.
             if dataset and len(dataset) > 0:
-                 tree = dataset[0] 
-                 return tree.pos()
+                 su_sentence = dataset[0]
+                 # SuPar Sentence object doesn't have .pos() method directly.
+                 # We need to access the underlying NLTK tree from the 'TREE' field.
+                 if hasattr(su_sentence, 'TREE'):
+                     return su_sentence.TREE.pos()
+                 elif hasattr(su_sentence, 'values') and len(su_sentence.values) > 2:
+                     # Fallback: TreeSentence values are [words, tags, tree, chart]
+                     return su_sentence.values[2].pos()
+                 
+                 # Fallback 2: If str() works and returns bracketed string, parse it
+                 try:
+                     return nltk.Tree.fromstring(str(su_sentence)).pos()
+                 except:
+                     pass
+                     
+                 return []
             return []
         except Exception as e:
             print(f"Error in SuPar prediction: {e}")
@@ -126,10 +168,19 @@ class SuparWrapper(BaseModel):
         Returns the parse tree string (PTB format).
         """
         try:
-            # Wrap in list to avoid file path ambiguity
-            dataset = self.parser.predict([sentence], verbose=False, lang='en')
+            # Tokenize manually
+            import nltk
+            tokens = nltk.word_tokenize(sentence)
+            
+            # Pass list of tokens and lang=None
+            dataset = self.parser.predict([tokens], verbose=False, lang=None)
+            
             if len(dataset) > 0:
-                return str(dataset[0])
+                su_sentence = dataset[0]
+                # Prefer accessing TREE field directly
+                if hasattr(su_sentence, 'TREE'):
+                    return su_sentence.TREE.pformat()
+                return str(su_sentence)
         except Exception as e:
             print(f"Error getting SuPar tree: {e}")
         return None

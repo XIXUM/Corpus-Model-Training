@@ -28,6 +28,11 @@ The system uses an abstraction layer for different parsing models to ensure modu
 *   **`BeneparWrapper`**: A wrapper around the real Benepar model (via spaCy). 
     *   Includes a `safe_benepar_parser` wrapper to handle `StopIteration` and other parsing errors robustly.
     *   Manages the spaCy pipeline, ensuring components like `sentencizer` are correctly configured.
+*   **`SuparWrapper`**: A wrapper for SuPar's CRF Constituency Parser (supports BERT-based models).
+    *   Includes patches for PyTorch 2.6+ serialization and tokenizer compatibility.
+*   **`SpacyPOSModel`**: A simple POS tagging model using SpaCy.
+    *   Provides explicit POS tags without deep constituency structure (generates a flat tree for visualization).
+    *   Useful for training strictly on POS tags.
 
 ### 2. Pipeline Components
 *   **Data Loader**: Handles reading raw text from local files or URLs. Uses Regex to split text while preserving nested structures (quotes, brackets).
