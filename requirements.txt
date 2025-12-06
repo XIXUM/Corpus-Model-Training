@@ -9,3 +9,4 @@ spacy
 benepar
 svgling
 requests
+pyyaml

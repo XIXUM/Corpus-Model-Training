@@ -35,11 +35,6 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
         return BeneparWrapper(instance_name, model_name="benepar_en3")
     elif model_name == "dummy":
         print(f"Initializing {instance_name} as DummyModel...")
-        # If it's Model A (or the first one), we might want variation, or not.
-        # Let's assume 'A' usually has the 'variation' (false positive) for testing purposes if both are dummy.
-        # Or better, make the variation flag dependent on the name or random.
-        # For this specific test case, let's keep the logic simple:
-        # If name contains "Model A" or ends with "A", use variation.
         use_variation = "A" in instance_name
         return DummyModel(instance_name, variation=use_variation)
     elif model_name == "stanza":
@@ -98,7 +93,6 @@ def run_adversarial_mode(data_source: str, model_a_type: str, model_b_type: str)
     
     # Setup Tree Exporter if using real models
     tree_exporter = None
-    # Export if at least one model is real (not dummy)
     if not isinstance(model_a, DummyModel) or not isinstance(model_b, DummyModel):
         tree_exporter = TreeExporter(output_dir="tree_logs")
         print(f"Exporting trees to: {tree_exporter.get_file_path()}")
@@ -172,26 +166,26 @@ def run_adversarial_mode(data_source: str, model_a_type: str, model_b_type: str)
         traceback.print_exc()
 
 
-def run_training_mode(csv_file: str):
+def run_training_mode(train_data: str):
     """
-    Runs the training mode using the problematic sentences from the CSV.
+    Runs the real training mode using the BeneparTrainer.
     """
-    print(f"Starting training mode using data from {csv_file}...")
+    print(f"Starting REAL training mode using data from {train_data}...")
     
-    if not csv_file or not os.path.exists(csv_file):
-        print("Error: Valid CSV file path is required for training mode.")
+    if not train_data or not os.path.exists(train_data):
+        print("Error: Valid training data file path is required.")
         return
 
-    df = pd.read_csv(csv_file)
-    print(f"Loaded {len(df)} records for training.")
-    
-    epochs = 5
-    for epoch in range(epochs):
-        print(f"Training Epoch {epoch+1}/{epochs}...")
-        for index, row in df.iterrows():
-            pass
-            
-    print("Training complete.")
+    try:
+        from src.training.trainer import BeneparTrainer
+        trainer = BeneparTrainer()
+        trainer.train(train_data)
+    except ImportError as e:
+        print(f"Error importing trainer: {e}")
+    except Exception as e:
+        print(f"Error during training: {e}")
+        import traceback
+        traceback.print_exc()
 
 
 import os
@@ -203,31 +197,33 @@ def main():
     # Adversarial Mode
     parser_adv = subparsers.add_parser('adversarial', help='Run adversarial comparison')
     parser_adv.add_argument('--data', type=str, default="data/ASchoolEssay.txt", help='Path to input text file OR URL')
-    
-    # Updated CLI args for models
-    model_choices = ['dummy', 'benepar', 'stanza', 'bert']
-    parser_adv.add_argument('--model-a', type=str, default="dummy", choices=model_choices, help='Model A selection')
-    parser_adv.add_argument('--model-b', type=str, default="dummy", choices=model_choices, help='Model B selection')
-    
-    # Backward compatibility for old flag (optional, but good practice)
+    parser_adv.add_argument('--model-a', type=str, default="dummy", help='Model A selection')
+    parser_adv.add_argument('--model-b', type=str, default="dummy", help='Model B selection')
     parser_adv.add_argument('--real-benepar', action='store_true', help='DEPRECATED: Use --model-a benepar instead')
 
     # Training Mode
     parser_train = subparsers.add_parser('train', help='Train on problematic sentences')
-    parser_train.add_argument('--csv', type=str, required=True, help='Path to CSV file with disagreements')
+    parser_train.add_argument('--train-data', type=str, required=True, help='Path to file with corrected parse trees (PTB format)')
+    # Backward compatibility for CSV argument (though we now prefer tree file)
+    parser_train.add_argument('--csv', type=str, help='DEPRECATED: Use --train-data with tree file')
 
     args = parser.parse_args()
 
     if args.mode == 'adversarial':
-        # Handle deprecation
         ma = args.model_a
         if args.real_benepar:
             print("Warning: --real-benepar is deprecated. Using --model-a benepar.")
             ma = "benepar"
-            
         run_adversarial_mode(args.data, ma, args.model_b)
+        
     elif args.mode == 'train':
-        run_training_mode(args.csv)
+        data_path = args.train_data
+        if args.csv:
+            print("Warning: --csv is deprecated for training. Please provide a file with corrected trees using --train-data.")
+            if not data_path:
+                data_path = args.csv
+        
+        run_training_mode(data_path)
     else:
         parser.print_help()
 
