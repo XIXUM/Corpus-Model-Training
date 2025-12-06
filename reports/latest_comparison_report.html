@@ -4,1506 +4,2410 @@
         <head>
             <title>Constituency Tree Comparison Report</title>
             <style>
-                body { font-family: sans-serif; margin: 20px; }
-                .entry { border: 1px solid #ccc; margin-bottom: 20px; padding: 15px; border-radius: 5px; }
-                .sentence { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; background-color: #f0f0f0; padding: 5px; }
-                .comparison { display: flex; gap: 20px; overflow-x: auto; }
-                .model-col { flex: 1; min-width: 300px; border: 1px solid #eee; padding: 10px; }
-                .model-name { font-weight: bold; color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; }
-                .diff { color: #d9534f; margin-top: 10px; font-family: monospace; white-space: pre-wrap; }
-                svg { width: 100%; height: auto; }
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f9f9f9; }
+                .entry { background: white; border: 1px solid #e0e0e0; margin-bottom: 30px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+                .sentence { font-weight: 600; font-size: 1.2em; margin-bottom: 15px; padding: 10px; background-color: #f0f7ff; border-left: 4px solid #0066cc; border-radius: 4px; }
+                
+                .comparison-container { display: flex; flex-direction: column; gap: 20px; }
+                
+                /* Tag Comparison Table */
+                .diff-section { margin-bottom: 20px; }
+                .diff-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95em; }
+                .diff-table th { background-color: #f5f5f5; padding: 8px; text-align: left; border-bottom: 2px solid #ddd; }
+                .diff-table td { padding: 8px; border-bottom: 1px solid #eee; }
+                .diff-row { background-color: #fff0f0; }
+                .diff-row td { color: #d9534f; font-weight: bold; }
+                .no-diff { color: #28a745; font-weight: bold; }
+
+                /* Tree Visualization */
+                .trees-row { display: flex; gap: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+                .model-col { flex: 1; min-width: 300px; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 4px; }
+                .model-name { font-weight: bold; color: #555; text-align: center; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #eee; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+                
+                svg { width: 100%; height: auto; min-height: 200px; }
+                pre { white-space: pre-wrap; word-wrap: break-word; background: #f8f8f8; padding: 10px; border-radius: 4px; }
             </style>
         </head>
         <body>
-            <h1>Comparison Report</h1>
-            <p>Generated: 2025-12-06 17:04:40</p>
-            <p><b>Note:</b> Ensure 'svgling' is installed for graphical tree visualization.</p>
+            <h1>Constituency Tree Comparison Report</h1>
+            <p>Generated: 2025-12-06 17:11:27</p>
             
             <div id="entries">
         
                 <div class="entry">
                     <div class="sentence">CHRISTMAS ACCIDENT AT THE REWE SUPERMARKET  I'm standing in the Rewe parking lot.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">It's evening and it's snowing.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Saturday evening just before twenty.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">The Rewe is about to close.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Mom forgot to buy eggs at lunchtime today because she wanted to bake a cake.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <table class='diff-table'><thead><tr><th>Token</th><th>Model A Tag</th><th>Model B Tag</th></tr></thead><tbody><tr class=''><td>Mom</td><td>DT</td><td>DT</td></tr><tr class=''><td>forgot</td><td>DT</td><td>DT</td></tr><tr class=''><td>to</td><td>DT</td><td>DT</td></tr><tr class=''><td>buy</td><td>DT</td><td>DT</td></tr><tr class=''><td>eggs</td><td>DT</td><td>DT</td></tr><tr class=''><td>at</td><td>DT</td><td>DT</td></tr><tr class=''><td>lunchtime</td><td>DT</td><td>DT</td></tr><tr class='diff-row'><td>today</td><td>NN</td><td>RB</td></tr><tr class=''><td>because</td><td>DT</td><td>DT</td></tr><tr class=''><td>she</td><td>DT</td><td>DT</td></tr><tr class=''><td>wanted</td><td>DT</td><td>DT</td></tr><tr class=''><td>to</td><td>DT</td><td>DT</td></tr><tr class=''><td>bake</td><td>DT</td><td>DT</td></tr><tr class=''><td>a</td><td>DT</td><td>DT</td></tr><tr class=''><td>cake</td><td>DT</td><td>DT</td></tr><tr class=''><td>.</td><td>DT</td><td>DT</td></tr></tbody></table>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: Model A: [('Mom', 'DT'), ('forgot', 'DT'), ('to', 'DT'), ('buy', 'DT'), ('eggs', 'DT'), ('at', 'DT'), ('lunchtime', 'DT'), ('today', 'NN'), ('because', 'DT'), ('she', 'DT'), ('wanted', 'DT'), ('to', 'DT'), ('bake', 'DT'), ('a', 'DT'), ('cake', 'DT'), ('.', 'DT')] != Model B: [('Mom', 'DT'), ('forgot', 'DT'), ('to', 'DT'), ('buy', 'DT'), ('eggs', 'DT'), ('at', 'DT'), ('lunchtime', 'DT'), ('today', 'RB'), ('because', 'DT'), ('she', 'DT'), ('wanted', 'DT'), ('to', 'DT'), ('bake', 'DT'), ('a', 'DT'), ('cake', 'DT'), ('.', 'DT')]</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Unfortunately, the neighbors didn't have any eggs either, so she sent me out to buy some more.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Coincidentally, my boyfriend's mom also had to do some quick shopping at the supermarket, but she wanted to do it quickly by car because she didn't have time.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">My boyfriend knew this because we had chatted about it briefly, so his mother offered me a ride to the store and simply gave me a lift.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">When we arrived at the Rewe parking lot, I got out of the car.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Distracted by the drive, I hadn't even noticed how beautifully decorated the Rewe store was for Christmas - I only noticed it now, because I had been talking to my friend about the new Brawlstars game the whole way, fascinated.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Like me, he only noticed now that it was very Christmassy.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Of course, tomorrow was the first day of Advent and many stores had already decorated their stores the Saturday before to attract more customers.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">There was also a small Christmas market in front of the entrance and my friend could hardly breathe in amazement.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Fascinated, we looked at the many glittering Christmas artworks on the individual stalls.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">As we were looking at all the things in fascination, I noticed an elderly lady coming out of the Rewe store.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Her shopping cart was full of all kinds of goods.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">She probably wanted to do her weekend shopping before closing time.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I couldn't explain t, but something made me look after this lady with fascination, perhaps I was amazed by her unusually loaded shopping cart or how awkwardly she navigated it across the parking lot - I don't know exactly.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I was still thinking that the road might be slippery in weather like this, but I couldn't finish my thought when a black car whizzed across the parking lot far too fast.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I had a bad feeling.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Some people in the distance were already jumping to the side in horror and cursing angrily.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"There are little children here,"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I heard a worried mother shout as the car continued to approach menacingly.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">But what was to be expected happened: the car lost control due to the completely excessive speed.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">It spun in circles and before it came to a halt, it knocked over the woman's shopping cart again with full force.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I can still remember today how all the goods in the lady's shopping cart flew through the air as if in slow motion and even during the flight I thought:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <table class='diff-table'><thead><tr><th>Token</th><th>Model A Tag</th><th>Model B Tag</th></tr></thead><tbody><tr class=''><td>I</td><td>DT</td><td>DT</td></tr><tr class=''><td>can</td><td>DT</td><td>DT</td></tr><tr class=''><td>still</td><td>DT</td><td>DT</td></tr><tr class=''><td>remember</td><td>DT</td><td>DT</td></tr><tr class='diff-row'><td>today</td><td>NN</td><td>RB</td></tr><tr class=''><td>how</td><td>DT</td><td>DT</td></tr><tr class=''><td>all</td><td>DT</td><td>DT</td></tr><tr class=''><td>the</td><td>DT</td><td>DT</td></tr><tr class=''><td>goods</td><td>DT</td><td>DT</td></tr><tr class=''><td>in</td><td>DT</td><td>DT</td></tr><tr class=''><td>the</td><td>DT</td><td>DT</td></tr><tr class=''><td>lady</td><td>DT</td><td>DT</td></tr><tr class=''><td>'s</td><td>DT</td><td>DT</td></tr><tr class=''><td>shopping</td><td>DT</td><td>DT</td></tr><tr class=''><td>cart</td><td>DT</td><td>DT</td></tr><tr class=''><td>flew</td><td>DT</td><td>DT</td></tr><tr class=''><td>through</td><td>DT</td><td>DT</td></tr><tr class=''><td>the</td><td>DT</td><td>DT</td></tr><tr class=''><td>air</td><td>DT</td><td>DT</td></tr><tr class=''><td>as</td><td>DT</td><td>DT</td></tr><tr class=''><td>if</td><td>DT</td><td>DT</td></tr><tr class=''><td>in</td><td>DT</td><td>DT</td></tr><tr class=''><td>slow</td><td>DT</td><td>DT</td></tr><tr class=''><td>motion</td><td>DT</td><td>DT</td></tr><tr class=''><td>and</td><td>DT</td><td>DT</td></tr><tr class=''><td>even</td><td>DT</td><td>DT</td></tr><tr class=''><td>during</td><td>DT</td><td>DT</td></tr><tr class=''><td>the</td><td>DT</td><td>DT</td></tr><tr class=''><td>flight</td><td>DT</td><td>DT</td></tr><tr class=''><td>I</td><td>DT</td><td>DT</td></tr><tr class=''><td>thought</td><td>DT</td><td>DT</td></tr><tr class=''><td>:</td><td>DT</td><td>DT</td></tr></tbody></table>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: Model A: [('I', 'DT'), ('can', 'DT'), ('still', 'DT'), ('remember', 'DT'), ('today', 'NN'), ('how', 'DT'), ('all', 'DT'), ('the', 'DT'), ('goods', 'DT'), ('in', 'DT'), ('the', 'DT'), ('lady', 'DT'), ("'s", 'DT'), ('shopping', 'DT'), ('cart', 'DT'), ('flew', 'DT'), ('through', 'DT'), ('the', 'DT'), ('air', 'DT'), ('as', 'DT'), ('if', 'DT'), ('in', 'DT'), ('slow', 'DT'), ('motion', 'DT'), ('and', 'DT'), ('even', 'DT'), ('during', 'DT'), ('the', 'DT'), ('flight', 'DT'), ('I', 'DT'), ('thought', 'DT'), (':', 'DT')] != Model B: [('I', 'DT'), ('can', 'DT'), ('still', 'DT'), ('remember', 'DT'), ('today', 'RB'), ('how', 'DT'), ('all', 'DT'), ('the', 'DT'), ('goods', 'DT'), ('in', 'DT'), ('the', 'DT'), ('lady', 'DT'), ("'s", 'DT'), ('shopping', 'DT'), ('cart', 'DT'), ('flew', 'DT'), ('through', 'DT'), ('the', 'DT'), ('air', 'DT'), ('as', 'DT'), ('if', 'DT'), ('in', 'DT'), ('slow', 'DT'), ('motion', 'DT'), ('and', 'DT'), ('even', 'DT'), ('during', 'DT'), ('the', 'DT'), ('flight', 'DT'), ('I', 'DT'), ('thought', 'DT'), (':', 'DT')]</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Oh dear, this is going to be a real mess!"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">It rattled, everything was on the ground.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">And all the attention of the surrounding passers-by was focused on this bizarre scene.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">What luck, nothing else happened to the woman.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">She stood there in horror and watched the scene.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Only after a delay and wild gesticulation, after she had recovered from the shock, did words come out of her mouth and she shouted loudly that the driver should watch out.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Full of fascination, we ran excitedly to the event and wanted to see everything up close.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I asked the lady if everything was alright, she said:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Thank God"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">, but when she looked at the disaster she said depressed:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Everything is on the floor, who's going to clean it up for me"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">I calmed the visibly agitated lady down and said that we would be happy to help her.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">But first I advised her to call the police.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">She did so immediately with her cell phone.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">In the meantime, something was stirring in the black car, which came to a halt a short distance later with the engine still running.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">A visibly shaken man got out of the car.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Pale as a sheet and flustered, only stuttering words came out of his mouth such as:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"gracious lady everything okay?"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Visibly embarrassed, he looked at the scene he had caused.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"i'm very sorry"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">he added.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Yes-yes, you probably don't believe that yourself.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Driving far too fast here on this slippery road.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">And people everywhere.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Be glad that nothing worse happened!"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">she slobbered over to him.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Completely captivated by what was happening, we didn't even notice that the police had already arrived.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Not quite as hurried as the black car but with flashing blue lights, they drove up and stopped next to the event.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">You could hear the police radio squawking from the police car as two police officers in full gear approached the scene.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">It was a woman and a man.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Good afternoon, did you call us?"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">the policeman said as he approached the woman.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">But then he surveyed the scene first.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">He put his arms demonstratively on his hips.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Having seen enough, he continued after a few seconds,</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Then tell me ..."</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">And so the old lady, quite upset, told him how the accident had happened.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">The man just stood there quietly and only said something when the police officers wanted to know something about him.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">When the questioning was finished, the police officers turned to the surrounding crowd who were still watching in fascination.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Has anyone else seen anything?"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">he shouted into the crowd.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Me and my friend immediately held out our hands, snapping them wildly and shouting</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"We"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">So the policeman came over to us and said:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Well then, boys, tell us."</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">So we proudly told our version of events with shining eyes.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">When we had finished our story, he just said taciturnly:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Well then, that's a clear-cut case.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">The driver's insurance will pay for the damage"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">and then he turned to the driver.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"And you'll get away with another misdemeanor for speeding"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Finally, he thanked us again with:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Thanks guys, that helped us a lot.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Your testimony will go on the record"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">We looked at each other with shining eyes and full of pride.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">We could hardly believe that we were allowed to testify as witnesses for the first time in our lives.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">We hadn't finished rejoicing when the old lady whispered exasperatedly:</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Yes, and who's going to help me with all this stuff now?"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"No problem, we said, we'd be happy to help"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">and eagerly started to put her things back in the shopping cart.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">Other passers-by also ran over and helped the lady, who was visibly embarrassed and thanked them for their help.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">"Jeez, you!</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">The supermarket is about to close,"</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">my friend suddenly shouted.</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
                 <div class="entry">
                     <div class="sentence">The trolley had already been put away anyway, so we left the old lady, who thanked us again from a distance, and hurried into the supermarket...</div>
-                    <div class="comparison">
-                        <div class="model-col">
-                            <div class="model-name">Model_A_Benepar</div>
-                            <i>No tree available</i>
+                    
+                    <div class="comparison-container">
+                        <!-- Tag Differences Table -->
+                        <div class="diff-section">
+                            <h3>POS Tag Comparison</h3>
+                            <span class='no-diff'>No Difference</span>
                         </div>
-                        <div class="model-col">
-                            <div class="model-name">Model_B_Adversarial</div>
-                            <i>No tree available</i>
+                        
+                        <!-- Tree Visualizations -->
+                        <div class="trees-row">
+                            <div class="model-col">
+                                <div class="model-name">Model_A_Benepar Tree</div>
+                                <i>No tree available</i>
+                            </div>
+                            <div class="model-col">
+                                <div class="model-name">Model_B_Adversarial Tree</div>
+                                <i>No tree available</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="diff">Difference: No Difference</div>
                 </div>
             
             </div>
