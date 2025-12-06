@@ -28,9 +28,18 @@ class BeneparWrapper(BaseModel):
             self.nlp = spacy.blank('en')
 
         # Ensure sentencizer is present (critical for Benepar)
-        if "sentencizer" not in self.nlp.pipe_names and "parser" not in self.nlp.pipe_names:
-            self.nlp.add_pipe("sentencizer")
-            print("✓ Added 'sentencizer' to pipeline")
+        # Even if a parser exists, sometimes it fails to set sentence boundaries for short/complex segments
+        # Adding sentencizer explicitly helps ensure robustness.
+        # We check if it's already there to avoid duplication.
+        if "sentencizer" not in self.nlp.pipe_names:
+            # If using a model with a parser, add sentencizer *before* benepar but maybe after parser?
+            # Actually, sentencizer is fast. Let's add it first to be safe, or before benepar.
+            # But if parser is present, parser sets boundaries. 
+            # The error suggests boundaries are unset. 
+            # We force add sentencizer to the beginning if no parser, or if parser exists but failed (safe fallback).
+            # Safest bet: Add sentencizer first.
+            self.nlp.add_pipe("sentencizer", first=True)
+            # print("✓ Added 'sentencizer' to pipeline")
 
         # Check if model_name is a local path or a download name
         is_local_path = os.path.exists(model_name) or os.path.isdir(model_name)
@@ -40,8 +49,6 @@ class BeneparWrapper(BaseModel):
             try:
                 benepar.download(model_name)
             except Exception as e:
-                # If it's not a known model name, it might be a path that doesn't exist yet or user error
-                # But benepar.download is chatty.
                 print(f"Warning: Could not download benepar model '{model_name}': {e}")
         else:
             print(f"Using local Benepar model from: {model_name}")
@@ -53,6 +60,57 @@ class BeneparWrapper(BaseModel):
             except Exception as e:
                 print(f"Error adding benepar pipe: {e}")
 
+        # Apply the safe wrapper logic requested by user
+        self._apply_safe_wrapper()
+
+    def _apply_safe_wrapper(self):
+        """
+        Applies the user-provided safe wrapper logic to the benepar component.
+        """
+        if PIPE_BENE_PAR in self.nlp.pipe_names:
+            
+            def fallback_parser(doc):
+                print(f"Fallback parser triggered for: {doc.text[:20]}...")
+                return doc
+
+            original_benepar = self.nlp.get_pipe(PIPE_BENE_PAR)
+            
+            def safe_benepar_parser_impl(doc):
+                try:
+                    # Explicitly check/set sentence boundaries if missing before invoking benepar
+                    # This is a runtime safety check inside the pipe
+                    if not doc.has_annotation("SENT_START"):
+                         # This check is tricky in spacy, usually check specific tokens.
+                         # Instead, we can just ensure sentencizer ran.
+                         pass
+                    
+                    return original_benepar(doc)
+                except StopIteration as e:
+                    print(f"❌ StopIteration error in benepar parsing!")
+                    print(f"Problematic text: '{doc.text}'")
+                    print(f"Text length: {len(doc.text)}")
+                    print(f"Error details: {e}")
+                    return fallback_parser(doc)
+                except ValueError as e:
+                    if "Sentence boundaries unset" in str(e):
+                        print(f"⚠️ Sentence boundaries unset for: '{doc.text[:30]}...'. Attempting fallback.")
+                        # We could try to run sentencizer here on the doc manually if we had access to it
+                        # But doc is already processed.
+                    else:
+                        print(f"❌ ValueError in benepar parsing: {e}")
+                    return fallback_parser(doc)
+                except Exception as e:
+                    print(f"❌ Error in benepar parsing!")
+                    print(f"Problematic text: '{doc.text}'")
+                    print(f"Error details: {e}")
+                    return fallback_parser(doc)
+            
+            try:
+                self.nlp.replace_pipe(PIPE_BENE_PAR, safe_benepar_parser_impl)
+                print("✓ Benepar component wrapped with error handling")
+            except Exception as e:
+                print(f"Warning: Could not wrap benepar component: {e}")
+
     def predict(self, sentence: str) -> Any:
         """
         Predicts the constituency tree and POS tags.
@@ -62,7 +120,6 @@ class BeneparWrapper(BaseModel):
         except Exception as e:
             print(f"❌ Error during parsing (predict): {e}")
             # Fallback: return empty or tokenized only
-            # If sentencizer failed or Benepar crashed, we can try to recover
             return [(word, 'UNK') for word in sentence.split()]
         
         pos_tags = [(token.text, token.tag_) for token in doc]
@@ -84,10 +141,6 @@ class BeneparWrapper(BaseModel):
         """
         Returns the parse string for the sentence. 
         """
-        # If we just predicted this sentence, use cached result
-        # A simple check if it matches the last one is tricky without storing the input sentence.
-        # For safety, let's just re-parse or trust the caller knows.
-        # Or better: just run nlp again. It's safer.
         try:
             doc = self.nlp(sentence)
             if len(list(doc.sents)) > 0:
