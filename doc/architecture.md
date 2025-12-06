@@ -17,48 +17,44 @@ The core logic for processing sentences.
 *   **`Comparator`**: Compares the outputs of two models. Currently checks for structural equality.
 *   **`DisagreementLogger`**: Handles the storage of flagged sentences.
     *   **CSV Output**: Saves the sentence and raw differences for easy reading and training.
-    *   **JSON Output**: Saves a structured, flat dictionary of token-to-POS tags for each model, facilitating detailed analysis.
-*   **`DataLoader`**: Handles loading text from files and splitting it into processing units.
-    *   Uses a recursive Regex pattern to handle complex text structures like nested parentheses, quotes, etc.
-    *   Ensures that bracketed/quoted sentences are kept together as single units.
-    *   Normal text is split into sentences using NLTK.
+    *   **JSON Output**: Saves a structured, flat dictionary of token-to-POS tags for each model.
+*   **`DataLoader`**: Handles loading text from files and splitting it into processing units using Regex.
+*   **`POSDataLoader`**: Helper to load reference POS tags from CSV files.
 
 ### 2. Models (`src/models/`)
 
 Abstraction layer for different parsing models.
 
-*   **`BaseModel`**: Abstract base class defining the `predict(sentence)` interface.
-*   **`DummyModel`**: A reference implementation used for testing the pipeline. It simulates a model with known "false positive" behaviors (e.g., misclassifying "today").
+*   **`BaseModel`**: Abstract base class.
+*   **`DummyModel`**: A reference implementation for testing.
+*   **`BeneparWrapper`**: **(New)** A wrapper around the real Benepar model (via spaCy). 
+    *   Includes a `safe_benepar_parser` wrapper to handle `StopIteration` errors robustly.
+    *   Supports displaying constituency trees using NLTK.
 
 ### 3. Main Execution (`src/main.py`)
 
 The entry point that handles CLI arguments to select the mode.
 
 *   **Adversarial Mode**:
-    1.  Initializes models.
-    2.  Loads data using `DataLoader`.
-    3.  Logs disagreements to CSV and JSON.
+    *   Can use `DummyModel` (fast, no downloads) or `BeneparWrapper` (requires model download).
+    *   Logs disagreements.
+    *   Displays trees for mismatched sentences if using Benepar.
 *   **Training Mode**:
-    1.  Loads a disagreement CSV.
-    2.  Iterates through records (simulating a training loop).
+    *   Loads a disagreement CSV.
+    *   Runs a mock training loop.
 
 ## Data Flow
 
 ### Adversarial Flow
 1.  **Input**: Text file (e.g., `data/ASchoolEssay.txt`).
 2.  **Splitting**: Regex + NLTK splitting.
-3.  **Comparison**: Model A vs Model B.
-4.  **Output**: 
-    *   `disagreements_TIMESTAMP.csv`
-    *   `disagreements_TIMESTAMP.json` (contains flat `{token: tag}` structures)
-
-### Training Flow
-1.  **Input**: CSV file from the adversarial step.
-2.  **Processing**: Extract sentence and target label (Model B output).
-3.  **Training**: Update model weights (Simulated).
+3.  **Processing**:
+    *   Model A (Benepar/Dummy) -> Prediction A
+    *   Model B (Adversarial/Dummy) -> Prediction B
+4.  **Comparison**: `Comparator.compare(Prediction A, Prediction B)`
+5.  **Output**: CSV/JSON logs.
 
 ## Future Extensions
 
 *   **Adversarial Training**: Use the collected disagreements to retrain the failing model.
 *   **Tree Distance**: Implement more sophisticated tree comparison metrics (e.g., Evalb).
-*   **Model Wrappers**: Implement actual wrappers for Benepar, Spacy, or CoreNLP.

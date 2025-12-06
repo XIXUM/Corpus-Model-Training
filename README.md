@@ -8,7 +8,7 @@ This project provides a framework for training and evaluating constituency parsi
 .
 ├── src/
 │   ├── main.py             # Entry point (CLI)
-│   ├── models/             # Model wrappers
+│   ├── models/             # Model wrappers (Dummy, Benepar)
 │   └── pipeline/           # Core logic (Loader, Comparator, Logger)
 ├── doc/
 │   └── architecture.md     # System architecture documentation
@@ -31,6 +31,7 @@ This project provides a framework for training and evaluating constituency parsi
     ```bash
     pip install -r requirements.txt
     ```
+    *Note: Benepar requires model downloading. The wrapper attempts to download 'benepar_en3' automatically, but this requires internet access.*
 
 ## Usage
 
@@ -45,9 +46,11 @@ source .venv/bin/activate
 python -m src.main adversarial --data data/ASchoolEssay.txt
 ```
 
-**Outputs:**
-*   A CSV file in `disagreement_logs/` containing the sentences and differences.
-*   A JSON file in `disagreement_logs/` containing a flat structure of POS tags for each token.
+To use the **real Benepar model** (requires `benepar_en3` download):
+```bash
+python -m src.main adversarial --data data/ASchoolEssay.txt --real-benepar
+```
+*This will also display the constituency trees for mismatched sentences.*
 
 ### 2. Training Mode
 
