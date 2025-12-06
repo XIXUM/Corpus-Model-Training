@@ -9,6 +9,7 @@ from src.models.benepar_wrapper import BeneparWrapper
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
+from src.pipeline.tree_exporter import TreeExporter
 
 def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     """
@@ -23,8 +24,6 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     # Initialize components
     if use_real_benepar:
         print("Initializing Benepar Wrapper (Real Model)...")
-        # Note: This might fail if models are not downloaded or environment issues.
-        # We fallback or catch inside wrapper.
         model_a = BeneparWrapper("Model_A_Benepar")
     else:
         model_a = DummyModel("Model_A_Benepar", variation=True)
@@ -33,6 +32,11 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     
     comparator = Comparator()
     logger = DisagreementLogger(output_dir="disagreement_logs")
+    tree_exporter = None
+    
+    if use_real_benepar:
+        tree_exporter = TreeExporter(output_dir="disagreement_logs")
+        print(f"Exporting trees to: {tree_exporter.get_file_path()}")
 
     print(f"Loading data from {data_file}...")
     
@@ -46,35 +50,46 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
                 
             is_special_block = segment[0] in ['"', '(', '[', '{']
             
-            sub_sentences = []
-            if not is_special_block:
-                sub_sentences = nltk.sent_tokenize(segment)
-            else:
-                sub_sentences = [segment]
+            # Try to split everything into sentences, including quotes/brackets
+            sub_sentences = nltk.sent_tokenize(segment)
                 
             for sentence in sub_sentences:
                 sentence = sentence.replace('\n', ' ').strip()
                 if not sentence:
                     continue
                 
-                # If using real benepar, we can optionally display the tree here
+                # Display and Export Tree for EVERY sentence if using real Benepar
                 if use_real_benepar and isinstance(model_a, BeneparWrapper):
-                    # print(f"Displaying tree for: {sentence[:30]}...")
-                    # model_a.display_tree(sentence)
-                    pass 
+                    print(f"Processing: {sentence[:50]}...")
+                    
+                    # Display on console
+                    model_a.display_tree(sentence)
+                    
+                    # Export to file
+                    # Access the last computed tree string from the model if available
+                    # Note: display_tree computes it again. 
+                    # Let's optimize: call predict first to get POS, then check internal state or re-parse?
+                    # BeneparWrapper.predict computes tags. 
+                    # BeneparWrapper.display_tree computes tree.
+                    # Ideally we get both.
+                    
+                    # Let's use display_tree logic to get the tree object string
+                    # But display_tree prints directly.
+                    # Let's add a get_tree_string method to BeneparWrapper
+                    tree_str = model_a.get_tree_string(sentence)
+                    if tree_exporter:
+                        tree_exporter.log_tree(sentence, tree_str)
 
                 res_a = model_a.predict(sentence)
                 res_b = model_b.predict(sentence)
                 
+                # here the models are compared and only in case of a deviation the disagreement is logged
                 if not comparator.compare(res_a, res_b):
                     diff = comparator.find_diff(res_a, res_b)
                     logger.log(sentence, model_a.name, res_a, model_b.name, res_b, diff)
                     
-                    # If disagreement, show the tree from Benepar?
-                    if use_real_benepar and isinstance(model_a, BeneparWrapper):
-                         print(f"\nDisagreement on: {sentence}")
-                         model_a.display_tree(sentence)
-
+                    if use_real_benepar:
+                         print(f" -> Disagreement found! (Logged)")
 
         logger.save()
         print("Adversarial evaluation complete.")
@@ -83,6 +98,8 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
         print(f"Error: Missing dependency. {e}")
     except Exception as e:
         print(f"Error during execution: {e}")
+        import traceback
+        traceback.print_exc()
 
 
 def run_training_mode(csv_file: str):
