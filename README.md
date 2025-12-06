@@ -9,12 +9,14 @@ This project provides a framework for training and evaluating constituency parsi
 ├── src/
 │   ├── main.py             # Entry point (CLI)
 │   ├── models/             # Model wrappers (Dummy, Benepar)
-│   └── pipeline/           # Core logic (Loader, Comparator, Logger)
+│   └── pipeline/           # Core logic (Loader, Comparator, Logger, Reporter)
 ├── doc/
 │   └── architecture.md     # System architecture documentation
 ├── data/
 │   └── ASchoolEssay.txt    # Sample data
 ├── disagreement_logs/      # Output CSV/JSON logs
+├── reports/                # HTML comparison reports
+├── tree_logs/              # Text file exports of constituency trees
 ├── requirements.txt        # Python dependencies
 └── train.py                # (Legacy) Simple NN training script
 ```
@@ -39,18 +41,28 @@ The tool now supports two modes: `adversarial` and `train`.
 
 ### 1. Adversarial Evaluation Mode
 
-Run the comparison pipeline to detect deviations between models.
+Run the comparison pipeline to detect deviations between models and generate reports.
 
+**Basic Run (using Dummy/Simulation Models):**
+Useful for testing the pipeline without downloading large models.
 ```bash
 source .venv/bin/activate
 python -m src.main adversarial --data data/ASchoolEssay.txt
 ```
 
-To use the **real Benepar model** (requires `benepar_en3` download):
+**Real Model Run (Recommended):**
+Uses the actual Benepar model (requires internet for first-time model download).
 ```bash
 python -m src.main adversarial --data data/ASchoolEssay.txt --real-benepar
 ```
-*This will also display the constituency trees for mismatched sentences.*
+
+#### Outputs:
+*   **HTML Report**: `reports/latest_comparison_report.html`
+    *   A visual side-by-side comparison of POS tags and Constituency Trees (rendered as SVG).
+*   **Disagreement Logs**: 
+    *   `disagreement_logs/disagreements_TIMESTAMP.csv` (Summary of mismatches)
+    *   `disagreement_logs/disagreements_TIMESTAMP.json` (Detailed structure)
+*   **Tree Export**: `tree_logs/trees_TIMESTAMP.txt` (All parsed trees in text format)
 
 ### 2. Training Mode
 
