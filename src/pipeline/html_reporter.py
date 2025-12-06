@@ -38,7 +38,8 @@ class HTMLTreeReporter:
             "model_b": model_b_name,
             "tree_b": self._render_tree(tree_b_str),
             "diff": diff_desc,
-            "diff_html": self._format_diff_table(diff_desc)
+            "diff_html": self._format_diff_table(diff_desc),
+            "has_diff": diff_desc != "No Difference"
         }
         self.entries.append(entry)
 
@@ -57,40 +58,33 @@ class HTMLTreeReporter:
     def _format_diff_table(self, diff_desc: str) -> str:
         """
         Parses the difference string and formats it as an HTML table comparison.
-        Expects string format like: "Model A: [('Word', 'TAG'), ...] != Model B: [('Word', 'TAG'), ...]"
         """
         if diff_desc == "No Difference":
              return "<span class='no-diff'>No Difference</span>"
              
         try:
-            # Simple parsing strategy based on known format
             if "Model A:" in diff_desc and "Model B:" in diff_desc:
                 parts = diff_desc.split("!= Model B:")
                 part_a = parts[0].replace("Model A:", "").strip()
                 part_b = parts[1].strip()
                 
-                # Try to parse as list of tuples
                 list_a = ast.literal_eval(part_a)
                 list_b = ast.literal_eval(part_b)
                 
                 html = "<table class='diff-table'><thead><tr><th>Token</th><th>Model A Tag</th><th>Model B Tag</th></tr></thead><tbody>"
                 
-                # Iterate max length
                 max_len = max(len(list_a), len(list_b))
                 for i in range(max_len):
                     token_a, tag_a = list_a[i] if i < len(list_a) else ("-", "-")
                     token_b, tag_b = list_b[i] if i < len(list_b) else ("-", "-")
                     
-                    # Highlight row if tags differ
                     row_class = "diff-row" if tag_a != tag_b else ""
-                    
                     html += f"<tr class='{row_class}'><td>{token_a}</td><td>{tag_a}</td><td>{tag_b}</td></tr>"
                     
                 html += "</tbody></table>"
                 return html
                 
         except Exception as e:
-            # Fallback if parsing fails
             return f"<pre>{diff_desc}</pre>"
             
         return f"<pre>{diff_desc}</pre>"
@@ -108,7 +102,6 @@ class HTMLTreeReporter:
                 
                 .comparison-container {{ display: flex; flex-direction: column; gap: 20px; }}
                 
-                /* Tag Comparison Table */
                 .diff-section {{ margin-bottom: 20px; }}
                 .diff-table {{ width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95em; }}
                 .diff-table th {{ background-color: #f5f5f5; padding: 8px; text-align: left; border-bottom: 2px solid #ddd; }}
@@ -117,13 +110,19 @@ class HTMLTreeReporter:
                 .diff-row td {{ color: #d9534f; font-weight: bold; }}
                 .no-diff {{ color: #28a745; font-weight: bold; }}
 
-                /* Tree Visualization */
                 .trees-row {{ display: flex; gap: 20px; border-top: 1px solid #eee; padding-top: 20px; }}
                 .model-col {{ flex: 1; min-width: 300px; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 4px; }}
                 .model-name {{ font-weight: bold; color: #555; text-align: center; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #eee; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }}
                 
                 svg {{ width: 100%; height: auto; min-height: 200px; }}
                 pre {{ white-space: pre-wrap; word-wrap: break-word; background: #f8f8f8; padding: 10px; border-radius: 4px; }}
+                
+                /* Only show trees if there is a difference, or maybe always? 
+                   User requested: "in case of a difference below the comparing list"
+                   Let's interpret this as "show trees below comparison list" (which we do).
+                   If they mean "ONLY show trees IF difference", we can add logic.
+                   But previously they said "displays the trees... at each sentence".
+                   So we keep displaying them for all. */
             </style>
         </head>
         <body>
@@ -139,13 +138,11 @@ class HTMLTreeReporter:
                     <div class="sentence">{entry['sentence']}</div>
                     
                     <div class="comparison-container">
-                        <!-- Tag Differences Table -->
                         <div class="diff-section">
                             <h3>POS Tag Comparison</h3>
                             {entry['diff_html']}
                         </div>
                         
-                        <!-- Tree Visualizations -->
                         <div class="trees-row">
                             <div class="model-col">
                                 <div class="model-name">{entry['model_a']} Tree</div>
