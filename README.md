@@ -7,16 +7,16 @@ This project provides a framework for training and evaluating constituency parsi
 ```
 .
 ├── src/
-│   ├── main.py             # Entry point for evaluation pipeline
-│   ├── models/             # Model wrappers and base classes
-│   │   ├── base_model.py   # Abstract base class
-│   │   └── dummy_model.py  # Test model implementation
-│   └── pipeline/           # Core logic
-│       ├── comparator.py   # Logic to compare model outputs
-│       └── logger.py       # CSV logging for disagreements
+│   ├── main.py             # Entry point (CLI)
+│   ├── models/             # Model wrappers (Dummy, Benepar)
+│   └── pipeline/           # Core logic (Loader, Comparator, Logger, Reporter)
 ├── doc/
 │   └── architecture.md     # System architecture documentation
-├── disagreement_logs/      # Output folder for CSV logs
+├── data/
+│   └── ASchoolEssay.txt    # Sample data
+├── disagreement_logs/      # Output CSV/JSON logs
+├── reports/                # HTML comparison reports
+├── tree_logs/              # Text file exports of constituency trees
 ├── requirements.txt        # Python dependencies
 └── train.py                # (Legacy) Simple NN training script
 ```
@@ -33,31 +33,45 @@ This project provides a framework for training and evaluating constituency parsi
     ```bash
     pip install -r requirements.txt
     ```
+    *Note: Benepar requires model downloading. The wrapper attempts to download 'benepar_en3' automatically, but this requires internet access.*
 
 ## Usage
 
-### Adversarial Evaluation
+The tool now supports two modes: `adversarial` and `train`.
 
-To run the comparison pipeline which detects deviations between two models (currently simulated):
+### 1. Adversarial Evaluation Mode
 
+Run the comparison pipeline to detect deviations between models and generate reports.
+
+**Basic Run (using Dummy/Simulation Models):**
+Useful for testing the pipeline without downloading large models.
 ```bash
 source .venv/bin/activate
-python -m src.main
+python -m src.main adversarial --data data/ASchoolEssay.txt
 ```
 
-This will:
-1.  Run two models on a sample corpus.
-2.  Compare their outputs.
-3.  Save any sentences where the models disagree to `disagreement_logs/`.
+**Real Model Run (Recommended):**
+Uses the actual Benepar model (requires internet for first-time model download).
+```bash
+python -m src.main adversarial --data data/ASchoolEssay.txt --real-benepar
+```
 
-### Neural Network Training (Basic)
+#### Outputs:
+*   **HTML Report**: `reports/latest_comparison_report.html`
+    *   A visual side-by-side comparison of POS tags and Constituency Trees (rendered as SVG).
+*   **Disagreement Logs**: 
+    *   `disagreement_logs/disagreements_TIMESTAMP.csv` (Summary of mismatches)
+    *   `disagreement_logs/disagreements_TIMESTAMP.json` (Detailed structure)
+*   **Tree Export**: `tree_logs/trees_TIMESTAMP.txt` (All parsed trees in text format)
 
-To run the basic neural network training script:
+### 2. Training Mode
+
+Run the training loop using the detected disagreements.
 
 ```bash
-python train.py --epochs 50
+python -m src.main train --csv disagreement_logs/disagreements_YOUR_TIMESTAMP.csv
 ```
 
 ## Documentation
 
-See `doc/architecture.md` for details on the system design and components.
+See `doc/architecture.md` for details on the system design, data flow, and JSON structure.

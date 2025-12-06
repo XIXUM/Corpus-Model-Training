@@ -22,3 +22,11 @@ class DummyModel(BaseModel):
             
         return tagged
 
+    def get_tree_string(self, sentence: str):
+        """
+        Returns a dummy tree string for visualization testing.
+        """
+        # Simple flat tree structure for testing
+        tokens = nltk.word_tokenize(sentence)
+        tree_str = "(S " + " ".join([f"(NP {t})" for t in tokens]) + ")"
+        return tree_str

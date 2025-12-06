@@ -4,3 +4,7 @@ torch
 scikit-learn
 matplotlib
 pandas
+regex
+spacy
+benepar
+svgling
