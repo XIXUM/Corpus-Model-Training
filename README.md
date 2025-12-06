@@ -1,77 +1,81 @@
-# Corpus Model Training & Adversarial Evaluation
+# Corpus Model Training & Adversarial Evaluation Tool
 
-This project provides a framework for training and evaluating constituency parsing models. It specifically targets the identification of false positives (e.g., incorrect POS tagging in Benepar) by comparing outputs against an adversarial or reference model.
+## Overview
+This tool allows for the adversarial evaluation of constituency parsing models (e.g., Benepar, Dummy models) and provides a framework for retraining models on problematic sentences. It identifies disagreements between two models, logs them, and generates visual comparison reports.
 
-## Project Structure
-
-```
-.
-├── src/
-│   ├── main.py             # Entry point (CLI)
-│   ├── models/             # Model wrappers (Dummy, Benepar)
-│   └── pipeline/           # Core logic (Loader, Comparator, Logger, Reporter)
-├── doc/
-│   └── architecture.md     # System architecture documentation
-├── data/
-│   └── ASchoolEssay.txt    # Sample data
-├── disagreement_logs/      # Output CSV/JSON logs
-├── reports/                # HTML comparison reports
-├── tree_logs/              # Text file exports of constituency trees
-├── requirements.txt        # Python dependencies
-└── train.py                # (Legacy) Simple NN training script
-```
+## Features
+- **Adversarial Evaluation:** Compares outputs of two models (e.g., Benepar vs. Dummy).
+- **Model Selection:** Choose from different models (`benepar`, `dummy`, `stanza`*, `bert`*) via CLI. (*placeholders)
+- **Data Loading:** Supports loading training data from local text files or URLs.
+- **Reporting:**
+  - **HTML Report:** Side-by-side visual comparison of constituency trees (SVG) and POS tags.
+  - **CSV/JSON Logs:** Detailed logs of disagreements.
+  - **Tree Export:** Raw text export of parsed trees.
+- **Training Mode:** (Stub) Framework for retraining on identified problematic sentences.
 
 ## Setup
 
-1.  Create a virtual environment:
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    ```
+1. **Create Virtual Environment:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
-2.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *Note: Benepar requires model downloading. The wrapper attempts to download 'benepar_en3' automatically, but this requires internet access.*
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   *Note: `benepar` requires model download (handled automatically by the wrapper).*
 
 ## Usage
 
-The tool now supports two modes: `adversarial` and `train`.
+The tool operates in two main modes: `adversarial` and `train`.
 
-### 1. Adversarial Evaluation Mode
+### Adversarial Mode (Comparison)
 
-Run the comparison pipeline to detect deviations between models and generate reports.
+Compare two models on a dataset.
 
-**Basic Run (using Dummy/Simulation Models):**
-Useful for testing the pipeline without downloading large models.
+**Basic Usage (Dummy Models):**
 ```bash
-source .venv/bin/activate
 python -m src.main adversarial --data data/ASchoolEssay.txt
 ```
 
-**Real Model Run (Recommended):**
-Uses the actual Benepar model (requires internet for first-time model download).
+**Using Benepar (Real Model):**
 ```bash
-python -m src.main adversarial --data data/ASchoolEssay.txt --real-benepar
+python -m src.main adversarial --model-a benepar --model-b dummy --data data/ASchoolEssay.txt
 ```
 
-#### Outputs:
-*   **HTML Report**: `reports/latest_comparison_report.html`
-    *   A visual side-by-side comparison of POS tags and Constituency Trees (rendered as SVG).
-*   **Disagreement Logs**: 
-    *   `disagreement_logs/disagreements_TIMESTAMP.csv` (Summary of mismatches)
-    *   `disagreement_logs/disagreements_TIMESTAMP.json` (Detailed structure)
-*   **Tree Export**: `tree_logs/trees_TIMESTAMP.txt` (All parsed trees in text format)
-
-### 2. Training Mode
-
-Run the training loop using the detected disagreements.
-
+**Using URL Data:**
 ```bash
-python -m src.main train --csv disagreement_logs/disagreements_YOUR_TIMESTAMP.csv
+python -m src.main adversarial --model-a dummy --model-b dummy --data https://www.gutenberg.org/cache/epub/11/pg11.txt
 ```
 
-## Documentation
+**Arguments:**
+- `--data`: Path to local text file OR URL (default: `data/ASchoolEssay.txt`).
+- `--model-a`: Select first model (`dummy`, `benepar`, `stanza`, `bert`).
+- `--model-b`: Select second model (`dummy`, `benepar`, `stanza`, `bert`).
 
-See `doc/architecture.md` for details on the system design, data flow, and JSON structure.
+### Training Mode
+
+Retrain on problematic sentences (requires a CSV from adversarial run).
+
+```bash
+python -m src.main train --csv disagreement_logs/disagreements_YYYYMMDD_HHMMSS.csv
+```
+
+## Project Structure
+
+- `src/`: Source code.
+  - `models/`: Model wrappers (`BaseModel`, `DummyModel`, `BeneparWrapper`).
+  - `pipeline/`: Core logic (`DataLoader`, `Comparator`, `Logger`, `HTMLReporter`).
+  - `main.py`: Entry point.
+- `data/`: Input data files.
+- `reports/`: Generated HTML reports.
+- `disagreement_logs/`: CSV/JSON logs of disagreements.
+- `tree_logs/`: Text export of trees.
+
+## Output
+
+- **HTML Report:** `reports/latest_comparison_report.html` - Open in browser to view tree visualizations.
+- **Disagreement Logs:** Saved in `disagreement_logs/`.
+- **Tree Logs:** Saved in `tree_logs/`.
