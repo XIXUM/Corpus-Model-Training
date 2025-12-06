@@ -48,11 +48,16 @@ training:
 
 ### 1. Adversarial Mode (Comparison)
 
-Compare two models on a dataset.
+Compare two models on a dataset. You can provide a local file path or a direct URL to a text file.
 
-**Real Adversarial Example (Benepar vs. BERT-based SuPar):**
+**Real Adversarial Example (Benepar vs. BERT-based SuPar) with Local File:**
 ```bash
 python -m src.main adversarial --model-a benepar --model-b bert --data data/ASchoolEssay.txt
+```
+
+**Adversarial Example with URL Source:**
+```bash
+python -m src.main adversarial --model-a benepar --model-b dummy --data https://www.gutenberg.org/files/11/11-0.txt
 ```
 
 ### 2. Training Mode
