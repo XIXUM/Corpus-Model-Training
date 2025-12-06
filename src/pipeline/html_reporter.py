@@ -23,7 +23,6 @@ class HTMLTreeReporter:
             os.makedirs(output_dir)
             
         # Fixed filename for the latest run to avoid ghost files, as requested.
-        # Or we can use a specific name and overwrite it.
         self.report_file = os.path.join(output_dir, "latest_comparison_report.html")
         
         # Initialize report structure
@@ -54,9 +53,9 @@ class HTMLTreeReporter:
         try:
             t = Tree.fromstring(tree_str)
             if svgling:
-                # svgling returns an object that has _repr_svg_()
-                svg = svgling.draw_tree(t)._repr_svg_()
-                return svg
+                # svgling.draw_tree returns a wrapper that can be converted to SVG
+                # ._repr_svg_() returns the raw SVG string
+                return svgling.draw_tree(t)._repr_svg_()
             else:
                 # Fallback to text representation wrapped in pre
                 return f"<pre>{t.pformat()}</pre>"
@@ -86,6 +85,7 @@ class HTMLTreeReporter:
         <body>
             <h1>Comparison Report</h1>
             <p>Generated: {self.start_time.strftime('%Y-%m-%d %H:%M:%S')}</p>
+            <p><b>Note:</b> Ensure 'svgling' is installed for graphical tree visualization.</p>
             
             <div id="entries">
         """
@@ -118,4 +118,3 @@ class HTMLTreeReporter:
             f.write(html_content)
             
         print(f"HTML Report saved to: {self.report_file}")
-

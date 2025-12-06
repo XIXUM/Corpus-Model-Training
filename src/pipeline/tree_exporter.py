@@ -47,4 +47,3 @@ class TreeExporter:
 
     def get_file_path(self) -> str:
         return self.log_file
-
