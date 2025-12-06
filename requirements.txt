@@ -7,3 +7,4 @@ pandas
 regex
 spacy
 benepar
+svgling

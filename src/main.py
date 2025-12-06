@@ -4,12 +4,23 @@ import regex  # type: ignore
 import sys
 import pandas as pd
 import ast
+import os
+import shutil
 from src.models.dummy_model import DummyModel
 from src.models.benepar_wrapper import BeneparWrapper
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
 from src.pipeline.tree_exporter import TreeExporter
+from src.pipeline.html_reporter import HTMLTreeReporter
+
+def clean_reports(output_dir="reports"):
+    """
+    Cleans up old reports/images to avoid ghost instances.
+    """
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+    os.makedirs(output_dir)
 
 def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     """
@@ -21,6 +32,9 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     except LookupError:
         nltk.download('punkt')
 
+    # Clean previous reports
+    clean_reports("reports")
+    
     # Initialize components
     if use_real_benepar:
         print("Initializing Benepar Wrapper (Real Model)...")
@@ -35,8 +49,11 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
     tree_exporter = None
     
     if use_real_benepar:
-        tree_exporter = TreeExporter(output_dir="disagreement_logs")
+        tree_exporter = TreeExporter(output_dir="tree_logs")
         print(f"Exporting trees to: {tree_exporter.get_file_path()}")
+
+    # HTML Reporter
+    html_reporter = HTMLTreeReporter(output_dir="reports")
 
     print(f"Loading data from {data_file}...")
     
@@ -49,8 +66,6 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
                 continue
                 
             is_special_block = segment[0] in ['"', '(', '[', '{']
-            
-            # Try to split everything into sentences, including quotes/brackets
             sub_sentences = nltk.sent_tokenize(segment)
                 
             for sentence in sub_sentences:
@@ -58,40 +73,47 @@ def run_adversarial_mode(data_file: str, use_real_benepar: bool = False):
                 if not sentence:
                     continue
                 
-                # Display and Export Tree for EVERY sentence if using real Benepar
-                if use_real_benepar and isinstance(model_a, BeneparWrapper):
-                    print(f"Processing: {sentence[:50]}...")
-                    
-                    # Display on console
-                    model_a.display_tree(sentence)
-                    
-                    # Export to file
-                    # Access the last computed tree string from the model if available
-                    # Note: display_tree computes it again. 
-                    # Let's optimize: call predict first to get POS, then check internal state or re-parse?
-                    # BeneparWrapper.predict computes tags. 
-                    # BeneparWrapper.display_tree computes tree.
-                    # Ideally we get both.
-                    
-                    # Let's use display_tree logic to get the tree object string
-                    # But display_tree prints directly.
-                    # Let's add a get_tree_string method to BeneparWrapper
-                    tree_str = model_a.get_tree_string(sentence)
-                    if tree_exporter:
-                        tree_exporter.log_tree(sentence, tree_str)
-
                 res_a = model_a.predict(sentence)
                 res_b = model_b.predict(sentence)
                 
-                # here the models are compared and only in case of a deviation the disagreement is logged
-                if not comparator.compare(res_a, res_b):
-                    diff = comparator.find_diff(res_a, res_b)
-                    logger.log(sentence, model_a.name, res_a, model_b.name, res_b, diff)
-                    
+                # Get Tree Strings (if available)
+                # Model A
+                tree_a_str = None
+                if isinstance(model_a, BeneparWrapper):
+                    tree_a_str = model_a.get_tree_string(sentence)
+                # Model B (Dummy doesn't have trees really, but let's pretend or use None)
+                tree_b_str = None 
+                # If Model B was also a real parser, we would get its tree here.
+                
+                # Add to HTML Report (ALL sentences, as requested "displays the trees... at each sentence")
+                # We add comparison even if they agree? The user said "displays the trees... at each sentence".
+                # Yes, so we add to reporter here.
+                
+                # Check for disagreement for the 'diff' field
+                is_diff = not comparator.compare(res_a, res_b)
+                diff_text = comparator.find_diff(res_a, res_b) if is_diff else "No Difference"
+                
+                html_reporter.add_comparison(
+                    sentence, 
+                    model_a.name, 
+                    tree_a_str, 
+                    model_b.name, 
+                    tree_b_str,
+                    diff_text
+                )
+
+                # Export to text file
+                if tree_exporter and tree_a_str:
+                    tree_exporter.log_tree(sentence, tree_a_str)
+
+                # Disagreement Logging
+                if is_diff:
+                    logger.log(sentence, model_a.name, res_a, model_b.name, res_b, diff_text)
                     if use_real_benepar:
                          print(f" -> Disagreement found! (Logged)")
 
         logger.save()
+        html_reporter.save() # Save HTML report
         print("Adversarial evaluation complete.")
         
     except ImportError as e:

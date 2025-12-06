@@ -20,7 +20,10 @@ The core logic for processing sentences.
     *   **JSON Output**: Saves a structured, flat dictionary of token-to-POS tags for each model.
 *   **`DataLoader`**: Handles loading text from files and splitting it into processing units using Regex.
 *   **`POSDataLoader`**: Helper to load reference POS tags from CSV files.
-*   **`TreeExporter`**: **(New)** Exports the constituency trees of all processed sentences to a clean text file for analysis.
+*   **`TreeExporter`**: Exports the constituency trees of all processed sentences to a clean text file.
+*   **`HTMLTreeReporter`**: **(New)** Generates a graphical HTML report comparing trees side-by-side.
+    *   Uses `svgling` for high-quality SVG tree rendering.
+    *   Cleaned up on each run to avoid "ghost" files.
 
 ### 2. Models (`src/models/`)
 
@@ -38,9 +41,9 @@ The entry point that handles CLI arguments to select the mode.
 
 *   **Adversarial Mode**:
     *   Can use `DummyModel` (fast, no downloads) or `BeneparWrapper` (requires model download).
-    *   Logs disagreements.
-    *   Displays trees for ALL sentences if using Benepar.
-    *   Exports trees to `tree_logs/`.
+    *   Logs disagreements to CSV/JSON.
+    *   Exports all trees to text file.
+    *   Generates `reports/latest_comparison_report.html` with side-by-side tree visualizations.
 *   **Training Mode**:
     *   Loads a disagreement CSV.
     *   Runs a mock training loop.
@@ -51,13 +54,13 @@ The entry point that handles CLI arguments to select the mode.
 1.  **Input**: Text file (e.g., `data/ASchoolEssay.txt`).
 2.  **Splitting**: Regex + NLTK splitting.
 3.  **Processing**:
-    *   Model A (Benepar/Dummy) -> Prediction A
-    *   Model B (Adversarial/Dummy) -> Prediction B
-4.  **Actions**:
-    *   **Display**: Print tree to console (if Real Benepar).
-    *   **Export**: Save tree to text file (if Real Benepar).
-    *   **Comparison**: `Comparator.compare(Prediction A, Prediction B)`
-    *   **Log**: If mismatch, save to CSV/JSON.
+    *   Model A (Benepar) -> Prediction A & Tree A
+    *   Model B (Adversarial) -> Prediction B & Tree B
+4.  **Reporting**:
+    *   **Text Export**: `tree_logs/`
+    *   **HTML Report**: `reports/` (Side-by-side SVG)
+    *   **Comparison**: `Comparator`
+    *   **Logging**: `disagreement_logs/` (CSV/JSON)
 
 ## Future Extensions
 
