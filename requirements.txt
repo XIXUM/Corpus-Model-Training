@@ -10,3 +10,4 @@ benepar
 svgling
 requests
 pyyaml
+stanza

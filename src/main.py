@@ -10,6 +10,7 @@ from typing import Dict, Any, List, Optional
 
 from src.models.dummy_model import DummyModel
 from src.models.benepar_wrapper import BeneparWrapper
+from src.models.stanza_wrapper import StanzaWrapper
 from src.pipeline.comparator import Comparator
 from src.pipeline.logger import DisagreementLogger
 from src.pipeline.data_loader import DataLoader
@@ -39,15 +40,19 @@ def get_model_instance(model_name: str, instance_name: str) -> Any:
     if model_name == "benepar":
         print(f"Initializing {instance_name} as BeneparWrapper (en3)...")
         return BeneparWrapper(instance_name, model_name="benepar_en3")
+    elif model_name == "stanza":
+        print(f"Initializing {instance_name} as StanzaWrapper...")
+        return StanzaWrapper(instance_name)
     elif model_name == "dummy":
         print(f"Initializing {instance_name} as DummyModel...")
         use_variation = "A" in instance_name
         return DummyModel(instance_name, variation=use_variation)
-    elif model_name == "stanza":
-        print(f"Warning: Stanza model not yet fully implemented. Falling back to Dummy.")
-        return DummyModel(f"{instance_name} (Stanza Placeholder)", variation=True)
     elif model_name == "bert":
-        print(f"Warning: BERT model not yet fully implemented. Falling back to Dummy.")
+        # For BERT, usually we use Benepar backed by BERT.
+        # If the user explicitly wants BERT, we can use Benepar with a BERT model name if available,
+        # or falling back to Dummy if not fully configured for direct BERT usage.
+        # But for now, let's clarify:
+        print(f"Warning: 'bert' option maps to DummyModel placeholder currently. Use 'benepar' for BERT-based parsing (it uses transformers).")
         return DummyModel(f"{instance_name} (BERT Placeholder)", variation=True)
     else:
         print(f"Unknown model '{model_name}'. Using DummyModel.")
@@ -62,6 +67,8 @@ def get_model_info(model_obj: Any) -> Dict[str, str]:
         info["type"] = "Dummy / Simulation"
     elif isinstance(model_obj, BeneparWrapper):
         info["type"] = f"Benepar ({model_obj.model_name})"
+    elif isinstance(model_obj, StanzaWrapper):
+        info["type"] = f"Stanza ({model_obj.model_name})"
     else:
         info["type"] = "Unknown Model"
     return info
