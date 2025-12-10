@@ -69,7 +69,17 @@ Retrain the Benepar model on corrected sentences. Requires a file with bracketed
 python -m src.main train --train-data data/corrected_trees.txt
 ```
 
-### 3. Cross-Reference Mode (Verification)
+### 3. Generating Training Data (Tree Extraction)
+
+Extract parse trees from the latest disagreement log to create a starting point for manual correction.
+
+```bash
+python -m src.generate_disagreement_trees --output data/benepar_disagreements.ptb
+```
+
+Then, manually edit `data/benepar_disagreements.ptb` to correct the trees before running the training mode.
+
+### 4. Cross-Reference Mode (Verification)
 
 After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
 
