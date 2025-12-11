@@ -71,11 +71,19 @@ python -m src.main train --train-data data/corrected_trees.txt
 
 ### 3. Generating Training Data (Tree Extraction)
 
-Extract parse trees from the latest disagreement log to create a starting point for manual correction.
+Extract parse trees from the latest disagreement log or directly from a source file to create a starting point for manual correction.
 
+**From disagreement log:**
 ```bash
 python -m src.generate_disagreement_trees --output data/benepar_disagreements.ptb
 ```
+
+**From source file (recommended - captures all sentences including quoted segments):**
+```bash
+python -m src.generate_disagreement_trees --source data/ASchoolEssay.txt --output data/benepar_disagreements.ptb
+```
+
+The `--source` option uses the same sentence splitting logic as adversarial mode, ensuring that multi-sentence quoted segments are properly handled.
 
 Then, manually edit `data/benepar_disagreements.ptb` to correct the trees before running the training mode.
 
