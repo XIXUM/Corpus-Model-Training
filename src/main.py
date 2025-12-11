@@ -136,7 +136,29 @@ def run_adversarial_mode(data_source: str, model_a_type: str, model_b_type: str)
                 continue
                 
             is_special_block = segment[0] in ['"', '(', '[', '{']
-            sub_sentences = nltk.sent_tokenize(segment)
+            
+            # For quoted segments, we need special handling to ensure all sentences are captured
+            # even if they span multiple lines or contain multiple sentences
+            if is_special_block and segment[0] == '"':
+                # Normalize whitespace first (replace newlines with spaces for tokenization)
+                quote_content = segment.strip()
+                # If it starts and ends with quotes, extract the content
+                if quote_content.startswith('"') and quote_content.endswith('"'):
+                    inner_content = quote_content[1:-1]  # Remove surrounding quotes
+                    # Replace newlines with spaces for proper sentence tokenization
+                    inner_content = inner_content.replace('\n', ' ').replace('\r', ' ')
+                    # Tokenize sentences within the quote
+                    sub_sentences = nltk.sent_tokenize(inner_content)
+                    # Re-add quotes to each sentence
+                    sub_sentences = [f'"{s.strip()}"' for s in sub_sentences if s.strip()]
+                else:
+                    # Partial quote or malformed, use standard tokenization
+                    normalized = segment.replace('\n', ' ').replace('\r', ' ')
+                    sub_sentences = nltk.sent_tokenize(normalized)
+            else:
+                # Normalize newlines for non-quoted segments too
+                normalized = segment.replace('\n', ' ').replace('\r', ' ')
+                sub_sentences = nltk.sent_tokenize(normalized)
                 
             for sentence in sub_sentences:
                 sentence = sentence.replace('\n', ' ').strip()
