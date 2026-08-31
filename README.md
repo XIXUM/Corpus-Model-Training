@@ -90,6 +90,28 @@ from scratch and discard manual corrections (the `.bak` backup is still made):
 python -m src.generate_disagreement_trees --force
 ```
 
+### 3b. Building a Larger US-English Corpus (Public Domain)
+
+The hand-corrected gold set is small. To grow it sustainably, fetch additional
+**US-English public-domain** narrative text and run it through the pipeline. The
+builder pulls only US-American authors (Melville, Bryant, Burgess) from the
+NLTK Gutenberg sample — matching the parser's US-English training — and writes
+clean, length-filtered sentences plus a provenance/license manifest:
+
+```bash
+python -m src.build_gutenberg_corpus --target 500
+# -> data/gutenberg_us_corpus.txt
+# -> data/gutenberg_us_corpus_manifest.json  (Public Domain, en-US)
+```
+
+Then feed it into the adversarial comparison to surface new disagreements, and
+generate trees to correct (the generator is non-destructive, see below):
+
+```bash
+python -m src.main adversarial --model-a benepar --model-b stanza --data data/gutenberg_us_corpus.txt
+python -m src.generate_disagreement_trees
+```
+
 ### 4. Cross-Reference Mode (Verification)
 
 After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
