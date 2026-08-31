@@ -1,0 +1,36 @@
+{
+  "description": "US-English public-domain narrative sentences for constituency-parser training (Benepar).",
+  "license": "Public Domain (Project Gutenberg / NLTK Gutenberg sample)",
+  "source_archive": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/gutenberg.zip",
+  "language": "en-US",
+  "seed": 42,
+  "min_tokens": 6,
+  "max_tokens": 32,
+  "target": 500,
+  "total_written": 500,
+  "counts_by_source": {
+    "Sara Cone Bryant": 200,
+    "Thornton W. Burgess": 175,
+    "Herman Melville": 125
+  },
+  "sources": [
+    {
+      "file": "gutenberg/bryant-stories.txt",
+      "title": "Stories to Tell to Children",
+      "author": "Sara Cone Bryant",
+      "year": 1918
+    },
+    {
+      "file": "gutenberg/burgess-busterbrown.txt",
+      "title": "The Adventures of Buster Bear",
+      "author": "Thornton W. Burgess",
+      "year": 1920
+    },
+    {
+      "file": "gutenberg/melville-moby_dick.txt",
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "year": 1851
+    }
+  ]
+}

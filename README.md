@@ -79,6 +79,39 @@ python -m src.generate_disagreement_trees --output data/benepar_disagreements.pt
 
 Then, manually edit `data/benepar_disagreements.ptb` to correct the trees before running the training mode.
 
+**Reruns preserve your corrections.** If the output file already exists, the
+generator keeps every tree that is already there (matched to its sentence, even
+if a correction edited a token) and only appends freshly generated trees for
+sentences that are not yet represented. A timestamped `.bak` backup of the
+previous file is written on every run. Pass `--force` to regenerate all trees
+from scratch and discard manual corrections (the `.bak` backup is still made):
+
+```bash
+python -m src.generate_disagreement_trees --force
+```
+
+### 3b. Building a Larger US-English Corpus (Public Domain)
+
+The hand-corrected gold set is small. To grow it sustainably, fetch additional
+**US-English public-domain** narrative text and run it through the pipeline. The
+builder pulls only US-American authors (Melville, Bryant, Burgess) from the
+NLTK Gutenberg sample — matching the parser's US-English training — and writes
+clean, length-filtered sentences plus a provenance/license manifest:
+
+```bash
+python -m src.build_gutenberg_corpus --target 500
+# -> data/gutenberg_us_corpus.txt
+# -> data/gutenberg_us_corpus_manifest.json  (Public Domain, en-US)
+```
+
+Then feed it into the adversarial comparison to surface new disagreements, and
+generate trees to correct (the generator is non-destructive, see below):
+
+```bash
+python -m src.main adversarial --model-a benepar --model-b stanza --data data/gutenberg_us_corpus.txt
+python -m src.generate_disagreement_trees
+```
+
 ### 4. Cross-Reference Mode (Verification)
 
 After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
@@ -88,6 +121,25 @@ python -m src.main cross-reference --checkpoint checkpoints/benepar_epoch_5.pt -
 ```
 
 This will output accuracy statistics and indicate if another training loop is recommended.
+
+### 5. Publishing to the HuggingFace Hub
+
+Publish the corrected trees and the US-English corpus as a HuggingFace
+`dataset` repo (with a generated dataset card and license metadata). The token
+is read from the environment and never stored in the repo. Preview first with
+`--dry-run`:
+
+```bash
+# Preview the upload folder + dataset card (no network):
+python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus --dry-run
+
+# Real upload (needs a write token):
+export HF_TOKEN=hf_xxx
+python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus
+```
+
+The fictional source essay `data/ASchoolEssay.txt` is included by default; drop
+it with `--exclude-essay`.
 
 ## Project Structure
 
