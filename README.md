@@ -142,6 +142,11 @@ The fictional source essay `data/ASchoolEssay.txt` is included by default; drop
 it with `--exclude-essay`. See `doc/huggingface_publish.md` for the full
 step-by-step runbook.
 
+## End-to-End Workflow
+
+For the complete loop — build corpus → adversarial comparison → correct trees →
+train → cross-reference → publish — see `doc/training_workflow.md`.
+
 ## Project Structure
 
 - `src/`: Source code.
