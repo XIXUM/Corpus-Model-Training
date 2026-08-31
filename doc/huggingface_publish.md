@@ -26,8 +26,16 @@ Add `--exclude-essay` to leave the essay out.
    pip install huggingface_hub
    ```
 
-2. Create a **write** token at <https://huggingface.co/settings/tokens>
-   and export it (it is never stored in the repo):
+2. Authenticate with a **write** token from
+   <https://huggingface.co/settings/tokens>. Either log in once (the token is
+   cached and picked up automatically; answer **No** to "Add token as git
+   credential?" — the upload uses the API, not git):
+
+   ```bash
+   huggingface-cli login
+   ```
+
+   or export it per-session:
 
    ```bash
    export HF_TOKEN=hf_xxx
