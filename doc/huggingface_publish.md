@@ -44,19 +44,19 @@ Add `--exclude-essay` to leave the essay out.
 3. Preview the exact upload folder and dataset card — no network:
 
    ```bash
-   python -m src.upload_to_huggingface --repo-id <namespace>/benepar-corpus --dry-run
+   python -m src.upload_to_huggingface --repo-id freshNfunky/benepar-corpus --dry-run
    ```
 
 4. Publish (creates the repo if needed, then uploads):
 
    ```bash
-   python -m src.upload_to_huggingface --repo-id <namespace>/benepar-corpus
+   python -m src.upload_to_huggingface --repo-id freshNfunky/benepar-corpus
    ```
 
-   Result: `https://huggingface.co/datasets/<namespace>/benepar-corpus`
+   Result: `https://huggingface.co/datasets/freshNfunky/benepar-corpus`
 
-Replace `<namespace>` with your user or org (e.g. `xixum`). Add `--private`
-to publish privately first.
+The examples use the `freshNfunky` namespace; change it if you publish under a
+different user or org. Add `--private` to publish privately first.
 
 ## Notes
 
