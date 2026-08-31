@@ -79,6 +79,17 @@ python -m src.generate_disagreement_trees --output data/benepar_disagreements.pt
 
 Then, manually edit `data/benepar_disagreements.ptb` to correct the trees before running the training mode.
 
+**Reruns preserve your corrections.** If the output file already exists, the
+generator keeps every tree that is already there (matched to its sentence, even
+if a correction edited a token) and only appends freshly generated trees for
+sentences that are not yet represented. A timestamped `.bak` backup of the
+previous file is written on every run. Pass `--force` to regenerate all trees
+from scratch and discard manual corrections (the `.bak` backup is still made):
+
+```bash
+python -m src.generate_disagreement_trees --force
+```
+
 ### 4. Cross-Reference Mode (Verification)
 
 After training, verify if the false positives are fixed by comparing the new model's output against a reference dataset (Gold Standard).
