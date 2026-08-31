@@ -8,8 +8,8 @@ What it uploads (by default):
     data/gutenberg_us_corpus_manifest.json  provenance / license for the above
     README.md                               a generated dataset card (with YAML header)
 
-The source essay `data/ASchoolEssay.txt` is **excluded by default** because it is
-personal, non-public-domain text; pass --include-essay to add it explicitly.
+The source essay `data/ASchoolEssay.txt` (a fictional narrative, no personal
+data) is included by default; pass --exclude-essay to leave it out.
 
 Nothing is uploaded without a token. Use --dry-run to assemble the upload folder
 and print the dataset card + file list without touching the Hub.
@@ -36,6 +36,7 @@ DEFAULT_FILES = [
     ("data/benepar_disagreements.ptb", "data/benepar_disagreements.ptb"),
     ("data/gutenberg_us_corpus.txt", "data/gutenberg_us_corpus.txt"),
     ("data/gutenberg_us_corpus_manifest.json", "data/gutenberg_us_corpus_manifest.json"),
+    ("data/ASchoolEssay.txt", "data/ASchoolEssay.txt"),
 ]
 
 
@@ -84,6 +85,7 @@ generating further training material.
 | `data/benepar_disagreements.ptb` | Manually corrected constituency trees (PTB bracketed format, one tree per line). | {gold} | CC-BY-4.0 |
 | `data/gutenberg_us_corpus.txt` | Clean US-English public-domain sentences (one per line). | {gutenberg} | Public Domain |
 | `data/gutenberg_us_corpus_manifest.json` | Provenance and license for the corpus above. | — | Public Domain |
+| `data/ASchoolEssay.txt` | The original fictional narrative essay the gold trees were derived from. | 1 | CC-BY-4.0 |
 
 ## Provenance & licensing
 
@@ -144,15 +146,14 @@ def main():
     p.add_argument("--token", default=os.environ.get("HF_TOKEN"),
                    help="HuggingFace write token (or set HF_TOKEN)")
     p.add_argument("--private", action="store_true", help="Create the repo as private")
-    p.add_argument("--include-essay", action="store_true",
-                   help="Also upload data/ASchoolEssay.txt (personal, non-PD text)")
+    p.add_argument("--exclude-essay", action="store_true",
+                   help="Leave out data/ASchoolEssay.txt (the fictional source essay)")
     p.add_argument("--dry-run", action="store_true",
                    help="Assemble and preview only; do not upload")
     args = p.parse_args()
 
-    files = list(DEFAULT_FILES)
-    if args.include_essay:
-        files.append(("data/ASchoolEssay.txt", "data/ASchoolEssay.txt"))
+    files = [f for f in DEFAULT_FILES
+             if not (args.exclude_essay and f[0] == "data/ASchoolEssay.txt")]
 
     staging = tempfile.mkdtemp(prefix="hf_upload_")
     try:

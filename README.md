@@ -138,8 +138,8 @@ export HF_TOKEN=hf_xxx
 python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus
 ```
 
-The personal source essay `data/ASchoolEssay.txt` is excluded by default; add it
-only with `--include-essay`.
+The fictional source essay `data/ASchoolEssay.txt` is included by default; drop
+it with `--exclude-essay`.
 
 ## Project Structure
 
