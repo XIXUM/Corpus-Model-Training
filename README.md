@@ -139,7 +139,8 @@ python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus
 ```
 
 The fictional source essay `data/ASchoolEssay.txt` is included by default; drop
-it with `--exclude-essay`.
+it with `--exclude-essay`. See `doc/huggingface_publish.md` for the full
+step-by-step runbook.
 
 ## Project Structure
 
