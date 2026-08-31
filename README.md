@@ -122,6 +122,25 @@ python -m src.main cross-reference --checkpoint checkpoints/benepar_epoch_5.pt -
 
 This will output accuracy statistics and indicate if another training loop is recommended.
 
+### 5. Publishing to the HuggingFace Hub
+
+Publish the corrected trees and the US-English corpus as a HuggingFace
+`dataset` repo (with a generated dataset card and license metadata). The token
+is read from the environment and never stored in the repo. Preview first with
+`--dry-run`:
+
+```bash
+# Preview the upload folder + dataset card (no network):
+python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus --dry-run
+
+# Real upload (needs a write token):
+export HF_TOKEN=hf_xxx
+python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus
+```
+
+The personal source essay `data/ASchoolEssay.txt` is excluded by default; add it
+only with `--include-essay`.
+
 ## Project Structure
 
 - `src/`: Source code.
