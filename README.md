@@ -131,15 +131,21 @@ is read from the environment and never stored in the repo. Preview first with
 
 ```bash
 # Preview the upload folder + dataset card (no network):
-python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus --dry-run
+python -m src.upload_to_huggingface --repo-id freshNfunky/benepar-corpus --dry-run
 
 # Real upload (needs a write token):
 export HF_TOKEN=hf_xxx
-python -m src.upload_to_huggingface --repo-id <user>/benepar-corpus
+python -m src.upload_to_huggingface --repo-id freshNfunky/benepar-corpus
 ```
 
 The fictional source essay `data/ASchoolEssay.txt` is included by default; drop
-it with `--exclude-essay`.
+it with `--exclude-essay`. See `doc/huggingface_publish.md` for the full
+step-by-step runbook.
+
+## End-to-End Workflow
+
+For the complete loop — build corpus → adversarial comparison → correct trees →
+train → cross-reference → publish — see `doc/training_workflow.md`.
 
 ## Project Structure
 

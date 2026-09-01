@@ -168,19 +168,23 @@ def main():
             print("===== DRY RUN: nothing uploaded =====")
             return
 
-        if not args.token:
-            raise SystemExit(
-                "No token provided. Set HF_TOKEN or pass --token (or use --dry-run)."
-            )
-
         try:
-            from huggingface_hub import HfApi
+            from huggingface_hub import HfApi, get_token
         except ImportError:
             raise SystemExit(
                 "huggingface_hub is not installed. Run: pip install huggingface_hub"
             )
 
-        api = HfApi(token=args.token)
+        # Prefer an explicit token, otherwise fall back to a cached login
+        # (from `huggingface-cli login` / `hf auth login`).
+        token = args.token or get_token()
+        if not token:
+            raise SystemExit(
+                "No token found. Log in with `huggingface-cli login`, set HF_TOKEN, "
+                "or pass --token (or use --dry-run)."
+            )
+
+        api = HfApi(token=token)
         print(f"\nCreating/using repo '{args.repo_id}' ({args.repo_type}) ...")
         api.create_repo(repo_id=args.repo_id, repo_type=args.repo_type,
                         private=args.private, exist_ok=True)
