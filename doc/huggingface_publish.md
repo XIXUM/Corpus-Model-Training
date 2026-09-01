@@ -14,9 +14,11 @@ As a HuggingFace **dataset** repo:
 | `data/gutenberg_us_corpus.txt` (500 US-English sentences) | Public Domain |
 | `data/gutenberg_us_corpus_manifest.json` | Public Domain |
 | `data/ASchoolEssay.txt` (fictional source essay) | CC-BY-4.0 |
+| `assets/trees/*.svg` (rendered example gold trees, shown in the card) | CC-BY-4.0 |
 | `README.md` (auto-generated dataset card, `en`, `cc-by-4.0`) | — |
 
-Add `--exclude-essay` to leave the essay out.
+Add `--exclude-essay` to leave the essay out, or `--no-trees` to skip the SVGs.
+The example-tree SVGs come from `python -m src.render_example_trees`.
 
 ## Steps
 

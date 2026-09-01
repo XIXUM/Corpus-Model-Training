@@ -39,6 +39,15 @@ DEFAULT_FILES = [
     ("data/ASchoolEssay.txt", "data/ASchoolEssay.txt"),
 ]
 
+# Rendered example trees (SVG) embedded in the dataset card, if present.
+EXAMPLE_TREES = [
+    ("reports/factsheet_assets/knocked_before.svg", "assets/trees/knocked_before.svg"),
+    ("reports/factsheet_assets/knocked_after.svg", "assets/trees/knocked_after.svg"),
+    ("reports/factsheet_assets/mom_forgot.svg", "assets/trees/mom_forgot.svg"),
+    ("reports/factsheet_assets/what_luck.svg", "assets/trees/what_luck.svg"),
+    ("reports/factsheet_assets/fascinated.svg", "assets/trees/fascinated.svg"),
+]
+
 
 def _count_lines(path: str) -> int:
     if not os.path.exists(path):
@@ -70,6 +79,21 @@ size_categories:
 - n<1K
 ---
 """
+
+    # Optional "example trees" gallery — only for SVGs that actually exist.
+    tree_captions = {
+        "assets/trees/knocked_after.svg": "“knocked over the shopping cart” — phrasal-verb particle lifted to the verb",
+        "assets/trees/mom_forgot.svg": "“Mom forgot to buy eggs … because she wanted to bake a cake.”",
+        "assets/trees/what_luck.svg": "“What luck, nothing else happened to the woman.” — exclamative fixed to S",
+        "assets/trees/fascinated.svg": "“Fascinated, we looked at the many glittering Christmas artworks …”",
+    }
+    tree_lines = []
+    for src, arc in EXAMPLE_TREES:
+        if arc in tree_captions and os.path.exists(src):
+            tree_lines.append(f"**{tree_captions[arc]}**\n\n![example tree]({arc})\n")
+    trees_section = ""
+    if tree_lines:
+        trees_section = "## Example gold trees\n\nRendered constituency trees from the gold set:\n\n" + "\n".join(tree_lines) + "\n"
 
     body = f"""
 # {pretty}
@@ -115,6 +139,7 @@ with open("data/gutenberg_us_corpus.txt") as f:
     sentences = [line.strip() for line in f if line.strip()]
 ```
 
+{trees_section}
 ---
 _Generated with the project's `src/upload_to_huggingface.py`._
 """
@@ -148,12 +173,16 @@ def main():
     p.add_argument("--private", action="store_true", help="Create the repo as private")
     p.add_argument("--exclude-essay", action="store_true",
                    help="Leave out data/ASchoolEssay.txt (the fictional source essay)")
+    p.add_argument("--no-trees", action="store_true",
+                   help="Do not upload the rendered example-tree SVGs")
     p.add_argument("--dry-run", action="store_true",
                    help="Assemble and preview only; do not upload")
     args = p.parse_args()
 
     files = [f for f in DEFAULT_FILES
              if not (args.exclude_essay and f[0] == "data/ASchoolEssay.txt")]
+    if not args.no_trees:
+        files += EXAMPLE_TREES
 
     staging = tempfile.mkdtemp(prefix="hf_upload_")
     try:
