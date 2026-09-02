@@ -21,9 +21,20 @@ OUT_DIR = "reports/factsheet_assets"
 BEFORE_REV = "64b8094"
 
 
+def _add_white_bg(svg: str) -> str:
+    """svgling renders black text on a transparent canvas, which vanishes on a
+    dark background (e.g. the HuggingFace dark mode). Insert an opaque white
+    rectangle right after the root <svg ...> so the trees are always legible."""
+    idx = svg.find(">", svg.find("<svg"))
+    if idx == -1:
+        return svg
+    rect = '<rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF"/>'
+    return svg[: idx + 1] + rect + svg[idx + 1:]
+
+
 def _save(line: str, name: str) -> None:
     tree = nltk.Tree.fromstring(line)
-    svg = svgling.draw_tree(tree)._repr_svg_()
+    svg = _add_white_bg(svgling.draw_tree(tree)._repr_svg_())
     with open(os.path.join(OUT_DIR, name + ".svg"), "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"wrote {name}.svg ({len(tree.leaves())} leaves)")
