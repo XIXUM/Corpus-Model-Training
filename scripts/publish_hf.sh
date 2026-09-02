@@ -14,11 +14,30 @@
 set -euo pipefail
 
 REPO_ID="${HF_REPO_ID:-freshNfunky/benepar-corpus}"
-PYTHON="${PYTHON:-python3}"
 
 # Run from the repo root regardless of where the script is called from.
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+
+# Pick a Python interpreter that actually has huggingface_hub installed
+# (on macOS `python3` is often a different interpreter than the `pip` used).
+pick_python() {
+  for c in "${PYTHON:-}" python3.12 python3 python; do
+    [ -n "$c" ] || continue
+    if command -v "$c" >/dev/null 2>&1 && "$c" -c "import huggingface_hub" >/dev/null 2>&1; then
+      echo "$c"; return 0
+    fi
+  done
+  return 1
+}
+if ! PYTHON="$(pick_python)"; then
+  echo "ERROR: no Python interpreter with 'huggingface_hub' was found." >&2
+  echo "  Install it for the interpreter you use, e.g.:" >&2
+  echo "    python3 -m pip install huggingface_hub" >&2
+  echo "  or run this script with an explicit one:  PYTHON=python3.12 $0" >&2
+  exit 1
+fi
+echo "==> Using interpreter: $PYTHON"
 
 # --- Auth check: HF_TOKEN env, or a cached huggingface-cli login -------------
 if [ -n "${HF_TOKEN:-}" ]; then
