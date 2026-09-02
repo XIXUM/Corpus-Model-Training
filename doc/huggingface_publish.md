@@ -20,6 +20,20 @@ As a HuggingFace **dataset** repo:
 Add `--exclude-essay` to leave the essay out, or `--no-trees` to skip the SVGs.
 The example-tree SVGs come from `python -m src.render_example_trees`.
 
+## One-shot script
+
+The quickest path — set the token once, then run the wrapper:
+
+```bash
+export HF_TOKEN=hf_xxxxxxxx          # or: huggingface-cli login
+./scripts/publish_hf.sh              # -> freshNfunky/benepar-corpus
+```
+
+It resolves auth (env token or cached login), pulls the latest assets,
+previews, then uploads. Override the target with `HF_REPO_ID=you/name` and pass
+extra flags through (`./scripts/publish_hf.sh --private`). The manual steps
+below are the same thing spelled out.
+
 ## Steps
 
 1. Install the client (one-off):
