@@ -77,6 +77,22 @@ python -m src.main train --train-data data/benepar_disagreements.ptb
 # checkpoints -> checkpoints/benepar_epoch_N.pt   (epochs/lr in the config)
 ```
 
+## 5b. One-shot: split + train + held-out eval
+
+For an honest score, evaluate on trees the model was **not** trained on. The
+wrapper splits the gold set, trains, and cross-references the new checkpoint
+against the held-out split in one go:
+
+```bash
+./scripts/run_training.sh                          # 80/20 split of the gold file
+GOLD=data/benepar_disagreements.ptb TEST_FRAC=0.2 ./scripts/run_training.sh
+```
+
+It picks an interpreter that has `benepar`, writes `data/gold_train.ptb` /
+`data/gold_test.ptb` (via `src.split_gold`), trains, then prints exact-match /
+F1 / precision / recall on the held-out set. Runs on a machine with the Benepar
+model available (not the network-sandboxed cloud session).
+
 ## 6. Cross-reference (verify the fixes)
 
 ```bash
