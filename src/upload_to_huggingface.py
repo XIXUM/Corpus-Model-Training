@@ -39,6 +39,9 @@ DEFAULT_FILES = [
     ("data/ASchoolEssay.txt", "data/ASchoolEssay.txt"),
 ]
 
+# Hero banner shown at the top of the dataset card, if present.
+BANNER = ("reports/factsheet_assets/banner.svg", "assets/banner.svg")
+
 # Rendered example trees (SVG) embedded in the dataset card, if present.
 EXAMPLE_TREES = [
     ("reports/factsheet_assets/knocked_before.svg", "assets/trees/knocked_before.svg"),
@@ -95,7 +98,19 @@ size_categories:
     if tree_lines:
         trees_section = "## Example gold trees\n\nRendered constituency trees from the gold set:\n\n" + "\n".join(tree_lines) + "\n"
 
+    banner_md = ""
+    if os.path.exists(BANNER[0]):
+        banner_md = f"![{pretty}]({BANNER[1]})\n\n"
+
+    badges = (
+        "![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-02936F.svg) "
+        "![Language](https://img.shields.io/badge/language-en--US-1E2761.svg) "
+        f"![Gold trees](https://img.shields.io/badge/gold%20trees-{gold}-02C39A.svg) "
+        f"![Corpus](https://img.shields.io/badge/sentences-{gutenberg}-F2A03F.svg)\n"
+    )
+
     body = f"""
+{banner_md}{badges}
 # {pretty}
 
 Gold-standard constituency-parsing data for improving the **Benepar**
@@ -183,6 +198,7 @@ def main():
              if not (args.exclude_essay and f[0] == "data/ASchoolEssay.txt")]
     if not args.no_trees:
         files += EXAMPLE_TREES
+    files.append(BANNER)
 
     staging = tempfile.mkdtemp(prefix="hf_upload_")
     try:
