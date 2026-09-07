@@ -5,7 +5,6 @@ import sys
 import pandas as pd
 import ast
 import os
-import shutil
 from typing import Dict, Any, List, Optional
 
 from src.models.dummy_model import DummyModel
@@ -22,11 +21,17 @@ from src.utils.metrics import calculate_metrics
 
 def clean_reports(output_dir="reports"):
     """
-    Cleans up old reports/images to avoid ghost instances.
+    Remove previously generated comparison reports so a new run starts clean.
+
+    Only deletes the generated report file(s); other committed assets in the
+    reports/ directory (e.g. the presentation deck or the rendered example-tree
+    SVGs under reports/factsheet_assets/) are preserved. Previously this wiped
+    the whole directory, which destroyed those assets on every run.
     """
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    os.makedirs(output_dir)
+    import glob
+    os.makedirs(output_dir, exist_ok=True)
+    for path in glob.glob(os.path.join(output_dir, "*_report.html")):
+        os.remove(path)
 
 def get_model_instance(model_name: str, instance_name: str) -> Any:
     """
